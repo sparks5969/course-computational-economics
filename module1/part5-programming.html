@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 5. Basic Programming Techniques — Computational Economics</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        // Normalize class="python" (from pandoc fenced blocks) → language-python
+        if (!block.className || block.className === 'python') {
+          block.className = 'language-python';
+        }
+        hljs.highlightElement(block);
+        // Copy button
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 1 — Python Foundations</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+
+        <div class="sidebar-label">Module 1</div>
+        <a href="../index.html">Overview</a>
+        <a href="part1-installation.html">Part 1: Installation</a>
+        <a href="part2-language.html">Part 2: Python Language</a>
+        <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
+        <a href="part4-data-structures.html">Part 4: Data Structures</a>
+        <a href="part5-programming.html" class="active">Part 5: Programming</a>
+        <a href="practice1.html">Practice Project 1</a>
+
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>Basic Programming Techniques</h1>
+      </section>
+      <h3>5.1. Conditional Statements</h3>
+<p>In many situations, we many want to the script behave differently based on different conditions, we can do this with <strong>CONDITIONAL STATEMENTS</strong> in python. Oftentimes, we need to use <strong>comparison operators</strong> to evaluate if a condition is true or false. Like most of programming languages, python supports the usual logical conditions from mathematics. Below is a list of commonly used comparison operators in python. Please make sure you understand the meaning for each of them.</p>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal: condition is true if both operands are equal</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal: condition is true if operands are not equal</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than: condition is true if left operand is greater than right</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than: condition is true if left operand is less than right</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+</tr>
+</tbody>
+</table>
+<p>Below are some examples:</p>
+<p></p>
+
+<pre><code>a = 5
+
+b = 10
+
+a == b</code></pre>
+<p></p>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>False</code></pre></div><p></p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>a = 5
+b = 10
+a != b</code></pre></div><p></p>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>True</code></pre></div><p>The <strong>if </strong>command checks whether a certain condition is true. If it is true, we then can assign certain chain of commands under this condition. If the condition is not true, we can branch off the program into another direction and assign different commands. Based on this simple logic, we can branch the program into many separate possible directions. The keyword<strong> elif</strong> is similar, it is the python way to say, “if the previous conditions were not true, then try this condition”. Lastly, the keyword <strong>else </strong>catches anything which isn’t caught by the preceding conditions.</p>
+<p>The general syntax of if statements are as follow:</p>
+<pre><code>if condition1:
+    branch1
+elif condition2:
+    branch2
+else:
+    branch3</code></pre>
+<p>Now Let’s look at some specific examples:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>current_price = 40
+equilibrium_price = 50
+
+if current_price &lt; equilibrium_price:
+    print(&#39;There will be a shortage on the market.&#39;)
+elif current_price &gt; equilibrium_price:
+    print(&#39;There will be a surplus on the market.&#39;)
+else:
+    print(&#39;The market is clear.&#39;)</code></pre></div>
+<p><strong>   </strong></p>
+<p>In the above example, I wanted to<strong> branch</strong> my script<strong> condition on</strong> the current market situation (i.e., the comparison of current price and equilibrium price). The <strong>if ... elif ... else ...</strong> statements captured all possible situations. When I run the script, I get:</p>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>There will be a shortage on the market</code></pre></div><p>One thing we need to pay special attention on is that <strong>PYTHON IS INDENT SENSITIVE! </strong>This is different from most of other programming languages. In python, indentation is a way telling python that the group of statement below belongs to a particular block of code. If you didn’t use indentation properly, you will encounter errors when running the script. </p>
+<p>In the above if-statements example, the <strong>branches</strong> are <strong>indented</strong> <strong>four spaces,</strong> which is a typical amount of indentation for Python. If I forgot the indentation rule, the code becomes:</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>current_price = 40
+equilibrium_price = 50
+
+if current_price &lt; equilibrium_price:
+print(&#39;There will be a shortage on the market.&#39;)
+elif current_price &gt; equilibrium_price:
+print(&#39;There will be a surplus on the market.&#39;)
+else:
+print(&#39;The market is clear.&#39;)</code></pre></div>
+<p><strong> </strong></p>
+<p>In such case, python won’t be able to complete the task for you. It will generates an error message to help you correct the code:</p>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>IndentationError: expected an indented block</code></pre></div><p>I personally like the indent sensitive feature a lot, as it is an effective way to keep tracking the logic of my code. It also makes my code looks <strong>pretty </strong>and <strong>friendly to read</strong>.</p>
+
+<h3>5.3. Loops</h3>
+<p>There are several techniques you can use to repeatedly execute Python code. A loop is a structure that repeats a sequence of instructions until a specific condition is met. The loop structure is very useful when we wanted to repeat something over and over again. Two of the most common types of loops are <strong>while-loops</strong> and <strong>for-loops</strong>.</p>
+<ul>
+<li><p><strong>While-loops</strong> are like repeated if statements,</p></li>
+<li><p>the <strong>for-loop </strong>iterates over all kinds of data structures.</p></li>
+</ul>
+<h3>5.3.1 While-Loop</h3>
+<p>The <strong>while loop</strong> executes a set of statements as long as a <strong>condition </strong>is true. Let’s look at some examples:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>output = 10
+equilibrium_quantity = 50
+
+while output &lt; equilibrium_quantity:
+    output = output + 10
+    print(&#39;current output level is %s.&#39; %(output))</code></pre></div>
+<p>In this example, as long as current <strong>output</strong> is smaller than the <strong>equilibrium_quantity,</strong> we increase the <strong>output </strong>by 10 units and print out the current output level. Then we go back to the top of the while loop and check the condition again, until output level is not smaller than equilibrium_quantity. When run the above code, we get:</p>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>current output level is 20.
+current output level is 30.
+current output level is 40.
+current output level is 50.</code></pre></div>
+<h3>5.3.2 For-Loop</h3>
+<p>A <strong>for loop</strong> is used for iterating over a sequence. The sequence can be either a list, a tuple, a dictionary, a set, or a string. Here is one example:Suppose we have a list of student name, we can print out the students in this list using for loop.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>students = [&#39;Mary&#39;,&#39;Lisa&#39;,&#39;Hope&#39;,&#39;Mike&#39;]
+for x in students:
+    print(x)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>Mary
+Lisa
+Hope
+Mike</code></pre></div>
+<p>When combining the loops and conditional statements together, we can let python to deal with more complex tasks. For example, with the grade book we created earlier, we can let python find the students whose midterm grade is better than 90.</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>for student in gradebook:
+    if gradebook[student][0]&gt;=90:
+        print(student)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>Lisa
+Before you can get started, you need to:</code></pre></div><p>  (a). install anaconda and python on your computer.</p>
+<p>  (b). Open your IDE (such as Spyder), download the file <strong><a href="https://canvas.case.edu/courses/48813/files/9173562?wrap=1">[project1.py]</a><a href="https://canvas.case.edu/courses/48813/files/9173562/download?download_frd=1">Download project1.py</a> </strong>and start coding.</p>
+
+<p><strong>Below are the tasks need to be complete:</strong></p>
+<ol type="1">
+<li><p>import the<strong> time </strong>module.</p></li>
+<li><p>Generate a list with numbers from 1 to 20, name the list as <strong>list1</strong>.</p></li>
+<li><p>Print the first 5 elements of this list.</p></li>
+<li><p>Replace the last entry of the list with 100, and print the list again.</p></li>
+<li><p>Sort the list from largest to smallest element, and print the list agian.</p></li>
+<li><p>Generate a new list with entries from 14 to 40 with step size 2, name it as <strong>list2</strong>.</p></li>
+<li><p>Write a loop, dividing the first 10 entries of <strong>list2 </strong>by 5, keep the rest of the list unchanged, and store the result into <strong>list3</strong>.</p></li>
+<li><p>Given the dictionary <strong>hrbook, </strong>print the value associate with the key “emp2”.</p></li>
+</ol>
+<pre><code>hrbook= { 
+
+    ‘emp1’: {‘name’: ‘John’, ‘salary’: 7500}, 
+
+    ‘emp2’: {‘name’: ‘Emma’, ‘salary’: 8100}, 
+
+    ‘emp3’: {‘name’: ‘Brad’, ‘salary’: 6500} 
+
+    }</code></pre>
+<ol start="8" type="1">
+<li><p>Add a new record to the hrbook, the key is emp4, value is {‘name’: ‘Misty’, ‘salary’: 7700}</p></li>
+<li><p>Use loop and conditional branching to do the following:</p></li>
+</ol>
+<p>for those whose salary is lower than 7000, replace the salary with 7000, </p>
+<p>for those whose salary is between 7000 and 8000, replace the salary with 8000,</p>
+<p>for those whose salary is higher than 8000, replace the salary with 8200. </p>
+<ol start="10" type="1">
+<li>use the time module to “time” your work. print out how long it takes to run the whole script.</li>
+</ol>
+      <div class="page-nav"><a href="part4-data-structures.html">← Previous</a><span></span></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Computational Economics — Module 1
+  </footer>
+</body>
+</html>

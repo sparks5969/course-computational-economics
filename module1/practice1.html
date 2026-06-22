@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Project 1 — Computational Economics</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className || block.className === 'python') {
+          block.className = 'language-python';
+        }
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+
+      // Toggle solution visibility
+      document.querySelectorAll('.solution-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var target = document.getElementById(btn.dataset.target);
+          var hidden = target.style.display === 'none' || target.style.display === '';
+          target.style.display = hidden ? 'block' : 'none';
+          btn.textContent = hidden ? 'Hide solution' : 'Show solution';
+        });
+      });
+    });
+  </script>
+  <style>
+    .task-block {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+    .task-block .task-number {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+    }
+    .task-block p { margin: 0.3rem 0 0; }
+    .solution-toggle {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .solution-toggle:hover { background: var(--color-accent); color: #fff; }
+    .solution-block { display: none; margin-top: 0.75rem; }
+    .hint {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+    .starter-note {
+      background: var(--color-accent-light);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 1 — Python Foundations</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 1</div>
+        <a href="../index.html">Overview</a>
+        <a href="part1-installation.html">Part 1: Installation</a>
+        <a href="part2-language.html">Part 2: Python Language</a>
+        <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
+        <a href="part4-data-structures.html">Part 4: Data Structures</a>
+        <a href="part5-programming.html">Part 5: Programming</a>
+        <a href="practice1.html" class="active">Practice Project 1</a>
+      </nav>
+    </aside>
+
+    <main>
+      <h1>Practice Project 1</h1>
+      <p>This project covers <strong>lists</strong>, <strong>dictionaries</strong>, <strong>loops</strong>, and the <strong>time module</strong>. Complete all tasks in a single script — the last task asks you to measure how long the whole script takes to run.</p>
+
+      <div class="starter-note">
+        <strong>Getting started:</strong> Open Spyder, create a new file, and work through each task in order. Your final script should run from top to bottom without errors.
+      </div>
+
+      <h2>Tasks</h2>
+
+      <!-- Task 1 -->
+      <div class="task-block">
+        <div class="task-number">Task 1</div>
+        <p>Import the <code>time</code> module.</p>
+        <p class="hint">Hint: use <code>import time</code> at the top of your script.</p>
+        <button class="solution-toggle" data-target="sol1">Show solution</button>
+        <div class="solution-block" id="sol1">
+          <div class="code-cell code-input">
+            <div class="code-label">In [1]:</div>
+            <pre><code>import time</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 2 -->
+      <div class="task-block">
+        <div class="task-number">Task 2</div>
+        <p>Generate a list with numbers from 1 to 20. Name the list <code>list1</code>.</p>
+        <p class="hint">Hint: use <code>range()</code> and convert it to a list.</p>
+        <button class="solution-toggle" data-target="sol2">Show solution</button>
+        <div class="solution-block" id="sol2">
+          <div class="code-cell code-input">
+            <div class="code-label">In [2]:</div>
+            <pre><code>list1 = list(range(1, 21))
+print(list1)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [2]:</div>
+            <pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 3 -->
+      <div class="task-block">
+        <div class="task-number">Task 3</div>
+        <p>Print the first 5 elements of <code>list1</code>.</p>
+        <p class="hint">Hint: use list slicing — <code>list1[0:5]</code> or <code>list1[:5]</code>.</p>
+        <button class="solution-toggle" data-target="sol3">Show solution</button>
+        <div class="solution-block" id="sol3">
+          <div class="code-cell code-input">
+            <div class="code-label">In [3]:</div>
+            <pre><code>print(list1[:5])</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [3]:</div>
+            <pre><code>[1, 2, 3, 4, 5]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 4 -->
+      <div class="task-block">
+        <div class="task-number">Task 4</div>
+        <p>Replace the last entry of <code>list1</code> with <code>100</code>, then print the list.</p>
+        <p class="hint">Hint: use index <code>-1</code> to access the last element.</p>
+        <button class="solution-toggle" data-target="sol4">Show solution</button>
+        <div class="solution-block" id="sol4">
+          <div class="code-cell code-input">
+            <div class="code-label">In [4]:</div>
+            <pre><code>list1[-1] = 100
+print(list1)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [4]:</div>
+            <pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 100]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 5 -->
+      <div class="task-block">
+        <div class="task-number">Task 5</div>
+        <p>Sort <code>list1</code> from largest to smallest, then print the list.</p>
+        <p class="hint">Hint: use <code>.sort(reverse=True)</code>.</p>
+        <button class="solution-toggle" data-target="sol5">Show solution</button>
+        <div class="solution-block" id="sol5">
+          <div class="code-cell code-input">
+            <div class="code-label">In [5]:</div>
+            <pre><code>list1.sort(reverse=True)
+print(list1)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [5]:</div>
+            <pre><code>[100, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 6 -->
+      <div class="task-block">
+        <div class="task-number">Task 6</div>
+        <p>Generate a new list with entries from 14 to 40 with step size 2. Name it <code>list2</code>.</p>
+        <p class="hint">Hint: <code>range(start, stop, step)</code> — remember <code>range</code> excludes the stop value.</p>
+        <button class="solution-toggle" data-target="sol6">Show solution</button>
+        <div class="solution-block" id="sol6">
+          <div class="code-cell code-input">
+            <div class="code-label">In [6]:</div>
+            <pre><code>list2 = list(range(14, 41, 2))
+print(list2)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [6]:</div>
+            <pre><code>[14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 7 -->
+      <div class="task-block">
+        <div class="task-number">Task 7</div>
+        <p>Write a loop that divides the first 10 entries of <code>list2</code> by 5, keeps the rest unchanged, and stores the result in <code>list3</code>. Print <code>list3</code>.</p>
+        <p class="hint">Hint: use <code>enumerate(list2)</code> to track the index, and an <code>if/else</code> to decide whether to divide.</p>
+        <button class="solution-toggle" data-target="sol7">Show solution</button>
+        <div class="solution-block" id="sol7">
+          <div class="code-cell code-input">
+            <div class="code-label">In [7]:</div>
+            <pre><code>list3 = []
+for i, val in enumerate(list2):
+    if i &lt; 10:
+        list3.append(val / 5)
+    else:
+        list3.append(val)
+print(list3)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [7]:</div>
+            <pre><code>[2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6, 6.0, 6.4, 34, 36, 38, 40]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 8 -->
+      <div class="task-block">
+        <div class="task-number">Task 8</div>
+        <p>Given the dictionary <code>hrbook</code> below, print the value associated with the key <code>"emp2"</code>.</p>
+        <div class="code-cell code-input">
+          <div class="code-label">Starter code:</div>
+          <pre><code>hrbook = {
+    'emp1': {'name': 'John',  'salary': 7500},
+    'emp2': {'name': 'Emma',  'salary': 8100},
+    'emp3': {'name': 'Brad',  'salary': 6500}
+}</code></pre>
+        </div>
+        <p class="hint">Hint: use <code>hrbook.get('emp2')</code> or <code>hrbook['emp2']</code>.</p>
+        <button class="solution-toggle" data-target="sol8">Show solution</button>
+        <div class="solution-block" id="sol8">
+          <div class="code-cell code-input">
+            <div class="code-label">In [8]:</div>
+            <pre><code>print(hrbook.get('emp2'))</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [8]:</div>
+            <pre><code>{'name': 'Emma', 'salary': 8100}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 9 -->
+      <div class="task-block">
+        <div class="task-number">Task 9</div>
+        <p>Add a new record to <code>hrbook</code>: key <code>'emp4'</code>, value <code>{'name': 'Misty', 'salary': 7700}</code>.</p>
+        <p class="hint">Hint: assign directly — <code>hrbook['emp4'] = ...</code></p>
+        <button class="solution-toggle" data-target="sol9">Show solution</button>
+        <div class="solution-block" id="sol9">
+          <div class="code-cell code-input">
+            <div class="code-label">In [9]:</div>
+            <pre><code>hrbook['emp4'] = {'name': 'Misty', 'salary': 7700}
+print(hrbook)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [9]:</div>
+            <pre><code>{'emp1': {'name': 'John', 'salary': 7500},
+ 'emp2': {'name': 'Emma', 'salary': 8100},
+ 'emp3': {'name': 'Brad', 'salary': 6500},
+ 'emp4': {'name': 'Misty', 'salary': 7700}}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 10 -->
+      <div class="task-block">
+        <div class="task-number">Task 10</div>
+        <p>Use a loop and conditional branching to update salaries in <code>hrbook</code>:</p>
+        <ul>
+          <li>Salary <strong>below 7000</strong> → set to <strong>7000</strong></li>
+          <li>Salary <strong>between 7000 and 8000</strong> (inclusive) → set to <strong>8000</strong></li>
+          <li>Salary <strong>above 8000</strong> → set to <strong>8200</strong></li>
+        </ul>
+        <p>Print <code>hrbook</code> after the update to verify.</p>
+        <p class="hint">Hint: loop with <code>for key in hrbook:</code>, then access <code>hrbook[key]['salary']</code>.</p>
+        <button class="solution-toggle" data-target="sol10">Show solution</button>
+        <div class="solution-block" id="sol10">
+          <div class="code-cell code-input">
+            <div class="code-label">In [10]:</div>
+            <pre><code>for key in hrbook:
+    salary = hrbook[key]['salary']
+    if salary &lt; 7000:
+        hrbook[key]['salary'] = 7000
+    elif salary &lt;= 8000:
+        hrbook[key]['salary'] = 8000
+    else:
+        hrbook[key]['salary'] = 8200
+
+print(hrbook)</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out [10]:</div>
+            <pre><code>{'emp1': {'name': 'John', 'salary': 8000},
+ 'emp2': {'name': 'Emma', 'salary': 8200},
+ 'emp3': {'name': 'Brad', 'salary': 7000},
+ 'emp4': {'name': 'Misty', 'salary': 8000}}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 11 -->
+      <div class="task-block">
+        <div class="task-number">Task 11</div>
+        <p>Use the <code>time</code> module to measure how long the entire script takes to run. Print the elapsed time.</p>
+        <p class="hint">Hint: call <code>time.time()</code> at the very start of your script and again at the end, then subtract.</p>
+        <button class="solution-toggle" data-target="sol11">Show solution</button>
+        <div class="solution-block" id="sol11">
+          <p>Add this at the <strong>very beginning</strong> of your script (right after <code>import time</code>):</p>
+          <div class="code-cell code-input">
+            <div class="code-label">Start of script:</div>
+            <pre><code>import time
+start = time.time()</code></pre>
+          </div>
+          <p>Add this at the <strong>very end</strong> of your script:</p>
+          <div class="code-cell code-input">
+            <div class="code-label">End of script:</div>
+            <pre><code>end = time.time()
+print(f"Execution time: {end - start:.4f} seconds")</code></pre>
+          </div>
+          <div class="code-cell code-output">
+            <div class="code-label">Out:</div>
+            <pre><code>Execution time: 0.0003 seconds</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <h2>Complete Solution</h2>
+      <p>Once you have finished all tasks individually, here is the full script putting everything together:</p>
+      <button class="solution-toggle" data-target="sol-full">Show complete solution</button>
+      <div class="solution-block" id="sol-full">
+        <div class="code-cell code-input">
+          <div class="code-label">Complete script:</div>
+          <pre><code>import time
+
+start = time.time()
+
+# Task 2 — list1
+list1 = list(range(1, 21))
+
+# Task 3 — first 5 elements
+print(list1[:5])
+
+# Task 4 — replace last entry
+list1[-1] = 100
+print(list1)
+
+# Task 5 — sort descending
+list1.sort(reverse=True)
+print(list1)
+
+# Task 6 — list2
+list2 = list(range(14, 41, 2))
+
+# Task 7 — list3
+list3 = []
+for i, val in enumerate(list2):
+    if i &lt; 10:
+        list3.append(val / 5)
+    else:
+        list3.append(val)
+print(list3)
+
+# Task 8 — hrbook lookup
+hrbook = {
+    'emp1': {'name': 'John',  'salary': 7500},
+    'emp2': {'name': 'Emma',  'salary': 8100},
+    'emp3': {'name': 'Brad',  'salary': 6500}
+}
+print(hrbook.get('emp2'))
+
+# Task 9 — add emp4
+hrbook['emp4'] = {'name': 'Misty', 'salary': 7700}
+
+# Task 10 — salary update
+for key in hrbook:
+    salary = hrbook[key]['salary']
+    if salary &lt; 7000:
+        hrbook[key]['salary'] = 7000
+    elif salary &lt;= 8000:
+        hrbook[key]['salary'] = 8000
+    else:
+        hrbook[key]['salary'] = 8200
+print(hrbook)
+
+# Task 11 — timing
+end = time.time()
+print(f"Execution time: {end - start:.4f} seconds")</code></pre>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

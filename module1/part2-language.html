@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 2. The Python Programming Language — Computational Economics</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        // Normalize class="python" (from pandoc fenced blocks) → language-python
+        if (!block.className || block.className === 'python') {
+          block.className = 'language-python';
+        }
+        hljs.highlightElement(block);
+        // Copy button
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 1 — Python Foundations</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+
+        <div class="sidebar-label">Module 1</div>
+        <a href="../index.html">Overview</a>
+        <a href="part1-installation.html">Part 1: Installation</a>
+        <a href="part2-language.html" class="active">Part 2: Python Language</a>
+        <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
+        <a href="part4-data-structures.html">Part 4: Data Structures</a>
+        <a href="part5-programming.html">Part 5: Programming</a>
+        <a href="practice1.html">Practice Project 1</a>
+
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>The Python Programming Language</h1>
+      </section>
+      <p><strong>Python</strong> is an example of a <strong>high-level language. </strong>As you might infer from the name high-level language, there are also <strong>low-level languages</strong>, sometimes referred to as machine languages or assembly languages. Machine language is the encoding of instructions in binary so that they can be directly executed by the computer. Assembly language uses a slightly easier format to refer to the low level instructions. Loosely speaking, computers can only execute programs written in low-level languages. To be exact, computers can actually only execute programs written in machine language.</p>
+
+<p>Thus, programs written in a <strong>high-level language</strong> (and even those in assembly language) have to be processed before they can run. This extra processing takes some time, which is a small disadvantage of high-level languages. However, the advantages to high-level languages are enormous.</p>
+
+<p>First, it is much easier to program in a high-level language. Programs written in a high-level language take less time to write, they are shorter and easier to read, and they are more likely to be correct. Second, high-level languages are <strong>portable</strong>, meaning that they can run on different kinds of computers with few or no modifications. Low-level programs can run on only one kind of computer and have to be rewritten to run on another. Today, almost all programs are written in high-level languages. Low-level languages are used only for a few specialized applications.</p>
+      <div class="page-nav"><a href="part1-installation.html">← Previous</a><a href="part3-packages.html">Next →</a></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Computational Economics — Module 1
+  </footer>
+</body>
+</html>

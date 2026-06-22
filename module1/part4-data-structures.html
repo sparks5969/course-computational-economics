@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 4. Data Structures in Python — Computational Economics</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        // Normalize class="python" (from pandoc fenced blocks) → language-python
+        if (!block.className || block.className === 'python') {
+          block.className = 'language-python';
+        }
+        hljs.highlightElement(block);
+        // Copy button
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 1 — Python Foundations</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+
+        <div class="sidebar-label">Module 1</div>
+        <a href="../index.html">Overview</a>
+        <a href="part1-installation.html">Part 1: Installation</a>
+        <a href="part2-language.html">Part 2: Python Language</a>
+        <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
+        <a href="part4-data-structures.html" class="active">Part 4: Data Structures</a>
+        <a href="part5-programming.html">Part 5: Programming</a>
+        <a href="practice1.html">Practice Project 1</a>
+
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <h1>Data Structures in Python</h1>
+      </section>
+      <p><strong>Data structures</strong> are a way of organizing and storing data so that they can be accessed and worked with efficiently. They define the relationship between the data, and the operations that can be performed on the data. There are many various kinds of data structures defined that make it easier for the data scientists and the computer engineers, alike to concentrate on the main picture of solving larger problems rather than getting lost in the details of data description and access.</p>
+
+<p>Generally, data structures can be divided into two categories in computer science: <strong>primitive</strong> and <strong>collective </strong>data structures. The former are the simplest forms of representing data, whereas the latter are more advanced: they contain the primitive data structures within more complex data structures for special purposes. There are four types of primitive data in Python: <strong>Integer</strong>, <strong>float</strong>, <strong>Boolean</strong>, and <strong>String</strong>. Commonly used collective data structures include <strong>List</strong>, <strong>Tuple</strong>, <strong>Dictionary</strong>, and <strong>Set</strong>. Let’s look at each of them below.</p>
+
+
+<h3>4.1. Primitive Data Type</h3>
+<ul>
+<li><strong>Integer </strong>represents numeric data, and more specifically, whole numbers from negative infinity to infinity, like 4, 5, or -1.</li>
+</ul>
+<p></p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>x = 1
+y = 2</code></pre></div>
+
+
+
+
+
+
+
+
+<ul>
+<li><strong>Float</strong> stands for ‘floating point number’. You can use it for rational numbers, usually ending with a decimal figure, such as 1.11 or 3.14. <strong>In [1]: </strong></li>
+</ul>
+<pre><code>x = 1.01
+y = 2.04</code></pre>
+
+
+
+
+
+
+
+
+<ul>
+<li><strong>Boolean</strong> is used to sort True and False values in python, and therefore, True and False are the only two boolean values.Remember, Python is case sensitive, so make sure capitalize the first letter when using Boolean values. <strong>In [1]: </strong></li>
+</ul>
+<pre><code>print(1 &gt; 2)</code></pre>
+
+
+
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>False</code></pre></div>
+
+
+
+
+
+
+
+<ul>
+<li><strong>String</strong> is simply some characters inside quotes. Often times we use strings to represent words or phrases that need to be print out. In data analysis, we need to deal with string a lot. Python has a set of built-in methods that help us play around with strings. Let’s see some examples.</li>
+</ul>
+<p>Suppose I have string “econ380: computational economics”, and I want to convert this string into upper cases. I can use the method .upper() to do this.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>my_str = “computational economics”
+print(my_str)
+print(my_str.upper())</code></pre></div>
+
+
+
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>computational economics
+COMPUTATIONAL ECONOMICS</code></pre></div>
+
+
+
+
+
+
+
+
+
+<p>If I want to count how many times the letter “c” occurs in the string “computational economics”, I can use the method .count()</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>my_str = “computational economics”
+my_str.count(“c”)</code></pre></div>
+
+
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>3</code></pre></div>
+
+
+
+
+
+
+<p>There are many other useful string methods, you can <a href="https://www.w3schools.com/python/python_ref_string.asp">[check hereLinks to an external site.]</a> for a comprehensive list. But most likely, you will be learning more string methods and trick when you need to use them.</p>
+
+
+<h3>4.2. Collective Data Type</h3>
+
+<p><strong>List, Tuple, and Set</strong> are all used to store multiple items in a single variable. But there are some important distinctions among them.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 31%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Ordered</th>
+<th>Changeable</th>
+<th>Allow Duplicates</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[ ]</code> List</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td><code>[human, bat, orc, human, elf, undead, orc]</code></td>
+</tr>
+<tr>
+<td><code>( )</code> Tuple</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td><code>(human, bat, orc, human, elf, undead, orc)</code></td>
+</tr>
+<tr>
+<td><code>{ }</code> Set</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td><code>{elf, human, bat, orc, undead}</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><p>Ordered: if the items in it have a defined order;</p></li>
+<li><p>Changeable: if we can change the items in it after it was created;</p></li>
+<li><p>Allow duplicates: if it can hold two items with the same value.</p></li>
+</ul>
+
+<p><strong>Dictionary</strong> is used to store data values in {key:value} pairs within curly brackets. A dictionary is a collection which is ordered, changeable and does not allow duplicates in keys. That is to say, you can have as many pairs as you want, but keys in dictionary are unique.A dictionary in python looks like this: </p>
+<p>{“human”: “cavalier”, “bat”: “vampire”, “orc”:  “warrior”, “elf”: “archer”}. Visually, you can imagine the dictionary in table format:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"human"</code></td>
+<td><code>"cavalier"</code></td>
+</tr>
+<tr>
+<td><code>"bat"</code></td>
+<td><code>"vampire"</code></td>
+</tr>
+<tr>
+<td><code>"orc"</code></td>
+<td><code>"warrior"</code></td>
+</tr>
+<tr>
+<td><code>"elf"</code></td>
+<td><code>"archer"</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>4.2.1. python List</h3>
+<p>A <strong>Python list</strong> is an <em>ordered</em> and <em>changeable</em> collection of elements. It is very convenient and useful way to store information, especially when we are trying to handle many data points at once.</p>
+<p>Suppose I wanted to record students’ midterm grade, I can create a variable for each record, such as:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>grade1 = 87
+grade2 = 93
+grade3 = 75
+grade4 = 66</code></pre></div>
+<p>As you can tell, creating a new python variable for each grade can be very inconvenient and inefficient. Instead, we can create a <strong>list </strong>and store all the values together. Let’s build a <strong>list </strong>with squared brackets:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>grades = [87, 93, 75, 66]</code></pre></div><p>Elements in list can be any type. In this example, we have integers in the list, but we can also have other types of element in the list, such as string, float, or Boolean. In more advance practices, it is also perfectly ok to have list contain sub-lists. You will see more examples and practices in our weekly project.</p>
+
+<h3>4.2.2. Python Dictionary</h3>
+<p><strong>Python dictionary</strong> is another type data structure. It is best to think of a dictionary as a set of <strong><em>key: value</em></strong> pairs, with the requirement that the keys are unique (within one dictionary). A pair of braces creates an empty dictionary: { }. Placing a comma-separated list of <strong><em>key:value</em></strong> pairs within the braces adds initial key:value pairs to the dictionary; this is also the way dictionaries are written on output. It is a very useful tool for storing information. It stores the data values like a map. You can always look up information in a dictionary based on its key.</p>
+<p>In our previous example, we saw how to use list to store student grade information. But one problem with the previous example is that I do not have student’s name associate with the grade. The problem is I won’t be able to know who gets which grade. In situations like this, we can use python dictionary to solve the problem.</p>
+<p>Let’s create a dictionary with brackets, and then fill the dictionary with students’ names and their midterm and final grades.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>gradebook = { } # create an empty dict named &quot;gradebook&quot;
+
+# then fill the dictionary with students&#39; names
+# and their midterm grades + final grades + majors.
+
+gradebook = {
+&#39;Mary&#39; : [87,91,&#39;economics&#39;],
+&#39;Lisa&#39; : [93,95,&#39;computer science&#39;],
+&#39;Hope&#39; : [75,90,&#39;psychology&#39;],
+&#39;Mike&#39; : [66,89,&#39;biology&#39;]
+}</code></pre></div>
+<p>In the above example, we created a python dictionary named “grades”. In this dictionary, the <strong><em>keys</em></strong> are students name, and the <strong><em>values </em></strong>are lists of <strong>[midterm, final, major].</strong> To access elements in the dictionary, we can use the .get function associated with dictionary. This method will returns the value of the item with the specified key. For example, if I wanted to know Mike’s information, I can do the following:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>gradebook.get(‘Mike’)</code></pre></div><p>When I run the above line in the console, I can get the value associate with the key:</p>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>[66, 89, ‘biology’]</code></pre></div>
+      <div class="page-nav"><a href="part3-packages.html">← Previous</a><a href="part5-programming.html">Next →</a></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Computational Economics — Module 1
+  </footer>
+</body>
+</html>
