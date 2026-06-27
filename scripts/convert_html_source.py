@@ -384,7 +384,7 @@ def convert(src_html: str) -> str:
 # ── site wrapper ──────────────────────────────────────────────────────────────
 
 MODULE1_LECTURE = [
-    ("index.html", "Overview"),
+    ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
 MODULE1_WORKSHOP = [
@@ -397,7 +397,7 @@ MODULE1_WORKSHOP = [
 ]
 
 MODULE2_LECTURE = [
-    ("index.html", "Overview"),
+    ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
 MODULE2_WORKSHOP = [
@@ -410,7 +410,7 @@ MODULE2_WORKSHOP = [
 ]
 
 MODULE3_LECTURE = [
-    ("index.html", "Overview"),
+    ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
 MODULE3_WORKSHOP = [
@@ -423,13 +423,13 @@ MODULE3_WORKSHOP = [
 ]
 
 MODULE4_LECTURE = [
-    ("index.html", "Overview"),
+    ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
 MODULE4_WORKSHOP: list[tuple[str, str]] = []
 
 MODULE5_LECTURE = [
-    ("index.html", "Overview"),
+    ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
 MODULE5_WORKSHOP: list[tuple[str, str]] = []
