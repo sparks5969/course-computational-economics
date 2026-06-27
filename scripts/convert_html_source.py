@@ -499,15 +499,21 @@ def _module_fold(
 ) -> list[str]:
     _, lecture, workshop = MODULE_META[num]
     open_attr = " open" if open else ""
-    body_indent = indent + "    "
+    i = indent + "  "
     lines = [
         f'{indent}<details class="sidebar-fold"{open_attr}>',
         f'{indent}  <summary class="sidebar-fold-title">Module {num}</summary>',
         f'{indent}  <div class="sidebar-fold-body">',
     ]
-    lec_links = [(f"{link_prefix}{href}", label) for href, label in lecture]
-    lines.extend(_nested_section("Lecture", lec_links, active_href, indent=body_indent))
-    lines.extend(_workshop_blocks(workshop, active_href, link_prefix, body_indent))
+    all_links = [
+        (f"{link_prefix}{href}", label)
+        for href, label in (lecture + workshop)
+    ]
+    for href, label in all_links:
+        cls = ' class="active"' if href == active_href else ""
+        lines.append(f'{i}  <a href="{href}"{cls}>{label}</a>')
+    if not all_links:
+        lines.append(f'{i}  <span class="sidebar-muted">Coming soon</span>')
     lines.extend([f"{indent}  </div>", f"{indent}</details>"])
     return lines
 
