@@ -16,7 +16,49 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 
 ROOT = Path(__file__).resolve().parents[1]
 
+IO_LABEL_RE = re.compile(r"^(in|out)\s*\[\d+\]\s*:?\s*$", re.IGNORECASE)
+
 # ── helpers ──────────────────────────────────────────────────────────────────
+
+def is_io_label(text: str) -> bool:
+    return IO_LABEL_RE.match(text.replace("\xa0", " ").strip()) is not None
+
+
+def peek_next_tag(children: list, start: int) -> int | None:
+    j = start
+    while j < len(children):
+        if isinstance(children[j], NavigableString):
+            j += 1
+            continue
+        if isinstance(children[j], Tag) and children[j].name == "br":
+            j += 1
+            continue
+        return j
+    return None
+
+
+def collect_canvas_children(soup: BeautifulSoup) -> list:
+    """Flatten Canvas wrapper/banner/custom blocks into a tag stream."""
+    wrapper = soup.find("div", id=re.compile(r"kl_wrapper"))
+    if not wrapper:
+        root = soup.find("div", id="kl_banner") or soup
+        return [c for c in root.children if isinstance(c, Tag) or str(c).strip()]
+
+    tags: list = []
+    for block in wrapper.children:
+        if not isinstance(block, Tag):
+            continue
+        block_id = block.get("id", "")
+        if block_id in ("kl_custom_block_0", "kl_custom_block_1"):
+            continue
+        if block_id == "kl_banner":
+            h2 = block.find("h2")
+            if h2 and "overview" in inner_text(h2).lower():
+                continue
+            tags.extend(block.children)
+        else:
+            tags.extend(block.children)
+    return tags
 
 def inner_text(tag: Tag) -> str:
     """Extract clean plain text from a tag, collapsing whitespace."""
@@ -54,13 +96,15 @@ def extract_pre_code(tag: Tag) -> str:
 
 def make_code_cell(label_text: str, code_text: str) -> str:
     """Produce the .code-cell div used by the site."""
-    is_input = "In" in label_text
-    cell_cls = "code-input" if is_input else "code-output"
-    # parse label number
-    m = re.search(r"\[(\d+)\]", label_text)
-    num = m.group(1) if m else "1"
-    prefix = "In" if is_input else "Out"
-    label_html = f'<div class="code-label">{prefix} [{num}]:</div>'
+    m = re.search(r"(in|out)\s*\[(\d+)\]", label_text, re.IGNORECASE)
+    if m:
+        prefix = "In" if m.group(1).lower() == "in" else "Out"
+        num = m.group(2)
+        label_html = f'<div class="code-label">{prefix} [{num}]:</div>'
+        cell_cls = "code-input" if prefix == "In" else "code-output"
+    else:
+        label_html = f'<div class="code-label">{html_mod.escape(label_text)}</div>'
+        cell_cls = "code-input"
     escaped = html_mod.escape(code_text)
     return (
         f'<div class="code-cell {cell_cls}">'
@@ -142,34 +186,76 @@ def clean_inline(tag: Tag) -> str:
 
 # ── main conversion ───────────────────────────────────────────────────────────
 
-def convert(src_html: str) -> str:
-    soup = BeautifulSoup(src_html, "html.parser")
+def _attach_pre_code(
+    children: list,
+    i: int,
+    label_text: str,
+    skip_next: set[int],
+    output_blocks: list[str],
+) -> bool:
+    j = peek_next_tag(children, i + 1)
+    if j is None:
+        return False
+    nxt = children[j]
+    if isinstance(nxt, Tag) and nxt.name == "pre":
+        code_text = extract_pre_code(nxt)
+        if code_text:
+            output_blocks.append(make_code_cell(label_text, code_text))
+            skip_next.add(id(nxt))
+            return True
+    if isinstance(nxt, Tag) and nxt.name == "div":
+        pre = nxt.find("pre")
+        if pre:
+            code_text = extract_pre_code(pre)
+            if code_text:
+                output_blocks.append(make_code_cell(label_text, code_text))
+                skip_next.add(id(nxt))
+                return True
+    if isinstance(nxt, Tag) and is_code_table(nxt):
+        pre = nxt.find("pre")
+        code_text = extract_pre_code(pre) if pre else ""
+        if code_text:
+            output_blocks.append(make_code_cell(label_text, code_text))
+            skip_next.add(id(nxt))
+            return True
+    return False
 
-    # Remove the outer Canvas wrapper divs we don't need, work on their children
-    root = soup.find("div", id="kl_banner") or soup
 
-    output_blocks: list[str] = []
-    skip_next: set[int] = set()
+def _skip_outline(children: list, i: int) -> int:
+    while i < len(children):
+        if isinstance(children[i], NavigableString):
+            i += 1
+            continue
+        nxt = children[i]
+        if nxt.name == "br":
+            i += 1
+            continue
+        if nxt.name in ("ul", "ol"):
+            i += 1
+            continue
+        if nxt.name == "p":
+            txt = inner_text(nxt)
+            if txt.startswith("==="):
+                return i + 1
+            i += 1
+            continue
+        break
+    return i
 
-    children = list(root.children)
 
+def process_children(children: list, output_blocks: list[str], skip_next: set[int]) -> None:
     i = 0
     while i < len(children):
         tag = children[i]
+
+        if not isinstance(tag, Tag):
+            i += 1
+            continue
 
         if id(tag) in skip_next:
             i += 1
             continue
 
-        # ── NavigableString (whitespace / stray text) ──
-        if isinstance(tag, NavigableString):
-            text = str(tag).strip()
-            if text and text not in ("&nbsp;", "\xa0"):
-                output_blocks.append(f"<p>{html_mod.escape(text)}</p>")
-            i += 1
-            continue
-
-        # ── Skip: images, iframes, horizontal-rule paragraphs, &nbsp; paras ──
         if tag.name == "img":
             i += 1
             continue
@@ -182,42 +268,44 @@ def convert(src_html: str) -> str:
                 i += 1
                 continue
 
-        # ── Headings ──
         if tag.name in ("h1", "h2", "h3", "h4", "h5"):
             txt = inner_text(tag)
-            # Skip generic outline/video headings
-            if txt.lower() in ("outline", "video instruction"):
-                i += 1
+            if txt.lower() == "outline":
+                i = _skip_outline(children, i + 1)
                 continue
-            # Map h3 → h2, h4 → h3 for site hierarchy
+            if txt.lower() == "video instruction":
+                i += 1
+                while i < len(children):
+                    if isinstance(children[i], NavigableString):
+                        i += 1
+                        continue
+                    nxt = children[i]
+                    if nxt.name in ("p", "iframe", "br"):
+                        i += 1
+                        continue
+                    break
+                continue
             level = {"h1": 2, "h2": 2, "h3": 2, "h4": 3, "h5": 3}.get(tag.name, 3)
             output_blocks.append(f"<h{level}>{html_mod.escape(txt)}</h{level}>")
             i += 1
             continue
 
-        # ── Unordered / ordered lists ──
         if tag.name in ("ul", "ol"):
             items = []
             for li in tag.find_all("li", recursive=False):
                 items.append(f"<li>{clean_inline(li)}</li>")
             if items:
-                list_tag = tag.name
-                output_blocks.append(
-                    f"<{list_tag}>{''.join(items)}</{list_tag}>"
-                )
+                output_blocks.append(f"<{tag.name}>{''.join(items)}</{tag.name}>")
             i += 1
             continue
 
-        # ── Content table (border="1", data table) ──
         if tag.name == "table" and tag.get("border") == "1":
             output_blocks.append(clean_content_table(tag))
             i += 1
             continue
 
-        # ── In[]/Out[] label table followed by code table ──
         if is_label_table(tag):
             label_text = inner_text(tag)
-            # find the next sibling that is a code table
             j = i + 1
             while j < len(children) and isinstance(children[j], NavigableString):
                 j += 1
@@ -230,20 +318,17 @@ def convert(src_html: str) -> str:
             i += 1
             continue
 
-        # ── Standalone code table (code appears without a separate label row) ──
         if tag.name == "table" and is_code_table(tag):
-            # Check if table itself has a label + pre in same structure
             label_td = None
             for td in tag.find_all("td"):
-                if re.search(r"(In|Out)\s*\[\d+\]", inner_text(td)):
+                if re.search(r"(in|out)\s*\[\d+\]", inner_text(td), re.IGNORECASE):
                     label_td = td
                     break
             pre = tag.find("pre")
             if label_td and pre:
-                label_text = inner_text(label_td)
-                code_text = extract_pre_code(pre)
-                if code_text:
-                    output_blocks.append(make_code_cell(label_text, code_text))
+                output_blocks.append(
+                    make_code_cell(inner_text(label_td), extract_pre_code(pre))
+                )
             elif pre:
                 code_text = extract_pre_code(pre)
                 if code_text:
@@ -251,60 +336,177 @@ def convert(src_html: str) -> str:
             i += 1
             continue
 
-        # ── Paragraph with inline In[]/Out[] label ──
+        if tag.name == "span" and is_io_label(inner_text(tag)):
+            if _attach_pre_code(children, i, inner_text(tag), skip_next, output_blocks):
+                i += 1
+                continue
+
+        if tag.name == "pre":
+            code_text = extract_pre_code(tag)
+            if code_text:
+                output_blocks.append(
+                    f'<div class="code-cell code-input"><pre><code>{html_mod.escape(code_text)}</code></pre></div>'
+                )
+            i += 1
+            continue
+
         if tag.name == "p":
             txt = inner_text(tag)
-            # If the para contains ONLY an In/Out label, peek ahead for code
-            label_match = re.match(r"^(In|Out)\s*\[\d+\]:?\s*$", txt.replace("\xa0", "").strip())
-            if label_match:
-                j = i + 1
-                while j < len(children) and isinstance(children[j], NavigableString):
-                    j += 1
-                if j < len(children) and isinstance(children[j], Tag) and is_code_table(children[j]):
-                    pre = children[j].find("pre")
-                    code_text = extract_pre_code(pre) if pre else ""
-                    if code_text:
-                        output_blocks.append(make_code_cell(txt, code_text))
-                        skip_next.add(id(children[j]))
-                        i += 1
-                        continue
+            if is_io_label(txt):
+                if _attach_pre_code(children, i, txt, skip_next, output_blocks):
+                    i += 1
+                    continue
 
-            # Regular paragraph
             cleaned = clean_inline(tag)
             cleaned = re.sub(r"(&nbsp;|\xa0)+", " ", cleaned).strip()
+            cleaned = re.sub(r"\s*=+\s*$", "", cleaned).strip()
             if cleaned:
                 output_blocks.append(f"<p>{cleaned}</p>")
             i += 1
             continue
 
-        # ── Other block-level tags: div etc. ──
         if tag.name == "div":
-            # Recurse into divs that hold more content
-            inner_html = convert(str(tag))
-            if inner_html.strip():
-                output_blocks.append(inner_html)
+            process_children(list(tag.children), output_blocks, skip_next)
             i += 1
             continue
 
         i += 1
 
+
+def convert(src_html: str) -> str:
+    soup = BeautifulSoup(src_html, "html.parser")
+    output_blocks: list[str] = []
+    skip_next: set[int] = set()
+    process_children(collect_canvas_children(soup), output_blocks, skip_next)
     return "\n".join(output_blocks)
 
 
 # ── site wrapper ──────────────────────────────────────────────────────────────
 
-SIDEBAR = """
-        <div class="sidebar-label">Module 1</div>
-        <a href="../index.html">Overview</a>
-        <a href="part1-installation.html">Part 1: Installation</a>
-        <a href="part2-language.html">Part 2: Python Language</a>
-        <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
-        <a href="part4-data-structures.html" class="active">Part 4: Data Structures</a>
-        <a href="part5-programming.html">Part 5: Programming</a>
-"""
+MODULE1_LECTURE = [
+    ("../index.html#module-1", "Overview"),
+]
+
+MODULE1_WORKSHOP = [
+    ("part1-installation.html", "Part 1: Installation"),
+    ("part2-language.html", "Part 2: Python Language"),
+    ("part3-packages.html", "Part 3: Packages &amp; Modules"),
+    ("part4-data-structures.html", "Part 4: Data Structures"),
+    ("part5-programming.html", "Part 5: Programming"),
+    ("practice1.html", "Practice Project 1"),
+]
+
+MODULE2_LECTURE = [
+    ("index.html", "Overview"),
+]
+
+MODULE2_WORKSHOP = [
+    ("part1-1-list-functions.html", "Part 1.1: List Functions"),
+    ("part1-2-dict-functions.html", "Part 1.2: Dict Functions"),
+    ("part2-logic-operators.html", "Part 2: Logic Operators"),
+    ("part3-loops.html", "Part 3: Loops"),
+    ("part4-json-comments.html", "Part 4 &amp; 5: JSON &amp; Comments"),
+    ("practice2.html", "Practice Project 2"),
+]
+
+MODULE3_LECTURE = [
+    ("index.html", "Overview"),
+]
+
+MODULE3_WORKSHOP = [
+    ("part1-programming-paradigm.html", "Part 1: Programming Paradigm"),
+    ("part2-1-2-functions.html", "Part 2.1–2.2: What &amp; Why Functions"),
+    ("part2-user-functions.html", "Part 2.3: User-Defined Functions"),
+    ("part3-1-class.html", "Part 3.1: Class"),
+    ("part3-2-object.html", "Part 3.2: Object"),
+    ("part3-3-inheritance.html", "Part 3.3: Inheritance"),
+]
+
+MODULE_META = {
+    1: ("Module 1 — Python Foundations", MODULE1_LECTURE, MODULE1_WORKSHOP),
+    2: ("Module 2 — Stable Matching", MODULE2_LECTURE, MODULE2_WORKSHOP),
+    3: ("Module 3 — OOP & Functions", MODULE3_LECTURE, MODULE3_WORKSHOP),
+}
 
 
-def wrap_page(body_html: str, title: str) -> str:
+def _more_module_links(current: int) -> list[str]:
+    links = {
+        1: ('../index.html#module-1', 'Module 1'),
+        2: ('../module2/index.html', 'Module 2'),
+        3: ('../module3/index.html', 'Module 3'),
+    }
+    lines = ['        <div class="sidebar-label">More</div>']
+    for num, (href, label) in links.items():
+        if num != current:
+            lines.append(f'        <a href="{href}">{label}</a>')
+    return lines
+
+
+def _nested_section(
+    sublabel: str,
+    links: list[tuple[str, str]],
+    active_href: str,
+    *,
+    indent: str = "        ",
+) -> list[str]:
+    lines = [
+        f'{indent}<div class="sidebar-group">',
+        f'{indent}  <div class="sidebar-sublabel">{sublabel}</div>',
+        f'{indent}  <div class="sidebar-nested">',
+    ]
+    for href, label in links:
+        cls = ' class="active"' if href == active_href else ""
+        lines.append(f'{indent}    <a href="{href}"{cls}>{label}</a>')
+    lines.extend([f"{indent}  </div>", f"{indent}</div>"])
+    return lines
+
+
+def sidebar_html(module: int, active_href: str) -> str:
+    lines = [f"        <div class=\"sidebar-label\">Module {module}</div>"]
+    _, lecture, workshop = MODULE_META[module]
+    lines.extend(_nested_section("Lecture", lecture, active_href))
+    lines.extend(_nested_section("Workshop", workshop, active_href))
+    lines.extend(_more_module_links(module))
+    return "\n".join(lines)
+
+
+def home_sidebar_html(active_href: str = "index.html") -> str:
+    """Sidebar for the course home page — all modules, nested."""
+    home_cls = ' class="active"' if active_href == "index.html" else ""
+    lines = [
+        '        <div class="sidebar-label">Course</div>',
+        f'        <a href="index.html"{home_cls}>Home</a>',
+    ]
+    lecture_overviews = {
+        1: "index.html#module-1",
+        2: "module2/index.html",
+        3: "module3/index.html",
+    }
+    for num, (_, _, workshop) in MODULE_META.items():
+        lines.append(f'        <div class="sidebar-label">Module {num}</div>')
+        lines.extend(
+            _nested_section(
+                "Lecture",
+                [(lecture_overviews[num], "Overview")],
+                active_href,
+            )
+        )
+        workshop_links = [(f"module{num}/{href}", label) for href, label in workshop]
+        lines.extend(_nested_section("Workshop", workshop_links, active_href))
+    return "\n".join(lines)
+
+
+def wrap_page(
+    body_html: str,
+    title: str,
+    *,
+    module: int = 1,
+    active_href: str = "",
+    page_heading: str | None = None,
+) -> str:
+    subtitle, _, _ = MODULE_META[module]
+    sidebar = sidebar_html(module, active_href)
+    heading = page_heading or title
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -340,18 +542,18 @@ def wrap_page(body_html: str, title: str) -> str:
     <div class="site-header-inner">
       <div>
         <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
-        <p class="site-subtitle">Module 1 — Python Foundations</p>
+        <p class="site-subtitle">{html_mod.escape(subtitle)}</p>
       </div>
     </div>
   </header>
   <div class="layout">
     <aside class="sidebar">
       <nav>
-{SIDEBAR}
+{sidebar}
       </nav>
     </aside>
     <main>
-      <h1>{html_mod.escape(title)}</h1>
+      <h1>{html_mod.escape(heading)}</h1>
 {body_html}
     </main>
   </div>
@@ -362,12 +564,30 @@ def wrap_page(body_html: str, title: str) -> str:
 # ── entry point ───────────────────────────────────────────────────────────────
 
 def main() -> None:
-    src = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "module1/part4_exp.html"
-    dst = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "module1/new_source.html"
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Convert Canvas HTML to site page")
+    parser.add_argument("src", nargs="?", help="Source Canvas HTML file")
+    parser.add_argument("dst", nargs="?", help="Output site HTML file")
+    parser.add_argument("--title", default="Course Page", help="Browser title")
+    parser.add_argument("--heading", default=None, help="Page h1 (defaults to title)")
+    parser.add_argument("--module", type=int, default=1, choices=(1, 2, 3))
+    parser.add_argument("--active", default="", help="Active sidebar href")
+    args = parser.parse_args()
+
+    src = Path(args.src) if args.src else ROOT / "module1/part4_exp.html"
+    dst = Path(args.dst) if args.dst else ROOT / "module1/new_source.html"
 
     src_html = src.read_text(encoding="utf-8")
     body = convert(src_html)
-    page = wrap_page(body, "Part 4. Data Structures in Python")
+    page = wrap_page(
+        body,
+        args.title,
+        module=args.module,
+        active_href=args.active,
+        page_heading=args.heading,
+    )
+    dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text(page, encoding="utf-8")
     print(f"Wrote {dst}")
 

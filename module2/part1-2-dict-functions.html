@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 1.2 — Dictionary Functions</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 2 — Stable Matching</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 2</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="part1-2-dict-functions.html" class="active">Part 1.2: Dict Functions</a>
+            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="part3-loops.html">Part 3: Loops</a>
+            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="practice2.html">Practice Project 2</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module3/index.html">Module 3</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 1.2 — Dictionary Functions</h1>
+<h3>1.2. Functions associated with python dictionary</h3>
+<p>Similar to list, a dictionary object also has functions associate with it. Let&#x27;s look at some examples.</p>
+<p>There are several ways to create a dictionary, but the most straightforward way is to explicitly define the<em> key:value</em> pairs.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>mycar = {
+    &quot;brand&quot;:&quot;Subaru&quot;,
+    &quot;model&quot;:&quot;Forester&quot;,
+    &quot;year&quot;:2005,
+    &quot;color&quot;:&quot;green&quot;
+}
+print(mycar)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>{&#x27;brand&#x27;: &#x27;Subaru&#x27;, &#x27;model&#x27;: &#x27;Forester&#x27;, &#x27;year&#x27;: 2005, &#x27;color&#x27;: &#x27;green&#x27;}</code></pre></div>
+<p>To access items in a dictionary, you can refer to its key name, inside square brackets:</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>x = mycar[&#x27;color&#x27;]
+print(x)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>green</code></pre></div>
+<p>Alternatively, you can also call the <code>.get()</code> function to access the item in the dictionary:</p>
+<div class="code-cell code-input"><div class="code-label">In [3]:</div><pre><code>x = mycar.get(&quot;color&quot;)
+print(x)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [3]:</div><pre><code>green</code></pre></div>
+<p>We can loop through a dictionary by using a<strong> for</strong> loop. When looping through a dictionary, the return value are the <em><strong>keys</strong></em> of the dictionary. But we can certainly figure out ways to return the <em><strong>values</strong></em> as well: the <code><strong>.values()</strong></code> function will return values of a dictionary.</p>
+<div class="code-cell code-input"><div class="code-label">In [3]:</div><pre><code>for x in mycar:
+    print(x)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [3]:</div><pre><code>brand
+model
+year
+color</code></pre></div>
+<div class="code-cell code-input"><div class="code-label">In [4]:</div><pre><code>for x in mycar.values():
+    print(x)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [4]:</div><pre><code>Subaru
+Forester
+2005
+green</code></pre></div>
+<p>We can also loop through both<strong><em> keys </em></strong>and <strong><em>values</em></strong> by using the <code>.items()</code> function.</p>
+<div class="code-cell code-input"><div class="code-label">In [5]:</div><pre><code>for x, y in mycar.items():
+    print(x, y)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [5]:</div><pre><code>brand Subaru
+model Forester
+year 2005
+color green</code></pre></div>
+<p>To add an item to the dictionary, we can create a new index key and assigning a value to it:</p>
+<div class="code-cell code-input"><div class="code-label">In [6]:</div><pre><code>mycar[&#x27;miles&#x27;] = 72000
+print(mycar)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [6]:</div><pre><code>{&#x27;brand&#x27;: &#x27;Subaru&#x27;, &#x27;model&#x27;: &#x27;Forester&#x27;, &#x27;year&#x27;: 2005, &#x27;color&#x27;: &#x27;green&#x27;, &#x27;miles&#x27;: 72000}</code></pre></div>
+<p>Alternatively, we can also call the <code>.update()</code> function associated with dictionary object to  insert the specific items.</p>
+<div class="code-cell code-input"><div class="code-label">In [7]:</div><pre><code>mycar.update({&#x27;register&#x27;:&#x27;Connecticut&#x27;})
+print(mycar)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [7]:</div><pre><code>{&#x27;brand&#x27;: &#x27;Subaru&#x27;, &#x27;model&#x27;: &#x27;Forester&#x27;, &#x27;year&#x27;: 2005, &#x27;color&#x27;: &#x27;green&#x27;, &#x27;miles&#x27;: 72000, &#x27;register&#x27;: &#x27;Connecticut&#x27;}</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

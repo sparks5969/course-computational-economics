@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2 Overview</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 2 — Stable Matching</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 2</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html" class="active">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="part3-loops.html">Part 3: Loops</a>
+            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="practice2.html">Practice Project 2</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module3/index.html">Module 3</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Module 2 Overview</h1>
+<h2>Overview</h2>
+<p>In this learning module, you will gain the skills to implement and execute the Gale-Shapley Algorithm in various matching scenarios, identifying stable and unstable pairs with precision. You&#x27;ll explore real-world applications, such as medical residency programs and school admissions, to understand the practical relevance of stable matching problems. The course will also delve into the theoretical aspects, evaluating the correctness and termination properties of the Gale-Shapley Algorithm. Furthermore, you&#x27;ll learn to adapt the algorithm for complex situations, including scenarios with unequal numbers of participants or multiple positions. By the end of the module, you&#x27;ll be adept at developing solutions for matching problems that ensure stability and respect given preferences.</p>
+<h2>Learning Objectives</h2>
+<p>At the end of this week you should be able to:</p>
+<ol><li>Demonstrate the ability to implement and execute the Gale-Shapley Algorithm in given matching scenarios</li><li>Accurately identify stable and unstable pairs in a variety of matching problem examples. Analyze Real-World Applications: Analyze and explain how the stable matching problem applies in real-world scenarios such as medical residency programs and school admissions. </li><li>Evaluate and explain the correctness and termination properties of the Gale-Shapley Algorithm in solving matching problems. </li><li>Modify the basic Gale-Shapley Algorithm to accommodate complex scenarios, such as unequal numbers of agents or multiple positions. </li><li>Develop solutions for matching problems, ensuring stability and adherence to specified preferences.</li></ol>
+<h2>Learning Activities</h2>
+<ul><li><strong>Assigned Study Material (Asynchronous Session)</strong></li><li><strong>Lecture (Synchronous Session)</strong></li><li><strong>Project and Quiz</strong><strong></strong>
+
+Self-test quiz
+Module Project
+
+</li></ul>
+    </main>
+  </div>
+</body>
+</html>

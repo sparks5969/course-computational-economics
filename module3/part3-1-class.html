@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 3.1 — Class</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 3 — OOP &amp; Functions</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 3</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-programming-paradigm.html">Part 1: Programming Paradigm</a>
+            <a href="part2-1-2-functions.html">Part 2.1–2.2: What &amp; Why Functions</a>
+            <a href="part2-user-functions.html">Part 2.3: User-Defined Functions</a>
+            <a href="part3-1-class.html" class="active">Part 3.1: Class</a>
+            <a href="part3-2-object.html">Part 3.2: Object</a>
+            <a href="part3-3-inheritance.html">Part 3.3: Inheritance</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module2/index.html">Module 2</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 3.1 — Class</h1>
+<h2>Part 3.1. Class</h2>
+<p>Let&#x27;s try to define the blueprint for an animal-object.</p>
+<p>Before we can build an object, we need first to design the &quot;blueprint&quot; for it. The blueprint is known as class. When define a class, we use the keyword <code>class</code>, followed by the name of the class, followed by a colon to start the first line. Under the header, we always use a special method <code>__init__</code> to define what are the attributes.  In this example, let&#x27;s say the animal have two attributes: <em>name </em>and <em>weight</em>. In addition, we also put in a special variable <strong><em>self</em></strong> as a function parameter. The <code>self</code> indicates that every object we created using this blueprint will all have these attributes and methods. After this, let&#x27;s define a method (i.e., functionality) that allow the object introduce itself.  Remember, methods are essentially functions associated with the object. The way we define methods are exactly the same as we define functions.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>class Animal:
+
+   def __init__(self, name = &#x27;Animal Doe&#x27;, weight = 0.0):
+        self.name = name
+        self.weight = weight
+    def introduce_me(self):
+        print(&quot;Hello, let me introduce myself&quot;)
+        print(&quot;My name is {}&quot;.format(self.name))
+        print(&quot;My weight is {} pounds&quot;.format(self.weight))
+        print(&quot;-------------------------------\n&quot;)</code></pre></div>
+<p>You can look at the class blueprint of the animal object using the help() function</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>help(Animal)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>Help on class Animal in module __main__:
+
+class Animal(builtins.object)
+ |  Animal(name=&#x27;Animal Doe&#x27;, weight=0.0)
+ |
+ |  Methods defined here:
+ |
+ |  __init__(self, name=&#x27;Animal Doe&#x27;, weight=0.0)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |
+ |  introduce_me(self)
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

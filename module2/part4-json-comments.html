@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 4 &amp; 5 — JSON &amp; Comments</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 2 — Stable Matching</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 2</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="part3-loops.html">Part 3: Loops</a>
+            <a href="part4-json-comments.html" class="active">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="practice2.html">Practice Project 2</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module3/index.html">Module 3</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 4 &amp; 5 — JSON &amp; Comments</h1>
+<h2>Part 4. JSON data format</h2>
+<p>In brief, <strong>JSON</strong> (JavaScript Object Notation) is one of the most popular ways for data storage and exchange, which is accomplished through its syntax, and is used in many web applications. It can be easily used to store and communicate information to other products.  Many programming languages, including python, support the JSON data format.</p>
+<p>In python, there is a built-in package ‘<strong>json</strong>’ that can be used to read json file and convert a JSON string into a python object. Since JSON file store information based on <em>key:value</em> pairs, which is very similar to python dictionary It is the most convenient to convert JSON file to python dictionary. Here is an example.</p>
+<p>In our weekly project, you will need to import a json file I provided and then start play with it. Here is how it works:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import json
+# import the datasets
+with open(&#x27;project2_data.json&#x27;) as f:
+    preference = json.load(f)</code></pre></div>
+<p>The above block of code will load the<em> &#x27;project2_data.josn&#x27;</em> file I provided, and store it in a python dictionary named as &#x27;preference&#x27;.</p>
+<h2>Part 5. Comment your code</h2>
+<p>When writing your code in python, it’s important to make sure that your code can be easily understood by others and by yourself. Giving variables obvious names, defining explicit functions, and organizing your code are all great ways to do this. Another awesome and easy way to increase the readability of your code is by using comments. In addition, comments can also be used to prevent execution when testing the code.</p>
+<p>Programmers forget what their own code does all the time, especially if the code was written a long time ago or under pressure. Writing comments as you go is a great way to keep your memory fresh. It will also push yourself to think about if your code make sense and keep improve it. Using proper comments throughout your code can also help others understand how it all works very quickly. This is very important when collaborating with others.</p>
+<p>When you need to make a comment, simply put a hash mark # before the line you wanted to comment. Let’s look at this example:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code># this line is a comment, python won&#x27;t run it.
+print(&#x27;this sentence will be printed out in you terminal.&#x27;)  # you can insert comments anywhere
+# python ignores everything AFTER the hash mark and UP TO the end of the line.
+# If you wanted to write a long comment that may take more than one line,
+# just put a hash mark on each subsequent line.
+print(&#x27;Good luck with the weekly project.&#x27;)
+# now I think you got the idea. let&#x27;s run this block of code and see what will happen.</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>this sentence will be printed out in your terminal.
+Good luck with the weekly project.</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

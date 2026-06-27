@@ -1,0 +1,75 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li><span style="color: #236fa1; font-size: 14pt;"><strong>Part 1. Functions and the doc syntax</strong></span>
+                <ul>
+                    <li><span style="color: #626e6eff; font-size: 14pt;">Functions associated with python list</span></li>
+                    <li><span style="color: #236fa1; font-size: 14pt;">Functions associated with python dictionary</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 2. Logical operators</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 3. More about loops</strong></span>
+                <ul>
+                    <li><span style="color: #6d797aff; font-size: 14pt;">Nested loops</span></li>
+                    <li><span style="color: #636e6eff; font-size: 14pt;">Break and continue loops</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 4. JSON data format</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 5. Comment your code</strong></span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <h4><span style="font-size: 14pt;">1.2. Functions associated with python dictionary</span></h4>
+        <p><span style="font-size: 14pt;">Similar to list, a dictionary object also has functions associate with it. Let's look at some examples.&nbsp;</span></p>
+        <p><span style="font-size: 14pt;">There are several ways to create a dictionary, but the most straightforward way is to explicitly define the<em><span style="color: #d43423ff;"> key:value</span></em> pairs.</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #2ba35dff;">In[1]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>mycar = {</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;">    "brand"</span>:<span style="color: #5a6464ff;">"Subaru"</span>,</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;">    "model"</span>:<span style="color: #5a6464ff;">"Forester"</span>,</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;">    "year"</span>:<span style="color: #826e0aff;">2005</span>,</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;">    "color"</span>:<span style="color: #5a6464ff;">"green"</span></strong></span><br /><span style="font-size: 14pt;"><strong>}</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #be6a21ff;">print</span>(mycar)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>{'brand': 'Subaru', 'model': 'Forester', 'year': 2005, 'color': 'green'}</strong></span></pre>
+        <p><span style="font-size: 14pt;">To access items in a dictionary, you can refer to its key name, inside square brackets:</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #26a358ff;">In[2]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>x = mycar[<span style="color: #5a6464ff;">'color'</span>]<br /><span style="color: #c36b1eff;">print</span>(x)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[2]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>green</strong></span></pre>
+        <p><span style="font-size: 14pt;">Alternatively, you can also call the <code>.get()</code> function to access the item in the dictionary:</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #27a65bff;">In[3]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>x = mycar.get("color")<br /><span style="color: #ca6f1fff;">print</span>(x)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[3]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>green</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">We can loop through a dictionary by using a<span style="color: #e03e2d;"><strong> for</strong></span> loop. When looping through a dictionary, the return value are the <em><strong>keys</strong></em> of the dictionary. But we can certainly figure out ways to return the <em><strong>values</strong></em> as well: the <code><strong>.values()</strong></code> function will return values of a dictionary.</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #26a45bff;">In[3]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">for</span> x in mycar:<br /><span style="color: #c36b1eff;">    print</span>(x)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[3]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>brand</strong></span><br /><span style="font-size: 14pt;"><strong>model</strong></span><br /><span style="font-size: 14pt;"><strong>year</strong></span><br /><span style="font-size: 14pt;"><strong>color</strong></span></pre>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #27a359ff;">In[4]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">for</span> x in mycar.values():<br /><span style="color: #c66f20ff;">    print</span>(x)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[4]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>Subaru</strong></span><br /><span style="font-size: 14pt;"><strong>Forester</strong></span><br /><span style="font-size: 14pt;"><strong>2005</strong></span><br /><span style="font-size: 14pt;"><strong>green</strong></span></pre>
+        <p><span style="font-size: 14pt;">We can also loop through both<strong><em> keys </em></strong>and <strong><em>values</em></strong> by using the <code>.items()</code> function.</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #249c54ff;">In[5]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">for</span> x, y in mycar.items():<br /><span style="color: #cc7021ff;">    print</span>(x, y)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[5]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>brand Subaru</strong></span><br /><span style="font-size: 14pt;"><strong>model Forester</strong></span><br /><span style="font-size: 14pt;"><strong>year 2005</strong></span><br /><span style="font-size: 14pt;"><strong>color green</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">To add an item to the dictionary, we can create a new index key and assigning a value to it:</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #279956ff;">In[6]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>mycar['miles'] = <span style="color: #957a0aff;">72000</span><br /><span style="color: #be671aff;">print</span>(mycar)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[6]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>{'brand': 'Subaru', 'model': 'Forester', 'year': 2005, 'color': 'green', 'miles': 72000}</strong></span></pre>
+        <p><span style="font-size: 14pt;">Alternatively, we can also call the <code>.update()</code> function associated with dictionary object to&nbsp; insert the specific items.</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #27a45eff;">In[7]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>mycar.update({<span style="color: #5a6464ff;">'register'</span>:<span style="color: #5a6464ff;">'Connecticut'</span>})<br /><span style="color: #cc701fff;">print</span>(mycar)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[7]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>{'brand': 'Subaru', 'model': 'Forester', 'year': 2005, 'color': 'green', 'miles': 72000, 'register': 'Connecticut'}<br /></strong></span></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3><strong>Video Instruction</strong></h3>
+        <p><strong>Both the text and video versions of the lecture cover the same material, so you can choose the format that best suits your learning style without missing any key information.</strong></p>
+        <p style="text-align: center;"><strong><iframe style="width: 640px; height: 427px; display: inline-block;" title="2-2. functions associate with dictionary.mp4" data-media-type="video" src="https://canvas.case.edu/media_attachments_iframe/10456968?embedded=true&amp;type=video" loading="lazy" allowfullscreen="allowfullscreen" allow="fullscreen" data-titletext="2-2. functions associate with dictionary.mp4" data-media-id="m-2V7F4Gn6bUqi2smhnsB3MwE7oZRg1fJo"></iframe></strong><strong></strong></p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

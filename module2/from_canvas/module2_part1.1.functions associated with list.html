@@ -1,0 +1,95 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li><span style="color: #236fa1; font-size: 14pt;"><strong>Part 1. Functions and the doc syntax</strong></span>
+                <ul>
+                    <li><span style="color: #236fa1; font-size: 14pt;">Functions associated with python list</span></li>
+                    <li><span style="color: #6c7677ff; font-size: 14pt;">Functions associated with python dictionary</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 2. Logical operators</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 3. More about loops</strong></span>
+                <ul>
+                    <li><span style="color: #6d797aff; font-size: 14pt;">Nested loops</span></li>
+                    <li><span style="color: #677171ff; font-size: 14pt;">Break and continue loops</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 4. JSON data format</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 5. Comment your code</strong></span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3><span style="font-size: 14pt;">Part 1. Function and the doc syntax</span></h3>
+        <p><span style="font-size: 14pt;"><span style="color: #e03e2d;"><strong style="color: #9d0902ff;">Function</strong></span> is a block of code which runs when it is called.</span></p>
+        <p><span style="font-size: 14pt;">You can think of the functions as &ldquo;incantations&rdquo; in the magic world. In the magical world, whenever you need to use a magic, you will use the &ldquo;incantation&rdquo; to make it happen. Similarly, in the programming world, whenever you need to let python does something for you, you call functions to make it happen. For example, we have seen how to use functions to let python <strong><span style="color: #0000ff;">import </span></strong>packages and modules, <strong><span style="color: #aa5105ff;">open</span></strong> files we wanted to process, <span style="color: #e67e23;"><strong style="color: #c17529ff;">print </strong></span>out information for inspection.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">There are three types of functions in Python:</span></p>
+        <ul>
+            <li><span style="font-size: 14pt;"><strong>Built-in functions</strong>, such as&nbsp;<code>help()</code>&nbsp;to ask for help,&nbsp;<code>min()</code>&nbsp;to get the minimum value,&nbsp;<code>print()</code>&nbsp;to print an object to the terminal,&hellip; You can find an overview with more of these functions&nbsp;<a href="https://docs.python.org/3/library/functions.html">here</a>.</span></li>
+            <li><span style="font-size: 14pt;"><strong>User-Defined Functions</strong> (UDFs), which are functions that users create to help them out; And</span></li>
+            <li><span style="font-size: 14pt;"><strong>Anonymous functions</strong>, which are also called lambda functions because they are not declared with the standard&nbsp;<code>def</code>&nbsp;keyword.</span></li>
+        </ul>
+        <p><span style="text-decoration: underline; font-size: 14pt;">In this module, we will focus on built-in functions.&nbsp;</span></p>
+        <p>&nbsp;</p>
+        <h4><span style="font-size: 14pt;">1.1. Functions associated with python list</span></h4>
+        <p><span style="font-size: 14pt;">In python, everything is an <span style="color: #e03e2d;"><strong style="color: #cf1301ff;">object</strong></span>.<span style="color: #02484eff;"> (For now, it is ok if you don&rsquo;t understand the concept of object . Later in this semester, we will spend a whole week to learn about this concept.)</span> Python list is an object, dictionary is another object. For functions associated with an object, we call them via the <strong><span style="color: #e03e2d;">doc syntax.</span></strong></span></p>
+        <p><span style="font-size: 14pt;">Let's take python list as an example and take a closer look. As we have learned, list can contain certain values we assigned to it. In addition, a list object also has functions associate with it. We can call the functions via the <strong><span style="color: #e03e2d;">doc-syntax </span></strong>to interact with data in the list.</span></p>
+        <p><span style="font-size: 14pt;">Let's say I have a list contain ten different names.&nbsp;</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #259f56ff;">In[1]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>boys = [<span style="color: #5a6464ff;">'James'</span>,<span style="color: #5a6464ff;">'Kelly'</span>,<span style="color: #5a6464ff;">'Andy'</span>,<span style="color: #5a6464ff;">'Nick'</span>,<span style="color: #5a6464ff;">'Mike'</span>,<span style="color: #5a6464ff;">'Eric'</span>,<span style="color: #5a6464ff;">'Bob'</span>,<span style="color: #5a6464ff;">'Chris'</span>,<span style="color: #5a6464ff;">'Danny'</span>,<span style="color: #5a6464ff;">'Frank'</span>]</strong></span></pre>
+        <p><span style="font-size: 14pt;">If I wanted to sort the names alphabetically, I can use the&nbsp;<code>.sort()</code>&nbsp;function associate with the list to do so.</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #259f56ff;">In[2]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>boys.sort()</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[2]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>boys = [<span style="color: #5a6464ff;">'Andy','Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #5a6464ff;">'James'</span>,<span style="color: #5a6464ff;">'Kelly','Mike'</span>,<span style="color: #5a6464ff;">'Nick'</span>]</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">In some cases, we may wanted to know the specific position of a value. For instance, in the sorted list, where is the name <span style="color: #586969ff;">"Frank"</span> positioned at? The <code>.index()</code>&nbsp;function associated with list object can be useful to solve this.</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #249050ff;">In[3]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>boys.index('Frank')</strong></span></pre>
+        <span style="color: #e03e2d; font-size: 14pt;"><strong>Out[3]:</strong></span><br />
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>5</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">One thing we need to always be careful about is that <strong><span style="color: #e03e2d;">python starts indexing from zero</span></strong>. In the above example, if you count the number of people from the beginning of the list until "Frank", the intuitive answer is 6. However, when python count the numbers, it starts from zero. i.e., Andy--0, Bob--1, Chris--2, and so on.&nbsp;</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">Sometimes we need to "pick" and then removes the element at the specific position using index. Think of the name list as a customers' order list in a fast food restaurant. As the programmer, I wanted to "pick" the customer on the top of the list, complete the order, and remove his name from the list. the <code>.pop()</code> function is an effective way to help us complete this task:</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #23924fff;">In[4]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #ca6e1fff;">print</span>(boys)</strong></span><br /><span style="font-size: 14pt;"><strong>now_serving = boys.pop(0)</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #d17322ff;">print</span>(now_serving)</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #d27322ff;">print</span>(boys)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[4]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #000000;">['Andy','Bob','Chris','Danny','Eric','Frank','James','Kelly','Mike','Nick']</span></strong></span><br /><span style="font-size: 14pt;"><strong>Andy</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #000000;">['Bob','Chris','Danny','Eric','Frank','James','Kelly','Mike','Nick']</span></strong></span></pre>
+        <p><span style="font-size: 14pt;">In the above example, the <code>.pop()</code> function picked the name at position 0 (which is Andy) out of the list, assigned it to a new variable <span style="font-family: 'comic sans ms', sans-serif;">now_serving</span>, and then removed it from the original list.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">Suppose another customer is coming in, we wanted to add a new name to the existing list, we can use the <code>.append()</code> function.Suppose the new customer's name is "Peter" , to add him into the list, we can do:</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #27aa5dff;">In[5]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #cf7223ff;">print</span>(boys)</strong></span><br /><span style="font-size: 14pt;"><strong>boys.append('Peter')</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #c56e1fff;">print</span>(boys)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[5]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #000000;">['Bob','Chris','Danny','Eric','Frank','James','Kelly','Mike','Nick']</span></strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #000000;">['Bob','Chris','Danny','Eric','Frank','James','Kelly','Mike','Nick','Peter']</span></strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">Sometimes we wanted to create a copy of the existing list to play with. The <code>.copy()</code> function associate with list object can help us do this.&nbsp;</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #26a45bff;">In[4]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>new_list = boys.copy()</strong></span><br /><span style="font-size: 14pt;"><strong>print (new_list)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[4]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"> [<span style="color: #626c6cff;">'Andy','Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #5d6666ff;">'James'</span>,<span style="color: #646f70ff;">'Kelly','Mike'</span>,<span style="color: #5a6364ff;">'Nick'</span>]</span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">If you have some previous programming experience before, you may wonder if the <code>.copy()</code> function is really necessary. Why don't just do this by assigning values? This is a potential issue that can cause programming mistakes. Let's look at the following example:</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #279f57ff;">In[5]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>boys1 =  [<span style="color: #7e8c8d;">'Andy','Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #7e8c8d;">'James'</span>,<span style="color: #7e8c8d;">'Kelly','Mike'</span>,<span style="color: #7e8c8d;">'Nick'</span>]</strong></span><br /><span style="font-size: 14pt;"><strong>boys2 = boys1</strong></span><br /><span style="font-size: 14pt;"><strong>boys1.remove('Andy')</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #cf7121ff;">print</span>(boys1)</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #d2731fff;">print</span>(boys2)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[5]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"> [<span style="color: #5e6667ff;">'Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #606b6cff;">'James'</span>,<span style="color: #677171ff;">'Kelly','Mike'</span>,<span style="color: #606b6bff;">'Nick'</span>]</span><br /><span style="font-size: 14pt;"> [<span style="color: #5b6566ff;">'Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #687273ff;">'James'</span>,<span style="color: #5b6364ff;">'Kelly','Mike'</span>,<span style="color: #5d6667ff;">'Nick'</span>]</span></pre>
+        <p><span style="font-size: 14pt;">This is what just happened: although the two list<span style="background-color: #ecf0f1;">&nbsp; <span style="color: #bb3627ff;">boys1</span>&nbsp;</span> and&nbsp;<span style="background-color: #ecf0f1;"><span style="color: #bc3326ff;"> boys2</span>&nbsp; </span>are different in names, but they <strong>bot </strong>point to the same, identical list (i.e., the list with 10 names). As soon as you remove a name using <code>boys1.remove('Andy')</code> , this command will change the content in <strong>both</strong> names of the list. If you only wanted to change one list, and keep they other unchanged, do the following:&nbsp;</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #229050ff;">In[6]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>boys1 =  [<span style="color: #7e8c8d;">'Andy','Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #7e8c8d;">'James'</span>,<span style="color: #7e8c8d;">'Kelly','Mike'</span>,<span style="color: #7e8c8d;">'Nick'</span>]</strong></span><br /><span style="font-size: 14pt;"><strong>boys2 = boys1.copy()</strong></span><br /><span style="font-size: 14pt;"><strong>boys1.remove('Andy')</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #cf701fff;">print</span>(boys1)</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #cd7221ff;">print</span>(boys2)</strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[6]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"> [<span style="color: #616c6cff;">'Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #596162ff;">'James'</span>,<span style="color: #616c6cff;">'Kelly','Mike'</span>,<span style="color: #626b6cff;">'Nick'</span>]</span><br /><span style="font-size: 14pt;"> [<span style="color: #5e6667ff;">'Andy',</span><span style="color: #687273ff;">'Bob','Chris','Danny','Eric','Frank'</span>,<span style="color: #515a5aff;">'James'</span>,<span style="color: #677273ff;">'Kelly','Mike'</span>,<span style="color: #5f6767ff;">'Nick'</span>]</span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">Above are some examples of list methods. To see all the functions (and examples) associated with python list, please go to <a href="https://www.w3schools.com/python/python_ref_list.asp" target="_blank" rel="noopener">this website</a>.&nbsp;<strong></strong></span></p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3><strong>Video Instruction</strong></h3>
+        <p><strong>Both the text and video versions of the lecture cover the same material, so you can choose the format that best suits your learning style without missing any key information.</strong></p>
+        <p style="text-align: center;"><strong><iframe style="width: 400px; height: 225px; display: inline-block;" title="2-1.funtions in ptyhon.mp4" data-media-type="video" src="https://canvas.case.edu/media_attachments_iframe/10456970?embedded=true&amp;type=video" loading="lazy" allowfullscreen="allowfullscreen" allow="fullscreen" data-titletext="2-1.funtions in ptyhon.mp4" data-media-id="m-46E44oVsCCDb3hcpvsn24vTAWkxrfGkh"></iframe></strong></p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

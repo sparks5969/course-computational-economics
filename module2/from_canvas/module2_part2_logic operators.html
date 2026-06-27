@@ -1,0 +1,64 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 1. Functions and the doc syntax</strong></span>
+                <ul>
+                    <li><span style="color: #657171ff; font-size: 14pt;">Functions associated with python list</span></li>
+                    <li><span style="color: #626d6eff; font-size: 14pt;">Functions associated with python dictionary</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #236fa1; font-size: 14pt;"><strong>Part 2. Logical operators</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 3. More about loops</strong></span>
+                <ul>
+                    <li><span style="color: #626f70ff; font-size: 14pt;">Nested loops</span></li>
+                    <li><span style="color: #626b6cff; font-size: 14pt;">Break and continue loops</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 4. JSON data format</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 5. Comment your code</strong></span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3><span style="font-size: 14pt;">Part 2. Logic Operators</span></h3>
+        <p><span style="font-size: 14pt;">As we have learned, conditions are nice way to make decisions by asking if something equals <strong><span style="color: #e03e2d;">True</span></strong> or <strong><span style="color: #e03e2d;">False</span></strong>. Sometimes, we may want to test several different conditions or even combine the conditions together to make a decision. <span style="color: #e03e2d;"><strong>Logical operators</strong></span> are used to combine conditional statements.</span></p>
+        <p><span style="font-size: 14pt;">There are three commonly used logical operators, <strong><span style="color: #e03e2d;">and</span></strong>, <span style="color: #e03e2d;"><strong>or</strong></span>, <span style="color: #e03e2d;"><strong>not</strong></span>. Let&rsquo;s look at each of them.</span></p>
+        <ul>
+            <li><span style="font-size: 14pt;">When use <span style="color: #e03e2d;"><strong>and</strong></span>, it returns True if both statements are true</span></li>
+        </ul>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #269e56ff;">In[1]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>x = 5<br />(x &gt; 3 <span style="color: #0000ff;">and </span>x &lt; 10)<br /><span style="color: #169179;"># the above two lines will returns True, because BOTH conditions are True.</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>True</strong></span></pre>
+        <ul>
+            <li><span style="font-size: 14pt;">When use <strong><span style="color: #e03e2d;">or</span></strong>, it returns true if one of the statements is true.</span></li>
+        </ul>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #229a54ff;">In[2]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>x = 5<br />(x &gt; 3 <span style="color: #0000ff;">or </span>x &lt; 4)<br /><span style="color: #169179;"># the above two lines will returns True, <br /># because one of the conditions (x &gt; 3) is True</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[2]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>True</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">The <span style="color: #e03e2d;"><strong>not </strong></span>operator has two common use cases:&nbsp;</span></p>
+        <p><span style="font-size: 14pt;">Case 1. it reverse the result. i.e., it returns False if the result is True</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #26a359ff;">In[3]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>x = 5<br /><span style="color: #0000ff;">not</span> (x &gt; 3 <span style="color: #0000ff;">and </span>x &lt; 10)<br /><span style="color: #169179;"># returns False, because it reverse the result inside the parentheses.</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[3]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>False</strong></span></pre>
+        <p><span style="font-size: 14pt;">Case 2. it can be used to check if a data structure (i.e., list, dictionary, set, tuple) is empty. If the data structure is empty, it returns true, otherwise it returns False.</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #27a45aff;">In[4]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>empty_list = [ ]<br /><span style="color: #0000ff;">not <span style="color: #000000;">empty_list</span></span><br /><span style="color: #169179;"># returns True, because there is no element inside the empty_list</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[4]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>True</strong></span></pre>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #28a45dff;">In[5]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>list1 = [1,2,3]<br /><span style="color: #0000ff;">not </span><span style="color: #0000ff;"><span style="color: #000000;">list1</span></span><br /><span style="color: #169179;"># returns False, because list1 has elements in it, it is not empty.</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[5]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>False<br /></strong></span></pre>
+        <p>&nbsp;</p>
+        <h3><strong>Video Instruction</strong></h3>
+        <p><strong>Both the text and video versions of the lecture cover the same material, so you can choose the format that best suits your learning style without missing any key information.</strong></p>
+        <p>&nbsp;</p>
+        <p style="text-align: center;"><strong><iframe style="width: 640px; height: 360px; display: inline-block;" title="2-2.logical operator.mp4" data-media-type="video" src="https://canvas.case.edu/media_attachments_iframe/10456975?embedded=true&amp;type=video" loading="lazy" allowfullscreen="allowfullscreen" allow="fullscreen" data-titletext="2-2.logical operator.mp4" data-media-id="m-5A1erAF9eqQEpxFb9sjSx7TFZ37rm3pf"></iframe></strong></p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

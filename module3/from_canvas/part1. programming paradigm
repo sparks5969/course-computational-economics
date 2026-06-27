@@ -1,0 +1,31 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="color: #236fa1;"><strong>Part 1. Programming Paradigm</strong></span></p>
+        <p><span style="color: #646464ff;">Part 2. Functions in Python</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.1. what are functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.2. why functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.3. user-defined functions</span></p>
+        <p><span style="color: #646464ff;">Part 3. Object Oriented Programming</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">3.1. Class</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">3.2. Object</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">3.3. Inheritance and Subclasses</span></p>
+        <p>=======================================================================================</p>
+        <h3>Part 1. Programming Paradigm</h3>
+        <p>A<span>&nbsp;</span><strong>Programming Paradigm</strong><span>&nbsp;</span>is the "style" of programming. There are many different paradigms and sometimes they overlap. Some of the main ones are:</p>
+        <p>&nbsp;</p>
+        <p>The<span>&nbsp;</span><strong>Imperative Paradigm</strong><span>&nbsp;are</span><span>&nbsp;</span>sequences of commands that are executed one by one as in: first do this, then do that, etc. The programs we have written so far follow this paradigm.</p>
+        <p>&nbsp;</p>
+        <p>The<span>&nbsp;</span><strong>Functional Paradigm</strong><span>&nbsp;</span>uses mathematical functions as a core principle of building a program. Functions can then be called to evaluate an expression and use the resulting value for further calculations using functions. Functions can also be nested, i.e., a function that calls another function etc. We have used functions earlier, so imagine an almost exclusive use of functions throughout your program.</p>
+        <p>&nbsp;</p>
+        <p>The<span>&nbsp;</span><strong>Object Oriented Programming (OOP) Paradigm</strong><span>&nbsp;organize the properties and functionalities of something into logical units by creating "object". Still too abstract to understand? Let's think of it in a real-world scenario.</span></p>
+        <p>For almost all real-world objects, they are all "defined" by two characteristics: they all have<span>&nbsp;</span><strong><em>state</em></strong>, and the all have<span>&nbsp;</span><em><strong>behavior</strong></em>. State describes what the object is,<span>&nbsp;</span><em><strong>behavior</strong></em><span>&nbsp;</span>defines what the object can do (functionality).</p>
+        <p>&nbsp;</p>
+        <p>Take your laptop as an example, the state of a laptop can be described by size, brand, color, cpu type, and many other attributes. The behavior of a laptop can be defined by perform computational task, run program, connect to internet, play music, and many other functionalities. In OOP paradigm, we follow this idea and build "object" ourselves.</p>
+        <p>&nbsp;</p>
+        <p>All the states are referred to as "<span><strong>attributes</strong></span>", all the behaviors (or functionalities) are refereed to as "<strong><span>methods</span></strong>".<span>&nbsp; We use the class method to define the blueprint for object. Probably even more confused? Don't worry, let define a blueprint and build some objects together.</span></p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

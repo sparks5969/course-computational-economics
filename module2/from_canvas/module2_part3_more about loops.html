@@ -1,0 +1,93 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 1. Functions and the doc syntax</strong></span>
+                <ul>
+                    <li><span style="color: #34495e; font-size: 14pt;">Functions associated with python list</span></li>
+                    <li><span style="color: #34495e; font-size: 14pt;">Functions associated with python dictionary</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 2. Logical operators</strong></span></li>
+            <li><span style="color: #236fa1; font-size: 14pt;"><strong>Part 3. More about loops</strong></span>
+                <ul>
+                    <li><span style="color: #236fa1; font-size: 14pt;">Nested loops</span></li>
+                    <li><span style="color: #236fa1; font-size: 14pt;">Break and continue loops</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 4. JSON data format</strong></span></li>
+            <li><span style="color: #7e8c8d; font-size: 14pt;"><strong>Part 5. Comment your code</strong></span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3><span style="font-size: 14pt;">Part 3. More about loops</span></h3>
+        <p><span style="font-size: 14pt;">In the previous week, we studied how to use loops to perform iterations in Python. In this section, we extend the discussion to <strong><span style="color: #e03e2d;">nested loops</span></strong> (i.e., loops inside loops).&nbsp; We will&nbsp; learn about how to use the break and continue statements to control the loops behavior. The ultimatum goal is to master the magic of nested loops and use them to complete <span style="color: #0000ff;"><strong>conditional, repeated </strong></span>tasks.</span></p>
+        <p>&nbsp;</p>
+        <h4><span style="font-size: 14pt;">3.1. Nested loops</span></h4>
+        <p><span style="font-size: 14pt;">Let's take while loop as an example and look at the following code:</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #29a85dff;">In[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>i, j = <span style="color: #9f800fff;">1</span>, <span style="color: #826e0aff;">5</span></strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">while</span> i &lt; <span style="color: #9a851bff;">4</span>:</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; <span style="color: #0000ff;">&nbsp; while</span> j &lt; <span style="color: #9f830eff;">8</span>:</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b45a14ff;">print</span>(<span style="color: #5a6464ff;">"now running the inner loop"</span>)</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #bb681fff;">print</span>(i, ",", j)</strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp; &nbsp; &nbsp; j = j + 1</strong><strong> &nbsp; </strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; <span style="color: #c56c21ff;">print</span>(<span style="color: #5a6464ff;">"now running the outer loop"</span>)&nbsp;</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; <span style="color: #cd701fff;">print</span>(i, ",", j)</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; i = i+<span style="color: #9f810eff;">1</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[1]:</strong></span></p>
+        <pre><span style="font-size: 14pt;"><strong>    now running the inner loop</strong></span><br /><span style="font-size: 14pt;"><strong>    1 , 5</strong></span><br /><span style="font-size: 14pt;"><strong>    now running the inner loop</strong></span><br /><span style="font-size: 14pt;"><strong>    1 , 6</strong></span><br /><span style="font-size: 14pt;"><strong>    now running the inner loop</strong></span><br /><span style="font-size: 14pt;"><strong>    1 , 7</strong></span><br /><span style="font-size: 14pt;"><strong>    now running the outer loop</strong></span><br /><span style="font-size: 14pt;"><strong>    1 , 8</strong></span><br /><span style="font-size: 14pt;"><strong>    now running the outer loop</strong></span><br /><span style="font-size: 14pt;"><strong>    2 , 8</strong></span><br /><span style="font-size: 14pt;"><strong>    now running the outer loop</strong></span><br /><span style="font-size: 14pt;"><strong>    3 , 8</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">In the above example, we see two while-loops nested together. The "<span style="color: #ca04e0ff;">outer loop</span>" check the condition <code>i&lt;4</code> before every iteration, the "<span style="color: #9356adff;">inner loop</span>" check the condition <code>j&lt;8&nbsp;</code> before every iteration. When we run the block of code, here is what happened:&nbsp;</span></p>
+        <ul>
+            <li><span style="font-size: 14pt;">We first assign two variable <code><span style="background-color: #ecf0f1; font-family: terminal, monaco; color: #c33829ff;">i=1 </span></code>&nbsp;and <code><span style="background-color: #ecf0f1; color: #bc3528ff; font-family: terminal, monaco;">j=5</span></code>;&nbsp;&nbsp;</span></li>
+            <li><span style="font-size: 14pt;">Then python will start with check if <code>i&lt;4</code> (i.e., the outer loop condition) is True,</span>
+                <ul>
+                    <li><span style="font-size: 14pt;">when <code>i&lt;4</code> is <span style="color: #e03e2d;"><strong>True</strong></span>, python will move forward to the inner loop, and check if the condition <code>j&lt;8</code> is True;</span>
+                        <ul>
+                            <li><span style="font-size: 14pt;">when <code>j&lt;8</code> is<span style="color: #e03e2d;"><strong> True</strong></span>, python will then execute the command inside the inner loop.</span></li>
+                            <li><span style="font-size: 14pt;">After the first iteration, we will have <code>i=1, j=6</code></span></li>
+                            <li><span style="font-size: 14pt;">then python will go back to the top of the inner loop, and check the condition <code>j&lt;8</code> again.&nbsp;</span></li>
+                            <li><span style="font-size: 14pt;">the inner iteration will keep running until <code>j&lt;8</code> become False</span></li>
+                        </ul>
+                    </li>
+                    <li><span style="font-size: 14pt;">When the condition j&lt;8 become False, python will jump out of the outer loop, and execute the commands below the inner loop.</span></li>
+                    <li><span style="font-size: 14pt;">When it reaches the bottom of the code, python will go back to the top of the outer loop, check the condition <code>i&lt;4</code> again, and determine if to start the next iteration.</span></li>
+                </ul>
+            </li>
+            <li><span style="font-size: 14pt;">The whole process ends when the condition <code>i&lt;4</code> become False.</span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <h4><span style="font-size: 14pt;">1.2. Break and Continue</span></h4>
+        <p><span style="font-size: 14pt;">When we use loops to perform iteration, another useful skill is to stop the iteration when certain condition is met. Typically there are two ways to stop a running loop: the <code>break</code> statement and <code>continue</code> statement.&nbsp;</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">The <code>break</code> statement is used to terminate the current iteration and exist the loop immediately. If the <code>break</code> statement is inside a nested loop, the <code>break</code> statement will terminate the<span style="text-decoration: underline;"> innermost loop</span>. Let's look at an example:</span></p>
+        <p>&nbsp;</p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #29a85dff;">In[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>name_list = [<span style="color: #5a6464ff;">'Mary','Diana','Dorothy','Jessica','Esther','Valerie',</span></strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;">'Brenda','Alfreda','Martha','Cari'</span>]</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">while</span> name_list:    <span style="color: #169179;">#This is a pythonic way to say "while name_list is not empty"</span></strong></span><br /><span style="font-size: 14pt;"><strong>    name = name_list.pop(<span style="color: #9c830fff;">0</span>)</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">    if</span> name !='Dorothy': &nbsp; </strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp;     <span style="color: #c86e20ff;">print</span>(<span style="color: #5a6464ff;">"current name is %s." </span>%(name))</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; <span style="color: #0000ff;">else</span>:</strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp;     <span style="color: #cd701fff;">print</span>(<span style="color: #5a6464ff;">"Break the loop when see the name Dorothy"</span>)</strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp;     <span style="color: #0000ff;">break  <span style="color: #169179;"># terminate the loop</span></span></strong></span><br /><span style="font-size: 14pt;"><strong>print(name_list) </strong> <strong><span style="color: #169179;">#Let's see who are still in the name list</span></strong></span></pre>
+        <p><span style="font-size: 14pt;">In this&nbsp; example, we first create a name_list with 10 names in it. Then we use a while loop to pop the names and print them out one by one. During the iterations, we want python to stop the loop whenever the name "Dorothy" appears.&nbsp; Below is the output when running the above bock of code.&nbsp;</span></p>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>current name is Mary.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Diana.</strong></span><br /><span style="font-size: 14pt;"><strong>Break the loop when see the name Dorothy.</strong></span><br /><span style="font-size: 14pt;"><strong>['Jessica', 'Esther', 'Valerie', 'Brenda', 'Alfreda', 'Martha', 'Cari']</strong></span></pre>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">The <code>continue</code> statement are similar to the break statement. The <code>continue</code> statement is used to skip the rest of the code inside a loop <span style="text-decoration: underline;">ONLY for the current iteration.</span> It will not terminate the loop, but continues on with the next iteration. Still using the above example:</span></p>
+        <p><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #29a85dff;">In[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>name_list = [<span style="color: #5a6464ff;">'Mary','Diana','Dorothy','Jessica','Esther','Valerie',</span></strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;">'Brenda','Alfreda','Martha','Cari'</span>]</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">while</span> name_list:    <span style="color: #169179;">#This is a pythonic way to say "while name_list is not empty"</span></strong></span><br /><span style="font-size: 14pt;"><strong>    name = name_list.pop(<span style="color: #a18611ff;">0</span>)</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">    if</span> name !='Dorothy': &nbsp; </strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp;     <span style="color: #b45a14ff;">print</span>(<span style="color: #5a6464ff;">"current name is %s." </span>%(name))</strong></span><br /><span style="font-size: 14pt;"><strong>&nbsp; &nbsp; <span style="color: #0000ff;">else</span>:</strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp;     <span style="color: #b45a14ff;">print</span>(<span style="color: #5a6464ff;">"skip one"</span>)</strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp;    <span style="color: #0000ff;"> continue. <span style="color: #169179;"># continue on to the next iteration</span></span></strong></span><br /><span style="font-size: 14pt;"><strong>print(name_list) </strong> <strong><span style="color: #169179;">#Let's see who are still in the name list</span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>current name is Mary.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Diana.</strong></span><br /><span style="font-size: 14pt;"><strong>skip one</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Jessica.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Esther.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Valerie.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Brenda.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Alfreda.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Martha.</strong></span><br /><span style="font-size: 14pt;"><strong>current name is Cari.</strong></span><br /><span style="font-size: 14pt;"><strong>[]</strong></span></pre>
+        <p><span style="font-size: 14pt;">&nbsp;As the result, the <code>continue</code> statement only skipped the name "Dorothy", and then continued on to the next iteration.&nbsp; Below are the flowchart of break statement and continue statement in python.</span></p>
+        <p>&nbsp;</p>
+        <table style="border-collapse: collapse; width: 100%;" border="1">
+            <caption>Break and Continue statement</caption>
+            <tbody>
+                <tr>
+                    <th style="width: 50%; text-align: center;" scope="col">The Break Statement</th>
+                    <th style="width: 50%; text-align: center;" scope="col">The Continue Statement</th>
+                </tr>
+                <tr>
+                    <td style="width: 50%;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://canvas.case.edu/courses/18943/files/7284961/preview" alt="flowchart of break statement in python" width="274" height="320" data-api-endpoint="https://canvas.case.edu/api/v1/courses/18943/files/7284961" data-api-returntype="File" /></td>
+                    <td style="width: 50%;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://canvas.case.edu/courses/18943/files/7284962/preview" alt="flowchart for continue statement in python" width="274" height="320" data-api-endpoint="https://canvas.case.edu/api/v1/courses/18943/files/7284962" data-api-returntype="File" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <h3><strong>Video Instruction</strong></h3>
+        <p><strong>Both the text and video versions of the lecture cover the same material, so you can choose the format that best suits your learning style without missing any key information.</strong></p>
+        <p style="text-align: center;"><strong><iframe style="width: 640px; height: 360px; display: inline-block;" title="2-3. more about loops.mp4" data-media-type="video" src="https://canvas.case.edu/media_attachments_iframe/10456967?embedded=true&amp;type=video" loading="lazy" allowfullscreen="allowfullscreen" allow="fullscreen" data-titletext="2-3. more about loops.mp4" data-media-id="m-5PetVjb1zXNoNJ6e2Dt3p9qAvg3bpbDa"></iframe></strong></p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

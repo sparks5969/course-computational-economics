@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 2 — Logical Operators</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 2 — Stable Matching</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 2</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="part2-logic-operators.html" class="active">Part 2: Logic Operators</a>
+            <a href="part3-loops.html">Part 3: Loops</a>
+            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="practice2.html">Practice Project 2</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module3/index.html">Module 3</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 2 — Logical Operators</h1>
+<h2>Part 2. Logic Operators</h2>
+<p>As we have learned, conditions are nice way to make decisions by asking if something equals <strong>True</strong> or <strong>False</strong>. Sometimes, we may want to test several different conditions or even combine the conditions together to make a decision. <strong>Logical operators</strong> are used to combine conditional statements.</p>
+<p>There are three commonly used logical operators, <strong>and</strong>, <strong>or</strong>, <strong>not</strong>. Let’s look at each of them.</p>
+<ul><li>When use <strong>and</strong>, it returns True if both statements are true</li></ul>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>x = 5
+(x &gt; 3 and x &lt; 10)
+# the above two lines will returns True, because BOTH conditions are True.</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>True</code></pre></div>
+<ul><li>When use <strong>or</strong>, it returns true if one of the statements is true.</li></ul>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>x = 5
+(x &gt; 3 or x &lt; 4)
+# the above two lines will returns True,
+# because one of the conditions (x &gt; 3) is True</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>True</code></pre></div>
+<p>The <strong>not </strong>operator has two common use cases:</p>
+<p>Case 1. it reverse the result. i.e., it returns False if the result is True</p>
+<div class="code-cell code-input"><div class="code-label">In [3]:</div><pre><code>x = 5
+not (x &gt; 3 and x &lt; 10)
+# returns False, because it reverse the result inside the parentheses.</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [3]:</div><pre><code>False</code></pre></div>
+<p>Case 2. it can be used to check if a data structure (i.e., list, dictionary, set, tuple) is empty. If the data structure is empty, it returns true, otherwise it returns False.</p>
+<div class="code-cell code-input"><div class="code-label">In [4]:</div><pre><code>empty_list = [ ]
+not empty_list
+# returns True, because there is no element inside the empty_list</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [4]:</div><pre><code>True</code></pre></div>
+<div class="code-cell code-input"><div class="code-label">In [5]:</div><pre><code>list1 = [1,2,3]
+not list1
+# returns False, because list1 has elements in it, it is not empty.</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [5]:</div><pre><code>False</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

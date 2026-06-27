@@ -1,16 +1,18 @@
 # Computational Economics — Course Website
 
-Static course website for Module 1 (Anaconda + Spyder workflow).
+Static course website for Modules 1 and 2 (Anaconda + Spyder workflow).
 
 ## Landing page
 
-**[index.html](index.html)** is the entry point. Students open:
+**[index.html](index.html)** is the course home. Module entry points:
 
-| Page | URL path |
-|------|----------|
-| Overview | `/index.html` |
-| Part 1–5 | `/module1/part1-installation.html` … `part5-programming.html` |
-| Practice Project 1 | `/module1/practice1.html` |
+| Module | URL path |
+|--------|----------|
+| Home | `/index.html` |
+| Module 1 parts | `/module1/part1-installation.html` … `part5-programming.html` |
+| Module 1 practice | `/module1/practice1.html` |
+| Module 2 overview | `/module2/index.html` |
+| Module 2 practice | `/module2/practice2.html` |
 
 ## Local preview
 
@@ -32,9 +34,20 @@ Then visit [http://localhost:8000](http://localhost:8000).
 │   ├── part4-data-structures.html
 │   ├── part5-programming.html
 │   └── practice1.html
-└── scripts/                        # Build tools (not needed to view the site)
-    ├── build_module1.py            # Legacy Word → HTML pipeline
-    └── convert_html_source.py      # Canvas HTML → site HTML
+├── module2/
+│   ├── index.html
+│   ├── part1-1-list-functions.html
+│   ├── part1-2-dict-functions.html
+│   ├── part2-logic-operators.html
+│   ├── part3-loops.html
+│   ├── part4-json-comments.html
+│   ├── practice2.html
+│   ├── files/                  # Project 2 downloads
+│   └── from_canvas/            # Canvas source HTML (not published)
+└── scripts/
+    ├── build_module1.py        # Legacy Word → HTML pipeline
+    ├── build_module2.py        # Canvas → Module 2 pages
+    └── convert_html_source.py  # Canvas HTML → site HTML
 ```
 
 ## Deploy with GitHub Pages
@@ -51,10 +64,16 @@ Then visit [http://localhost:8000](http://localhost:8000).
 
 ## Updating content
 
-**Published pages** live directly in `module1/*.html`. Edit those files, or convert new Canvas exports:
+**Module 1** pages live in `module1/*.html`. **Module 2** pages are built from Canvas exports:
 
 ```bash
-python3 scripts/convert_html_source.py <canvas-export.html> <output.html>
+python3 scripts/build_module2.py
+```
+
+To convert a single Canvas file:
+
+```bash
+python3 scripts/convert_html_source.py SOURCE.html OUTPUT.html --module 2 --title "Page Title" --active page.html
 ```
 
 See `.cursor/skills/canvas-to-site/SKILL.md` for conversion patterns.

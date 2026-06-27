@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 3.3 — Inheritance &amp; Subclasses</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 3 — OOP &amp; Functions</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 3</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-programming-paradigm.html">Part 1: Programming Paradigm</a>
+            <a href="part2-1-2-functions.html">Part 2.1–2.2: What &amp; Why Functions</a>
+            <a href="part2-user-functions.html">Part 2.3: User-Defined Functions</a>
+            <a href="part3-1-class.html">Part 3.1: Class</a>
+            <a href="part3-2-object.html">Part 3.2: Object</a>
+            <a href="part3-3-inheritance.html" class="active">Part 3.3: Inheritance</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module2/index.html">Module 2</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 3.3 — Inheritance &amp; Subclasses</h1>
+<h3>Part 3.3. Inheritance and Subclasses</h3>
+<p>We next generate a new class that inherits features of the animal class but is more specific. We call it the <strong>bird</strong> class. A bird is an animal but it has certain bird specific features that other animals do not share. Here is the blueprint.</p>
+<p>Note that it is derived from the Animal class so that the Bird class <strong>inherits</strong> all the methods and variable definitions of its <strong>superclass</strong> of Animals. However, it adds a couple more variables and methods. Plus it <strong>overrides</strong> the old method <code>introduce_me()</code> with a more comprehensive output.</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>class Bird(Animal):
+
+    def __init__(self, name=&#x27;Bird Doe&#x27;, weight=0, color=&#x27;na&#x27;,speed=0):
+        &quot;&quot;&quot;Initialize the bird-object calling the animal init method
+        but also adding additional variables&quot;&quot;&quot;
+        Animal.__init__(self, name, weight)
+        self.color = color
+        self.speed = speed
+
+    def introduce_me(self):
+        &quot;&quot;&quot;
+        prints out all the variables.&quot;&quot;&quot;
+        print(&quot;\n&quot;)
+        print(&quot;Hello, let me introduce myself.&quot;)
+        print(&quot;-------------------------------&quot;)
+        print(f&quot;My name is {self.name}&quot;)
+        print(f&quot;My weight is {self.weight} grams&quot;)
+        print(f&quot;My color is {self.color}&quot;)
+        print(f&quot;My speed is {self.speed}&quot;)
+        print(&quot;-------------------------------\n&quot;)
+
+    def fly_training(self, workoutLength=0):
+        &quot;&quot;&quot;Method: fly_training(workoutLength)
+        Augments the flight speed of the bird as a function
+        of the bird objects workoutLength:
+        new_speed = old_speed + log(workoutLength)&quot;&quot;&quot;
+        self.speed += m.log(workoutLength)</code></pre></div>
+<p>Here we redefined the <code>introduce_me()</code> method from the animal class. When we call it on the bird object, it will use this new definition of the method. Now let’s look at the bird’s class blueprint.</p>
+<div class="code-cell code-input"><div class="code-label">In [3]:</div><pre><code>help(Bird)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [3]:</div><pre><code>Help on class Bird in module __main__:
+
+class Bird(Animal)
+ |  Bird(name=&#x27;Bird Doe&#x27;, weight=0, color=&#x27;na&#x27;, speed=0)
+ |
+ |  Method resolution order:
+ |      Bird
+ |      Animal
+ |      builtins.object
+ |
+ |  Methods defined here:
+ |
+ |  __init__(self, name=&#x27;Bird Doe&#x27;, weight=0, color=&#x27;na&#x27;, speed=0)
+ |      Initialize the bird-object calling the animal init method
+ |      but also adding additional variables
+ |
+ |  fly_training(self, workoutLength=0)
+ |      Method: fly_training(workoutLength)
+ |      Augments the flight speed of the bird as a function
+ |      of the bird objects workoutLength:
+ |      new_speed = old_speed + log(workoutLength)
+ |
+ |  introduce_me(self)
+ |      prints out all the variables.
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from Animal:
+ |
+ |  eat(self, foodAmount=0.0)
+ |      Method: eat(foodAmount=0)  translates food input &#x27;foodAmount&#x27;
+ |      into additional weight according to the  following formula:
+ |      new_weight = old_weight + sqrt(foodAmount)
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from Animal:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)</code></pre></div>
+<p>Let&#x27;s generate a bird object.</p>
+<div class="code-cell code-input"><div class="code-label">In [4]:</div><pre><code>bird1 = Bird(&#x27;Dove&#x27;, 10, &#x27;grey&#x27;, 60)
+bird1.introduce_me()</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [4]:</div><pre><code>Hello, let me introduce myself.
+-------------------------------
+My name is Dove
+My weight is 10 grams My color is grey
+My speed is 60
+-------------------------------</code></pre></div>
+<p>We let the bird eat and then we train him a bit.</p>
+<div class="code-cell code-input"><div class="code-label">In [5]:</div><pre><code>bird1.eat(foodAmount=9)
+bird1.fly_training(workoutLength=10)
+bird1.introduce_me()</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [5]:</div><pre><code>Hello, let me introduce myself.
+-------------------------------
+My name is Dove
+My weight is 13.0 grams
+My color is grey
+My speed is 62.30258509299404</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

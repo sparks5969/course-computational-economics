@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 1.1 — List Functions</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 2 — Stable Matching</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 2</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-1-list-functions.html" class="active">Part 1.1: List Functions</a>
+            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="part3-loops.html">Part 3: Loops</a>
+            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="practice2.html">Practice Project 2</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module3/index.html">Module 3</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 1.1 — List Functions</h1>
+<h2>Part 1. Function and the doc syntax</h2>
+<p><strong>Function</strong> is a block of code which runs when it is called.</p>
+<p>You can think of the functions as “incantations” in the magic world. In the magical world, whenever you need to use a magic, you will use the “incantation” to make it happen. Similarly, in the programming world, whenever you need to let python does something for you, you call functions to make it happen. For example, we have seen how to use functions to let python <strong>import </strong>packages and modules, <strong>open</strong> files we wanted to process, <strong>print </strong>out information for inspection.</p>
+<p>There are three types of functions in Python:</p>
+<ul><li><strong>Built-in functions</strong>, such as <code>help()</code> to ask for help, <code>min()</code> to get the minimum value, <code>print()</code> to print an object to the terminal,… You can find an overview with more of these functions <a href="https://docs.python.org/3/library/functions.html" target="_blank">here</a>.</li><li><strong>User-Defined Functions</strong> (UDFs), which are functions that users create to help them out; And</li><li><strong>Anonymous functions</strong>, which are also called lambda functions because they are not declared with the standard <code>def</code> keyword.</li></ul>
+<p>In this module, we will focus on built-in functions.</p>
+<h3>1.1. Functions associated with python list</h3>
+<p>In python, everything is an <strong>object</strong>. (For now, it is ok if you don’t understand the concept of object . Later in this semester, we will spend a whole week to learn about this concept.) Python list is an object, dictionary is another object. For functions associated with an object, we call them via the <strong>doc syntax.</strong></p>
+<p>Let&#x27;s take python list as an example and take a closer look. As we have learned, list can contain certain values we assigned to it. In addition, a list object also has functions associate with it. We can call the functions via the <strong>doc-syntax </strong>to interact with data in the list.</p>
+<p>Let&#x27;s say I have a list contain ten different names.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>boys = [&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Andy&#x27;,&#x27;Nick&#x27;,&#x27;Mike&#x27;,&#x27;Eric&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Frank&#x27;]</code></pre></div>
+<p>If I wanted to sort the names alphabetically, I can use the <code>.sort()</code> function associate with the list to do so.</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>boys.sort()</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>boys = [&#x27;Andy&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]</code></pre></div>
+<p>In some cases, we may wanted to know the specific position of a value. For instance, in the sorted list, where is the name &quot;Frank&quot; positioned at? The <code>.index()</code> function associated with list object can be useful to solve this.</p>
+<div class="code-cell code-input"><div class="code-label">In [3]:</div><pre><code>boys.index(&#x27;Frank&#x27;)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [3]:</div><pre><code>5</code></pre></div>
+<p>One thing we need to always be careful about is that <strong>python starts indexing from zero</strong>. In the above example, if you count the number of people from the beginning of the list until &quot;Frank&quot;, the intuitive answer is 6. However, when python count the numbers, it starts from zero. i.e., Andy--0, Bob--1, Chris--2, and so on.</p>
+<p>Sometimes we need to &quot;pick&quot; and then removes the element at the specific position using index. Think of the name list as a customers&#x27; order list in a fast food restaurant. As the programmer, I wanted to &quot;pick&quot; the customer on the top of the list, complete the order, and remove his name from the list. the <code>.pop()</code> function is an effective way to help us complete this task:</p>
+<div class="code-cell code-input"><div class="code-label">In [4]:</div><pre><code>print(boys)
+now_serving = boys.pop(0)
+print(now_serving)
+print(boys)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [4]:</div><pre><code>[&#x27;Andy&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]
+Andy
+[&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]</code></pre></div>
+<p>In the above example, the <code>.pop()</code> function picked the name at position 0 (which is Andy) out of the list, assigned it to a new variable now_serving, and then removed it from the original list.</p>
+<p>Suppose another customer is coming in, we wanted to add a new name to the existing list, we can use the <code>.append()</code> function.Suppose the new customer&#x27;s name is &quot;Peter&quot; , to add him into the list, we can do:</p>
+<div class="code-cell code-input"><div class="code-label">In [5]:</div><pre><code>print(boys)
+boys.append(&#x27;Peter&#x27;)
+print(boys)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [5]:</div><pre><code>[&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]
+[&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;,&#x27;Peter&#x27;]</code></pre></div>
+<p>Sometimes we wanted to create a copy of the existing list to play with. The <code>.copy()</code> function associate with list object can help us do this.</p>
+<div class="code-cell code-input"><div class="code-label">In [4]:</div><pre><code>new_list = boys.copy()
+print (new_list)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [4]:</div><pre><code>[&#x27;Andy&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]</code></pre></div>
+<p>If you have some previous programming experience before, you may wonder if the <code>.copy()</code> function is really necessary. Why don&#x27;t just do this by assigning values? This is a potential issue that can cause programming mistakes. Let&#x27;s look at the following example:</p>
+<div class="code-cell code-input"><div class="code-label">In [5]:</div><pre><code>boys1 =  [&#x27;Andy&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]
+boys2 = boys1
+boys1.remove(&#x27;Andy&#x27;)
+print(boys1)
+print(boys2)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [5]:</div><pre><code>[&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]
+ [&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]</code></pre></div>
+<p>This is what just happened: although the two list  boys1  and  boys2  are different in names, but they <strong>bot </strong>point to the same, identical list (i.e., the list with 10 names). As soon as you remove a name using <code>boys1.remove(&#x27;Andy&#x27;)</code> , this command will change the content in <strong>both</strong> names of the list. If you only wanted to change one list, and keep they other unchanged, do the following:</p>
+<div class="code-cell code-input"><div class="code-label">In [6]:</div><pre><code>boys1 =  [&#x27;Andy&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]
+boys2 = boys1.copy()
+boys1.remove(&#x27;Andy&#x27;)
+print(boys1)
+print(boys2)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [6]:</div><pre><code>[&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]
+ [&#x27;Andy&#x27;,&#x27;Bob&#x27;,&#x27;Chris&#x27;,&#x27;Danny&#x27;,&#x27;Eric&#x27;,&#x27;Frank&#x27;,&#x27;James&#x27;,&#x27;Kelly&#x27;,&#x27;Mike&#x27;,&#x27;Nick&#x27;]</code></pre></div>
+<p>Above are some examples of list methods. To see all the functions (and examples) associated with python list, please go to <a href="https://www.w3schools.com/python/python_ref_list.asp" target="_blank">this website</a>. <strong></strong></p>
+    </main>
+  </div>
+</body>
+</html>

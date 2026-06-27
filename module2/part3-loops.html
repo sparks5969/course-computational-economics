@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 3 — More About Loops</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 2 — Stable Matching</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 2</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="part3-loops.html" class="active">Part 3: Loops</a>
+            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="practice2.html">Practice Project 2</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module3/index.html">Module 3</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 3 — More About Loops</h1>
+<h2>Part 3. More about loops</h2>
+<p>In the previous week, we studied how to use loops to perform iterations in Python. In this section, we extend the discussion to <strong>nested loops</strong> (i.e., loops inside loops).  We will  learn about how to use the break and continue statements to control the loops behavior. The ultimatum goal is to master the magic of nested loops and use them to complete <strong>conditional, repeated </strong>tasks.</p>
+<h3>3.1. Nested loops</h3>
+<p>Let&#x27;s take while loop as an example and look at the following code:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>i, j = 1, 5
+while i &lt; 4:
+    while j &lt; 8:
+        print(&quot;now running the inner loop&quot;)
+        print(i, &quot;,&quot;, j)
+        j = j + 1
+    print(&quot;now running the outer loop&quot;)
+    print(i, &quot;,&quot;, j)
+    i = i+1</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>now running the inner loop
+    1 , 5
+    now running the inner loop
+    1 , 6
+    now running the inner loop
+    1 , 7
+    now running the outer loop
+    1 , 8
+    now running the outer loop
+    2 , 8
+    now running the outer loop
+    3 , 8</code></pre></div>
+<p>In the above example, we see two while-loops nested together. The &quot;outer loop&quot; check the condition <code>i&lt;4</code> before every iteration, the &quot;inner loop&quot; check the condition <code>j&lt;8 </code> before every iteration. When we run the block of code, here is what happened:</p>
+<ul><li>We first assign two variable <code>i=1 </code> and <code>j=5</code>;  </li><li>Then python will start with check if <code>i&lt;4</code> (i.e., the outer loop condition) is True,
+
+when <code>i&lt;4</code> is <strong>True</strong>, python will move forward to the inner loop, and check if the condition <code>j&lt;8</code> is True;
+
+when <code>j&lt;8</code> is<strong> True</strong>, python will then execute the command inside the inner loop.
+After the first iteration, we will have <code>i=1, j=6</code>
+then python will go back to the top of the inner loop, and check the condition <code>j&lt;8</code> again. 
+the inner iteration will keep running until <code>j&lt;8</code> become False
+
+
+When the condition j&lt;8 become False, python will jump out of the outer loop, and execute the commands below the inner loop.
+When it reaches the bottom of the code, python will go back to the top of the outer loop, check the condition <code>i&lt;4</code> again, and determine if to start the next iteration.
+
+</li><li>The whole process ends when the condition <code>i&lt;4</code> become False.</li></ul>
+<h3>1.2. Break and Continue</h3>
+<p>When we use loops to perform iteration, another useful skill is to stop the iteration when certain condition is met. Typically there are two ways to stop a running loop: the <code>break</code> statement and <code>continue</code> statement.</p>
+<p>The <code>break</code> statement is used to terminate the current iteration and exist the loop immediately. If the <code>break</code> statement is inside a nested loop, the <code>break</code> statement will terminate the innermost loop. Let&#x27;s look at an example:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>name_list = [&#x27;Mary&#x27;,&#x27;Diana&#x27;,&#x27;Dorothy&#x27;,&#x27;Jessica&#x27;,&#x27;Esther&#x27;,&#x27;Valerie&#x27;,
+&#x27;Brenda&#x27;,&#x27;Alfreda&#x27;,&#x27;Martha&#x27;,&#x27;Cari&#x27;]
+while name_list:    #This is a pythonic way to say &quot;while name_list is not empty&quot;
+    name = name_list.pop(0)
+    if name !=&#x27;Dorothy&#x27;:
+        print(&quot;current name is %s.&quot; %(name))
+    else:
+        print(&quot;Break the loop when see the name Dorothy&quot;)
+        break  # terminate the loop
+print(name_list)  #Let&#x27;s see who are still in the name list</code></pre></div>
+<p>In this  example, we first create a name_list with 10 names in it. Then we use a while loop to pop the names and print them out one by one. During the iterations, we want python to stop the loop whenever the name &quot;Dorothy&quot; appears.  Below is the output when running the above bock of code.</p>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>current name is Mary.
+current name is Diana.
+Break the loop when see the name Dorothy.
+[&#x27;Jessica&#x27;, &#x27;Esther&#x27;, &#x27;Valerie&#x27;, &#x27;Brenda&#x27;, &#x27;Alfreda&#x27;, &#x27;Martha&#x27;, &#x27;Cari&#x27;]</code></pre></div>
+<p>The <code>continue</code> statement are similar to the break statement. The <code>continue</code> statement is used to skip the rest of the code inside a loop ONLY for the current iteration. It will not terminate the loop, but continues on with the next iteration. Still using the above example:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>name_list = [&#x27;Mary&#x27;,&#x27;Diana&#x27;,&#x27;Dorothy&#x27;,&#x27;Jessica&#x27;,&#x27;Esther&#x27;,&#x27;Valerie&#x27;,
+&#x27;Brenda&#x27;,&#x27;Alfreda&#x27;,&#x27;Martha&#x27;,&#x27;Cari&#x27;]
+while name_list:    #This is a pythonic way to say &quot;while name_list is not empty&quot;
+    name = name_list.pop(0)
+    if name !=&#x27;Dorothy&#x27;:
+        print(&quot;current name is %s.&quot; %(name))
+    else:
+        print(&quot;skip one&quot;)
+        continue. # continue on to the next iteration
+print(name_list)  #Let&#x27;s see who are still in the name list</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>current name is Mary.
+current name is Diana.
+skip one
+current name is Jessica.
+current name is Esther.
+current name is Valerie.
+current name is Brenda.
+current name is Alfreda.
+current name is Martha.
+current name is Cari.
+[]</code></pre></div>
+<p>As the result, the <code>continue</code> statement only skipped the name &quot;Dorothy&quot;, and then continued on to the next iteration.  Below are the flowchart of break statement and continue statement in python.</p>
+<table>
+<tr><th>The Break Statement</th><th>The Continue Statement</th></tr><tr><td></td><td></td></tr>
+</table>
+    </main>
+  </div>
+</body>
+</html>

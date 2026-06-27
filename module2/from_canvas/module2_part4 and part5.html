@@ -1,0 +1,52 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li><span style="color: #7e8c8d;"><strong style="color: #5a6464ff;">Part 1. Functions and the doc syntax</strong></span>
+                <ul>
+                    <li><span style="color: #616d6eff;">Functions associated with python list</span></li>
+                    <li><span style="color: #687475ff;">Functions associated with python dictionary</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #7e8c8d;"><strong style="color: #5a6464ff;">Part 2. Logical operators</strong></span></li>
+            <li><span style="color: #7e8c8d;"><strong style="color: #5a6464ff;">Part 3. More about loops</strong></span>
+                <ul>
+                    <li><span style="color: #687575ff;">Nested loops</span></li>
+                    <li><span style="color: #687475ff;">Break and continue loops</span></li>
+                </ul>
+            </li>
+            <li><span style="color: #236fa1;"><strong>Part 4. JSON data format</strong></span></li>
+            <li><span style="color: #236fa1;"><strong>Part 5. Comment your code</strong></span></li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3>Part 4. JSON data format</h3>
+        <p><span style="font-size: 14pt;">In brief, <span style="color: #e03e2d;"><strong>JSON</strong></span> (JavaScript Object Notation) is one of the most popular ways for data storage and exchange, which is accomplished through its syntax, and is used in many web applications. It can be easily used to store and communicate information to other products. &nbsp;Many programming languages, including python, support the JSON data format.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">In python, there is a built-in package &lsquo;<strong>json</strong>&rsquo; that can be used to read json file and convert a JSON string into a python object. Since JSON file store information based on <span style="color: #e03e2d;"><em style="color: #cc3928ff;">key:value</em></span> pairs, which is very similar to python dictionary It is the most convenient to convert JSON file to python dictionary. Here is an example.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">In our weekly project, you will need to import a json file I provided and then start play with it. Here is how it works:</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #28aa5dff;">In[1]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">import </span>json</strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #5a6464ff;"># import the datasets</span></strong></span><br /><span style="font-size: 14pt;"><strong><span style="color: #0000ff;">with</span> <span style="color: #c66c1fff;">open</span><span style="color: #5a6464ff;">('project2_data.json'</span>) <span style="color: #0000ff;">as </span>f:</strong></span><br /><span style="font-size: 14pt;"><strong>  &nbsp; preference = json.load(f)</strong></span></pre>
+        <p><span style="font-size: 14pt;">The above block of code will load the<em><span style="color: #6c7778ff;"> 'project2_data.josn'</span></em> file I provided, and store it in a python dictionary named as 'preference'. ======================================================================================================</span></p>
+        <p>&nbsp;</p>
+        <h3>Part 5. Comment your code</h3>
+        <p><span style="font-size: 14pt;">When writing your code in python, it&rsquo;s important to make sure that your code can be easily understood by others and by yourself. Giving variables obvious names, defining explicit functions, and organizing your code are all great ways to do this. Another awesome and easy way to increase the readability of your code is by using comments. In addition, comments can also be used to prevent execution when testing the code.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">Programmers forget what their own code does all the time, especially if the code was written a long time ago or under pressure. Writing comments as you go is a great way to keep your memory fresh. It will also push yourself to think about if your code make sense and keep improve it. Using proper comments throughout your code can also help others understand how it all works very quickly. This is very important when collaborating with others.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-size: 14pt;">When you need to make a comment, simply put a hash mark # before the line you wanted to comment. Let&rsquo;s look at this example:</span></p>
+        <p><span style="font-size: 14pt;"><span style="color: #2dc26b; font-size: 14pt;"><strong style="color: #27a45aff;">In[1]:</strong></span></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong><span style="color: #197841ff;"># this line is a comment, python won't run it.</span><br />print('this sentence will be printed out in you terminal.') <span style="color: #197841ff;"> # you can insert comments anywhere</span><br /><span style="color: #249a54ff;"># python ignores everything AFTER the hash mark and UP TO the end of the line.<br /># If you wanted to write a long comment that may take more than one line,<br /># just put a hash mark on each subsequent line.<br /><span style="color: #34495e;">print('Good luck with the weekly project.')</span><br /># now I think you got the idea. let's run this block of code and see what will happen.<br /></span></strong></span></pre>
+        <p><span style="color: #e03e2d; font-size: 14pt;"><strong>Out[1]:</strong></span></p>
+        <pre style="padding-left: 40px;"><span style="font-size: 14pt;"><strong>this sentence will be printed out in your terminal.<br />Good luck with the weekly project.</strong></span></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3><strong>Video Instruction</strong></h3>
+        <p><strong>Both the text and video versions of the lecture cover the same material, so you can choose the format that best suits your learning style without missing any key information.</strong></p>
+        <p style="text-align: center;"><strong><iframe style="width: 640px; height: 360px; display: inline-block;" title="2-4&amp;2-5.JSON and comment.mp4" data-media-type="video" src="https://canvas.case.edu/media_attachments_iframe/10456973?embedded=true&amp;type=video" loading="lazy" allowfullscreen="allowfullscreen" allow="fullscreen" data-titletext="2-4&amp;2-5.JSON and comment.mp4" data-media-id="m-5DdzCsGetAwyUuaVYR6aDSWptgobQJVR"></iframe></strong></p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

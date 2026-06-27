@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 3.2 — Object</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 3 — OOP &amp; Functions</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 3</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-programming-paradigm.html">Part 1: Programming Paradigm</a>
+            <a href="part2-1-2-functions.html">Part 2.1–2.2: What &amp; Why Functions</a>
+            <a href="part2-user-functions.html">Part 2.3: User-Defined Functions</a>
+            <a href="part3-1-class.html">Part 3.1: Class</a>
+            <a href="part3-2-object.html" class="active">Part 3.2: Object</a>
+            <a href="part3-3-inheritance.html">Part 3.3: Inheritance</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module2/index.html">Module 2</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 3.2 — Object</h1>
+<h3>Part 3.2. Object</h3>
+<p>With the blueprint, we next generate an animal object. Here we create the first animal. Its name is cat and weighs 8 lbs.</p>
+<div class="code-cell code-input"><div class="code-label">In [3]:</div><pre><code>animal1 = Animal(name = &#x27;cat&#x27;, weight = 8.0)</code></pre></div>
+<p>You can access the variables (or embedded data) of the animal using the animal object and the ‘dot’ notation.</p>
+<div class="code-cell code-input"><div class="code-label">In [4]:</div><pre><code>print(&quot;The name of the first animal is {}&quot;.format(animal1.name))
+print(&quot;The weight of the first animal is {}&quot;.format(animal1.weight))</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [4]:</div><pre><code>The name of the first animal is Cat
+The weight of the first animal is 8.0</code></pre></div>
+<p>Because we defined a method &quot;introduce_me&quot; for the animal class, we can simply call this method to get information.</p>
+<div class="code-cell code-input"><div class="code-label">In [5]:</div><pre><code>animal1.introduce_me()</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [5]:</div><pre><code>Hello, let me introduce myself.
+-------------------------------
+My name is Cat
+ My weight is 8.0 pounds
+-------------------------------</code></pre></div>
+<p>As you see, method can interact with the attribute of the class. Let&#x27;s define a new method eat() for the animal class.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import math as m
+
+class Animal:
+
+    def __init__(self, name = &#x27;Animal Doe&#x27;, weight = 0.0):
+        self.name = name
+        self.weight = weight
+    def introduce_me(self):
+        print(&quot;Hello, let me introduce myself&quot;)
+        print(&quot;My name is {}&quot;.format(self.name))
+        print(&quot;My weight is {} pounds&quot;.format(self.weight))
+        print(&quot;-------------------------------\n&quot;)
+
+    def eat(self, foodAmount = 0.0):
+        &quot;&quot;&quot;Method: eat(foodAmount=0)  translates food input &#x27;foodAmount&#x27;
+        into additional weight according to the  following formula:
+        new_weight = old_weight + sqrt(foodAmount)&quot;&quot;&quot;
+        self.weight += m.sqrt(foodAmount)  # the += is a pythonic way to say self.weight = self.weight + m.sqrt(foodAmount)</code></pre></div>
+<p>Now we let the animal eat, by calling the method <code>eat()</code> on the cat object.</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>animal1 = Animal(name = &#x27;cat&#x27;, weight = 8.0)
+animal1.eat(9)
+animal1.introduce_me()</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>Hello, let me introduce myself
+My name is cat
+My weight is 11.0 pounds
+-------------------------------</code></pre></div>
+<p>As you see, now the method &#x27;eat&#x27; first take the argument 9 as input, and then updated the weight attributes according the the rule we defined.</p>
+    </main>
+  </div>
+</body>
+</html>

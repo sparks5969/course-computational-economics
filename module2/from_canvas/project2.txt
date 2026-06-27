@@ -1,0 +1,32 @@
+In this project, you will work with a given dataset, apply the Gale-Shapley algorithm to solve a stable-matching problem.
+
+You will need to upload your complete python script on Canvas before the deadline.
+
+[download the datasetDownload download the dataset]
+
+[download the incomplete scriptDownload download the incomplete script]
+
+ 
+
+The given dataset contains simplified information from a dating website. In the dataset:
+
+There are 30 men and 30 women. 
+Each woman has met all the men; each men has met all the women.
+Each person has a clear preference list of potential partners, rank from the most ideal partner (indexing 0) to the least ideal partner (indexing 29).  
+Your task is to find a stable-matching solution based on their preferences. Keep in mind that in a correct solution, there are no two people of opposite sex who would both rather have each other than their current partners.
+
+
+
+Section 1. Preparation
+
+1-1. import all the necessary python modules
+
+    In this project ,we will need the python built-in json module.
+
+1-2. import the given dataset (a json file)
+
+Section 2 extract information from the given dataset, create necessary python objects for further use.
+
+Section 3. Implement the Gale-Shapley algorithm to solve the problem.
+
+Section 4. verify the solution is correct

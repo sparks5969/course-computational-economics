@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 2.3 — User-Defined Functions</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 3 — OOP &amp; Functions</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Module 3</div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Lecture</div>
+          <div class="sidebar-nested">
+            <a href="index.html">Overview</a>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-sublabel">Workshop</div>
+          <div class="sidebar-nested">
+            <a href="part1-programming-paradigm.html">Part 1: Programming Paradigm</a>
+            <a href="part2-1-2-functions.html">Part 2.1–2.2: What &amp; Why Functions</a>
+            <a href="part2-user-functions.html" class="active">Part 2.3: User-Defined Functions</a>
+            <a href="part3-1-class.html">Part 3.1: Class</a>
+            <a href="part3-2-object.html">Part 3.2: Object</a>
+            <a href="part3-3-inheritance.html">Part 3.3: Inheritance</a>
+          </div>
+        </div>
+        <div class="sidebar-label">More</div>
+        <a href="../index.html#module-1">Module 1</a>
+        <a href="../module2/index.html">Module 2</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 2.3 — User-Defined Functions</h1>
+<h2>Part 2. Functions in Python</h2>
+<h3>2.3. User-defined function</h3>
+<ul><li> In Python, a user-defined function&#x27;s declaration begins with the keyword `def` and followed by the function name.</li><li> The function may take arguments(s) as input within the opening and closing parentheses, just after the function name followed by a colon.</li><li> After defining the function name and arguments(s) a block of program statement(s) start at the next line and these statement(s) must be indented.</li><li>You can give any name to a user defined function EXCEPT the Python keywords (such as print, if, vars, etc.)</li><li>
+To call a function, use the function name followed by parenthesis.
+</li></ul>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>def even_or_odd(x):
+    if (x%2 ==0):
+        print(&#x27;even&#x27;)
+    else:
+        print(&#x27;odd&#x27;)
+
+# call the function
+even_or_odd(9)
+even_or_odd(12)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>odd
+even</code></pre></div>
+<p>Next let&#x27;s look at another (a bit more complex) example. We wanted to define a function to calculate the area of a circle.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>def area_circle(radius):
+    pi = 3.1415926
+    area = pi * radius **2
+    print(area)</code></pre></div>
+<p>In this example, we defined a function <code>area_circle</code> to calculate the area of circles. From this example, we can look at the components of a function:</p>
+<ul><li>the first line <code>def area_circle(radius):</code> is known as the <strong><em>function header</em></strong></li><li>the radius inside the parentheses is the function <strong><em>parameter</em></strong>. This parameter is used just like a variable of the function.</li><li>the variable <strong><em>pi </em></strong>and <em><strong>area </strong></em>are known as <strong><em>local variables</em></strong>. They only exist within the function.</li></ul>
+<p>Once we defined the function, we can call it to do some calculation for us. when we call the function, simply type in the function name, and feed it with the <strong><em>argument</em></strong> (in this example, radius is the only input variable). The argument will then be passed to the parameter of the function and do the calculation for us.</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>area_circle(12.5)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [2]:</div><pre><code>490.87384375</code></pre></div>
+<p>In this example, the function does the calculate for us, but it does not return any value. To let the function return a value, use the <code>return</code> keyword inside the function.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>def area_circle(radius):
+    pi = 3.1415926
+    area = pi * radius **2
+    return area
+
+# now call the function to do calculate, and store the result.
+result = area_circle(12.5)
+print(result)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>current unemployment rate is 15.38 percent.</code></pre></div>
+<p>In the above example, we defined two functions. The first function is <code>labor_force</code>, it takes population and participation as two inputs, and calculate the total labor force number. The second function is <code>unemployment_rate</code>, it take population, participation, and out_of_job as input variables, and calculate the unemployment rate. Note that inside the <code>unemployment_rate</code> function, we directly call the function <code>labor_force</code> to calculate the number of labor force. This is neat, as we don&#x27;t have to repeat ourselves when calculating the unemployment rate.</p>
+<p>Module Item Completion (built in browser, hidden in app)&lt;/</p>
+    </main>
+  </div>
+</body>
+</html>

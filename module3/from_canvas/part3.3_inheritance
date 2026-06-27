@@ -1,0 +1,77 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="color: #646464ff;">Part 1. Programming Paradigm</span></p>
+        <p><span style="color: #646464ff;">Part 2. Functions in Python</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.1. what are functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.2. why functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.3. user-defined functions</span></p>
+        <p><strong><span style="color: #236fa1;">Part 3. Object Oriented Programming</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.1. Class</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.2. Object</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.3. Inheritance and Subclasses</span></strong></p>
+        <p>=======================================================================================</p>
+        <h4>Part 3.3. Inheritance and Subclasses</h4>
+        <p>We next generate a new class that inherits features of the animal class but is more specific. We call it the<span>&nbsp;</span><strong>bird</strong><span>&nbsp;</span>class. A bird is an animal but it has certain bird specific features that other animals do not share. Here is the blueprint.</p>
+        <p>Note that it is derived from the Animal class so that the Bird class<span>&nbsp;</span><strong>inherits</strong><span>&nbsp;</span>all the methods and variable definitions of its<span>&nbsp;</span><strong>superclass</strong><span>&nbsp;</span>of Animals. However, it adds a couple more variables and methods. Plus it<span>&nbsp;</span><strong>overrides</strong><span>&nbsp;</span>the old method<span>&nbsp;</span><code class="docutils literal notranslate"><span class="pre">introduce_me()</span></code><span>&nbsp;</span>with a more comprehensive output.</p>
+        <p><span><strong>In[2]:</strong></span></p>
+        <pre><strong><span class="k"><span>class</span></span> <span class="nc">Bird</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+
+ <span>   <span class="k">def</span></span> <span class="fm"><span>__init_</span>_</span><span class="p">(</span><span><em><span class="bp">self</span></em></span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Bird Doe'</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'na'</span><span class="p">,</span><span class="n">speed</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">"""Initialize the bird-object calling the animal init method</span>
+<span class="sd">        but also adding additional variables"""</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
+
+   <span> <span class="k">def</span></span> <span>introduce_me</span><span class="p">(</span><em><span class="bp">self</span></em><span class="p"><em><span>)</span></em>:</span>
+        <span class="sd">"""</span>
+<span class="sd">        prints out all the variables."""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, let me introduce myself."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"-------------------------------"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(f</span><span class="s2">"My name is </span><span class="si">{self.name}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(f</span><span class="s2">"My weight is </span><span class="si">{self.weight}</span><span class="s2"> grams"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(f</span><span class="s2">"My color is </span><span class="si">{self.color}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(f</span><span class="s2">"My speed is </span><span class="si">{self.speed}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"-------------------------------</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+   <span> <span class="k">def</span> </span><span class="nf">fly_training</span><span class="p">(</span><em><span class="bp">self</span></em><span class="p">,</span> <span class="n">workoutLength</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">"""Method: fly_training(workoutLength)</span>
+<span class="sd">        Augments the flight speed of the bird as a function</span>
+<span class="sd">        of the bird objects workoutLength:</span>
+<span class="sd">        new_speed = old_speed + log(workoutLength)"""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">+=</span> <span class="n">m</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">workoutLength</span><span class="p">)</span></strong></pre>
+        <p>Here we redefined the<span>&nbsp;</span><code class="docutils literal notranslate"><span class="pre">introduce_me()</span></code><span>&nbsp;</span>method from the animal class. When we call it on the bird object, it will use this new definition of the method. Now let&rsquo;s look at the bird&rsquo;s class blueprint.</p>
+        <p><span><strong>In[3]:</strong></span></p>
+        <pre><strong><span class="n">help</span><span class="p">(</span><span class="n">Bird</span><span class="p">)</span></strong></pre>
+        <p><strong><span>Out[3]:</span></strong></p>
+        <pre><strong>Help on class Bird in module __main__:</strong><br /><br /><strong>class Bird(Animal)</strong><br /><strong>&nbsp;| &nbsp;Bird(name='Bird Doe', weight=0, color='na', speed=0)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;Method resolution order:</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Bird</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Animal</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;builtins.object</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;Methods defined here:</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;__init__(self, name='Bird Doe', weight=0, color='na', speed=0)</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Initialize the bird-object calling the animal init method</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;but also adding additional variables</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;fly_training(self, workoutLength=0)</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Method: fly_training(workoutLength)</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Augments the flight speed of the bird as a function</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;of the bird objects workoutLength:</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;new_speed = old_speed + log(workoutLength)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;introduce_me(self)</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;prints out all the variables.</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;----------------------------------------------------------------------</strong><br /><strong>&nbsp;| &nbsp;Methods inherited from Animal:</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;eat(self, foodAmount=0.0)</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Method: eat(foodAmount=0) &nbsp;translates food input 'foodAmount' &nbsp;</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;into additional weight according to the &nbsp;following formula: &nbsp;</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;new_weight = old_weight + sqrt(foodAmount)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;----------------------------------------------------------------------</strong><br /><strong>&nbsp;| &nbsp;Data descriptors inherited from Animal:</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;__dict__</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;dictionary for instance variables (if defined)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;__weakref__</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;list of weak references to the object (if defined)</strong></pre>
+        <p><span>Let's generate a bird object.</span></p>
+        <p><span><strong>In[4]:</strong></span></p>
+        <div class="highlight-python notranslate">
+            <div class="highlight">
+                <pre><strong><span class="n">bird1</span> <span class="o">=</span> <span class="n">Bird</span><span class="p">(</span><span class="s1">'Dove'</span><span class="p">,</span> 10<span class="p">,</span> <span class="s1">'grey'</span><span class="p">,</span> 6<span class="mi">0</span><span class="p">)</span>
+<span class="n">bird1.introduce_me</span></strong><span class="p"><strong>()</strong><br /></span></pre>
+            </div>
+        </div>
+        <p><span><strong>out[4]:</strong></span></p>
+        <pre><strong><span class="n">Hello</span><span class="p">,</span> <span class="n">let</span> <span class="n">me</span> <span class="n">introduce</span> <span class="n">myself</span><span class="o">.</span> </strong><br /><strong><span class="o">-------------------------------</span> </strong><br /><strong><span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> Dove</strong><br /><strong><span class="n">My</span> <span class="n">weight</span> <span class="ow">is</span> <span class="mi">10</span> <span class="n">grams</span> <span class="n">My</span> <span class="n">color</span> <span class="ow">is</span> grey</strong><br /><strong><span class="n">My</span> <span class="n">speed</span> <span class="ow">is</span> 6<span class="mi">0</span> </strong><br /><strong><span class="o">-------------------------------</span></strong></pre>
+        <p>&nbsp;</p>
+        <p><span>We let the bird eat and then we train him a bit.</span></p>
+        <p><span><strong>&nbsp;In[5]:</strong></span></p>
+        <div class="highlight-python notranslate">
+            <div class="highlight">
+                <pre><strong><span class="n">bird1</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="n">foodAmount</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">bird1</span><span class="o">.</span><span class="n">fly_training</span><span class="p">(</span><span class="n">workoutLength</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">bird1</span><span class="o">.introduce_me</span><span class="p">()</span></strong></pre>
+            </div>
+        </div>
+        <p><span><strong>&nbsp;Out[5]:</strong></span></p>
+        <pre><strong>Hello, let me introduce myself.</strong><br /><strong>-------------------------------</strong><br /><strong>My name is Dove</strong><br /><strong>My weight is 13.0 grams</strong><br /><strong>My color is grey</strong><br /><strong>My speed is 62.30258509299404</strong></pre>
+        <p>&nbsp;==========================================================================================================</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

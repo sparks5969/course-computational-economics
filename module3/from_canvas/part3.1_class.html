@@ -1,0 +1,36 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="color: #646464ff;">Part 1. Programming Paradigm</span></p>
+        <p><span style="color: #646464ff;">Part 2. Functions in Python</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.1. what are functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.2. why functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.3. user-defined functions</span></p>
+        <p><strong><span style="color: #236fa1;">Part 3. Object Oriented Programming</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.1. Class</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.2. Object</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.3. Inheritance and Subclasses</span></strong></p>
+        <p>=======================================================================================</p>
+        <h3>Part 3.1. Class</h3>
+        <p><span>Let's try to define the blueprint for an animal-object.</span></p>
+        <p>Before we can build an object, we need first to design the "blueprint" for it. The blueprint is known as class. When define a class, we use the keyword<span>&nbsp;</span><code>class</code>, followed by the name of the class, followed by a colon to start the first line. Under the header, we always use a special method<span>&nbsp;</span><code>__init__</code><span>&nbsp;</span>to define what are the attributes.&nbsp; In this example, let's say the animal have two attributes:<span>&nbsp;</span><em>name<span>&nbsp;</span></em>and<span>&nbsp;</span><em>weight</em>. In addition, we also put in a special variable<span>&nbsp;</span><strong><em>self</em></strong><span>&nbsp;</span>as a function parameter. The<span>&nbsp;</span><code>self</code><span>&nbsp;</span>indicates that every object we created using this blueprint will all have these attributes and methods. After this, let's define a method (i.e., functionality) that allow the object introduce itself.&nbsp; Remember, methods are essentially functions associated with the object. The way we define methods are exactly the same as we define functions.</p>
+        <p><span><strong><span style="color: #197841ff;">In[1]</span>:</strong></span></p>
+        <pre><strong><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+
+   <span><span class="k">def</span></span> <span class="fm">__init__</span><span class="p">(</span><em><span class="bp">self</span></em><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Animal Doe'</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):<br /></span><em><span class="bp">        self</span></em><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span><em><span class="bp">self</span></em></span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight<br /></span>  <span>  def</span> <span>introduce_me</span>(<span><em>self</em></span>):</strong><br /><strong><span>        print</span>(<span>"Hello, let me introduce myself"</span>)</strong><br /><strong><span>        <span class="nb">print</span></span><span class="p">(</span><span><span class="s2">"My name is </span><span class="si">{}</span><span class="s2">"</span></span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> </strong><br /><strong><span class="nb">        print</span><span class="p">(</span><span><span class="s2">"My weight is </span><span class="si">{}</span><span class="s2"> pounds"</span></span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">))</span> </strong><br /><strong><span class="nb">        print</span><span class="p">(</span><span><span class="s2">"-------------------------------</span><span class="se">\n</span><span class="s2">"</span></span><span class="p">)</span></strong></pre>
+        <p><span>You can look at the class blueprint of the animal object using the help() function</span></p>
+        <p><span><strong><span style="color: #197841ff;">In[2]</span>:</strong></span></p>
+        <div class="highlight-python notranslate">
+            <div class="highlight">
+                <pre><strong><span class="n">help</span><span class="p">(</span><span class="n">Animal</span><span class="p">)</span></strong></pre>
+            </div>
+        </div>
+        <p><span><strong><span style="color: #c83223ff;">out[2]</span>:</strong></span></p>
+        <pre><strong>Help on class Animal in module __main__:</strong><br /><br /><strong>class Animal(builtins.object)</strong><br /><strong>&nbsp;| &nbsp;Animal(name='Animal Doe', weight=0.0)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;Methods defined here:</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;__init__(self, name='Animal Doe', weight=0.0)</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;Initialize self. &nbsp;See help(type(self)) for accurate signature.</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;introduce_me(self)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;----------------------------------------------------------------------</strong><br /><strong>&nbsp;| &nbsp;Data descriptors defined here:</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;__dict__</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;dictionary for instance variables (if defined)</strong><br /><strong>&nbsp;| &nbsp;</strong><br /><strong>&nbsp;| &nbsp;__weakref__</strong><br /><strong>&nbsp;| &nbsp; &nbsp; &nbsp;list of weak references to the object (if defined)</strong><br /><br /></pre>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

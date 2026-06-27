@@ -1,0 +1,93 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="color: #646464ff;">Part 1. Programming Paradigm</span></p>
+        <p><strong><span style="color: #236fa1;">Part 2. Functions in Python</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">2.1. what are functions</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">2.2. why functions</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">2.3. user-defined functions</span></strong></p>
+        <p><span style="color: #646464ff;">Part 3. Object Oriented Programming</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">3.1. Class</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">3.2. Object</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">3.3. Inheritance and Subclasses</span></p>
+        <p style="padding-left: 40px;">&nbsp;</p>
+        <p>=======================================================================================</p>
+        <h3><span>Part 2. Functions in Python</span></h3>
+        <div>
+            <h4><span>2.3. User-defined function</span></h4>
+            <div>
+                <div>
+                    <div><span>We can use the built-in function to do many things. But once our program become complex, we will need to define functions according to our need. </span></div>
+                    <ul>
+                        <li><span>&nbsp;</span><span>In Python, a user-defined function's declaration begins with the keyword </span><span>`def`</span><span> and followed by the function name.</span></li>
+                        <li><span>&nbsp;</span><span>The function may take arguments(s) as input within the opening and closing parentheses, just after the function name followed by a colon.</span></li>
+                        <li><span>&nbsp;</span><span>After defining the function name and arguments(s) a block of program statement(s) start at the next line and these statement(s) </span><span>must be indented</span><span>.</span></li>
+                        <li><span>You can give any name to a user defined function EXCEPT the Python keywords (such as print, if, vars, etc.)</span></li>
+                        <li>
+                            <p>To call a function, use the function name followed by parenthesis.</p>
+                        </li>
+                    </ul>
+                    <br />
+                    <div><span>Suppose I wanted to check if a given integer is even or odd. I can define a function for this purpose.</span></div>
+                    <div>
+                        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+                        <div>
+                            <div>
+                                <pre><strong><span style="color: #0000ff;">def</span> <span style="color: #843fa1;">even_or_odd</span>(x):</strong><br /><strong><span style="color: #0000ff;">    if</span> (x%<span style="color: #806800ff;">2</span> ==<span style="color: #806800ff;">0</span>):</strong><br /><strong><span style="color: #a35212ff;">        print</span>(<span style="color: #5a6464ff;">'even'</span>)</strong><br /><strong><span style="color: #0000ff;">    else</span>:</strong><br /><strong><span style="color: #a35212ff;">        print</span>(<span style="color: #5a6464ff;">'odd'</span>)</strong><br /><br /><strong><span style="color: #197841ff;"># call the function</span></strong><br /><strong>even_or_odd(<span style="color: #806800ff;">9</span>)</strong><br /><strong>even_or_odd(<span style="color: #806800ff;">12</span>)</strong></pre>
+                            </div>
+                        </div>
+                        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+                        <pre><strong>odd<br />even</strong></pre>
+                    </div>
+                </div>
+            </div>
+            <p><span>Next let's look at another (a bit more complex) example. We wanted to define a function to calculate the area of a circle.</span></p>
+            <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+            <div>
+                <pre><strong><span style="color: #0000ff;">def </span><span style="color: #843fa1;">area_circle</span>(radius):</strong><br /><strong>    pi = <span style="color: #806800ff;">3.1415926</span></strong><br /><strong>    area = pi * radius **<span style="color: #806800ff;">2</span></strong><br /><strong><span style="color: #a35212ff;">    print</span>(area)</strong></pre>
+            </div>
+        </div>
+        <p>In this example, we defined a function<span>&nbsp;</span><code>area_circle</code><span>&nbsp;</span>to calculate the area of circles. From this example, we can look at the components of a function:</p>
+        <ul>
+            <li>the first line<span>&nbsp;</span><code>def area_circle(radius):</code><span>&nbsp;</span>is known as the<span>&nbsp;</span><strong><em>function header</em></strong></li>
+            <li>the radius inside the parentheses is the function<span>&nbsp;</span><strong><em>parameter</em></strong>. This parameter is used just like a variable of the function.</li>
+            <li>the variable <strong><em>pi </em></strong>and <em><strong>area </strong></em>are known as<span>&nbsp;</span><strong><em>local variables</em></strong>. They only exist within the function.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>Once we defined the function, we can call it to do some calculation for us.&nbsp;when we call the function, simply type in the function name, and feed it with the<span>&nbsp;</span><strong><em>argument</em></strong><span>&nbsp;</span>(in this example, radius is the only input variable). The argument will then be passed to the parameter of the function and do the calculation for us.</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[2]:</strong></span></p>
+        <div>
+            <div>
+                <pre><strong>area_circle(<span style="color: #806800ff;">12.5</span>)</strong></pre>
+            </div>
+        </div>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[2]:</strong></span></p>
+        <pre><strong>490.87384375</strong></pre>
+        <p><span>In this example, the function does the calculate for us, but it does not return any value. To let the function return a value, use the&nbsp;</span><code>return</code><span>&nbsp;keyword inside the function.</span></p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <div>
+            <pre><strong><span style="color: #0000ff;">def </span><span style="color: #843fa1;">area_circle</span>(radius):</strong><br /><strong>    pi = <span style="color: #806800ff;">3.1415926</span></strong><br /><strong>    area = pi * radius **<span style="color: #806800ff;">2</span></strong><br /><strong><span style="color: #a35212ff;"><span style="color: #0000ff;">    return</span> <span style="color: #34495e;">area<br /><br /><span style="color: #197841ff;"># now call the function to do calculate, and store the result.</span><br />result = area_circle(<span style="color: #806800ff;">12.5</span>)<br /><span style="color: #a35212ff;">print</span>(result)</span></span></strong></pre>
+            <div>
+                <div>
+                    <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+                    <pre><strong>490.87384375</strong></pre>
+                </div>
+                <div><span>Lastly, we can define functions that call other functions. Here is one example.</span></div>
+                <div>
+                    <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+                </div>
+            </div>
+            <div>
+                <pre><strong><span style="color: #0000ff;">def</span> <span style="color: #843fa1;">labor_force</span>(population, participation):<br /></strong><strong>    labor = population*participation</strong><br /><strong><span style="color: #0000ff;">    return</span> labor</strong><br /><br /><strong><span style="color: #0000ff;">def</span> <span style="color: #843fa1;">unemployment_rate</span>(population, participation, out_of_job):</strong><br /><strong>    urate = out_of_job/labor_force(population,participation)</strong><br /><strong><span style="color: #0000ff;">    return</span> round(urate*100,2)</strong><br /><br /><span style="color: #169179;"><strong style="color: #197841ff;"># specify arguments</strong></span><br /><strong>population = 100</strong><br /><strong>participation = 0.65</strong><br /><strong>out_of_job = 10</strong><br /><br /><strong>result = unemployment_rate(population, participation, out_of_job)</strong><br /><strong><span style="color: #a35212ff;">print</span></strong> <strong>(<span style="color: #34495e;">"current unemployment rate is %s percent" </span>%result)<br /></strong></pre>
+            </div>
+        </div>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>current unemployment rate is 15.38 percent.</strong></pre>
+        <p>&nbsp;</p>
+        <p><span>In the above example, we defined two functions. The first function is&nbsp;</span><code>labor_force</code><span>, it takes population and participation as two inputs, and calculate the total labor force number. The second function is&nbsp;</span><code>unemployment_rate</code><span>, it take population, participation, and out_of_job as input variables, and calculate the unemployment rate. Note that inside the&nbsp;</span><code>unemployment_rate</code><span>&nbsp;function, we directly call the function&nbsp;</span><code>labor_force</code><span>&nbsp;to calculate the number of labor force. This is neat, as we don't have to repeat ourselves when calculating the unemployment rate.</span></p>
+        <p>================================================================================================================</p>
+        <div id="kl_custom_block_1" class="">
+            <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+        </div>
+    </div>
+</div>

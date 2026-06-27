@@ -1,0 +1,52 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="color: #646464ff;">Part 1. Programming Paradigm</span></p>
+        <p><span style="color: #646464ff;">Part 2. Functions in Python</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.1. what are functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.2. why functions</span></p>
+        <p style="padding-left: 40px;"><span style="color: #646464ff;">2.3. user-defined functions</span></p>
+        <p><strong><span style="color: #236fa1;">Part 3. Object Oriented Programming</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.1. Class</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.2. Object</span></strong></p>
+        <p style="padding-left: 40px;"><strong><span style="color: #236fa1;">3.3. Inheritance and Subclasses</span></strong></p>
+        <p>=======================================================================================</p>
+        <h4>Part 3.2. Object</h4>
+        <p>With the blueprint, w<span>e next generate an animal object. Here we create the first animal. Its name is cat and weighs 8 lbs.</span></p>
+        <p>&nbsp;</p>
+        <p><span style="color: #169179;"><strong style="color: #197841ff;">In[3]</strong></span></p>
+        <pre><strong><span class="n">animal1</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'cat'</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> 8<span class="mf">.0</span><span class="p">)</span></strong></pre>
+        <p><span>You can access the variables (or embedded data) of the animal using the animal object and the &lsquo;dot&rsquo; notation.</span></p>
+        <p><span><strong><span style="color: #197841ff;">In[4]</span>:</strong></span></p>
+        <pre><strong><span class="nb">print</span><span class="p">(</span><span class="s2">"The name of the first animal is </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">animal1</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"The weight of the first animal is </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">animal1</span><span class="o">.</span><span class="n">weight</span><span class="p">))</span></strong></pre>
+        <p><span><strong><span style="color: #c83223ff;">&nbsp;Out[4]</span> :</strong></span></p>
+        <pre><strong><span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">first</span> <span class="n">animal</span> <span class="ow">is</span> Cat</strong><br /><strong><span class="n">The</span> <span class="n">weight</span> <span class="n">of</span> <span class="n">the</span> <span class="n">first</span> <span class="n">animal</span> <span class="ow">is</span> 8<span class="mf">.0</span></strong></pre>
+        <p>&nbsp;</p>
+        <p><span>Because we defined a method "introduce_me" for the animal class, we can simply call this method to get information.</span></p>
+        <p><span><strong><span style="color: #197841ff;">In[5]</span>:</strong></span></p>
+        <pre><strong><span class="n">animal1</span><span class="o">.introduce_me</span><span class="p">()</span></strong></pre>
+        <p><span><strong><span style="color: #c83223ff;">Out[5]</span>:</strong></span></p>
+        <pre><strong><span class="n">Hello</span><span class="p">,</span> <span class="n">let</span> <span class="n">me</span> <span class="n">introduce</span> <span class="n">myself</span><span class="o">.</span>
+<span class="o">-------------------------------</span>
+<span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> Cat</strong><br /><strong> <span class="n">My</span> <span class="n">weight</span> <span class="ow">is</span> 8<span class="mf">.0</span> <span class="n">pounds</span>
+<span class="o">-------------------------------</span></strong></pre>
+        <p>&nbsp;</p>
+        <p>As you see, method can interact with the attribute of the class. Let's define a new method eat() for the animal class.</p>
+        <p><span><strong><span style="color: #197841ff;">In[1]</span>:</strong></span></p>
+        <pre><strong><span class="k">import<span> math </span>as <span>m</span><br /><br />class</span> <span class="nc">Animal</span><span class="p">:</span>
+
+    <span><span class="k">def</span></span> <span class="fm">__init__</span><span class="p">(</span><em><span class="bp">self</span></em><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'Animal Doe'</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):<br /></span><em><span class="bp">        self</span></em><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span><em><span class="bp">self</span></em></span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight<br /></span>  <span>  def</span> introduce_me(<span><em>self</em></span>):</strong><br /><strong><span>        print</span>(<span>"Hello, let me introduce myself"</span>)</strong><br /><strong><span>        <span class="nb">print</span></span><span class="p">(</span><span><span class="s2">"My name is </span><span class="si">{}</span><span class="s2">"</span></span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> </strong><br /><strong><span class="nb">        print</span><span class="p">(</span><span><span class="s2">"My weight is </span><span class="si">{}</span><span class="s2"> pounds"</span></span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">))</span> </strong><br /><strong><span class="nb">        print</span><span class="p">(</span><span><span class="s2">"-------------------------------</span><span class="se">\n</span><span class="s2">"</span></span><span class="p">)<br /><span class="k"><br />  <span>  def</span></span> <span class="nf">eat</span>(<span><em><span class="bp">self</span></em></span>, <span class="n">foodAmount</span> <span class="o">=</span> <span class="mf">0.0</span>): <br /><span><span class="sd">        """Method: eat(foodAmount=0)</span> <span class="sd"> translates food input 'foodAmount'</span> <span class="sd"> <br />        into additional weight according to the</span> <span class="sd"> following formula:</span> <span class="sd"> <br />        new_weight = old_weight + sqrt(foodAmount)"""</span> </span><br /><span class="bp">        self</span><span class="o">.</span><span class="n">weight</span> <span class="o">+=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span>(<span class="n">foodAmount</span>)  <span># the += is a pythonic way to say self.weight = self.weight + m.sqrt(foodAmount)</span><br /></span></strong></pre>
+        <p>&nbsp;</p>
+        <p><span>Now we let the animal eat, by calling the method&nbsp;</span><code class="docutils literal notranslate"><span class="pre">eat()</span></code><span>&nbsp;on the cat object.</span></p>
+        <p><span><strong><span style="color: #197841ff;">In[2]</span>:</strong></span></p>
+        <pre><strong><span class="n">animal1 <span class="o">=</span> Animal<span class="p">(</span>name <span class="o">=</span> <span class="s1">'cat'</span><span class="p">,</span> weight <span class="o">=</span> 8<span class="mf">.0</span><span class="p">)</span><br />animal1</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span></strong><span class="s1"><br /><strong><span class="n">animal1</span><span class="o">.introduce_me</span><span class="p">()</span></strong><br /></span></pre>
+        <p><span style="color: #e03e2d;"><strong style="color: #c83223ff;">Out[2]:</strong></span></p>
+        <pre><strong>Hello, let me introduce myself</strong><br /><strong>My name is cat</strong><br /><strong>My weight is 11.0 pounds</strong><br /><strong>-------------------------------</strong></pre>
+        <p><span class="section-number">As you see, now the method 'eat' first take the argument 9 as input, and then updated the weight attributes according the the rule we defined.</span></p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

@@ -11,7 +11,7 @@
   --font-sans: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
   --max-width: 720px;
-  --sidebar-width: 240px;
+  --sidebar-width: 280px;
 }
 
 *,
@@ -147,6 +147,32 @@ a:hover {
   background: var(--color-accent);
   color: #fff;
   font-weight: 500;
+}
+
+.sidebar-group {
+  margin-bottom: 0.15rem;
+}
+
+.sidebar-sublabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 0.45rem 0.75rem 0.2rem;
+}
+
+.sidebar-nested {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-left: 0.35rem;
+  border-left: 2px solid var(--color-border);
+  margin-left: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.sidebar-nested a {
+  font-size: 0.84rem;
+  padding: 0.28rem 0.6rem;
 }
 
 /* Main content */
