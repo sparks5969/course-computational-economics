@@ -13,12 +13,6 @@ FILES_DIR = OUT_DIR / "files"
 
 PAGES = [
     (
-        "module2_overview.html",
-        "index.html",
-        "Module 2 Overview",
-        "index.html",
-    ),
-    (
         "module2_part1.1.functions associated with list.html",
         "part1-1-list-functions.html",
         "Part 1.1 — List Functions",

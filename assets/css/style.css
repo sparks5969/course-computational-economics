@@ -324,7 +324,34 @@ li > ol {
   color: var(--color-text-muted);
   font-style: italic;
 }
-  margin-bottom: 0.5rem;
+
+/* Download link */
+
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.download-link:hover {
+  opacity: 0.88;
+}
+
+/* Placeholder text */
+
+.placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+  border-left: 3px solid var(--color-border);
+  padding-left: 0.75rem;
+  margin: 0;
 }
 
 /* Code blocks */
