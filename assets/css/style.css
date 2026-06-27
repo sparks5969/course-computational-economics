@@ -114,6 +114,53 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.sidebar-fold {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-fold-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  padding: 0.55rem 0.35rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.sidebar-fold-title::-webkit-details-marker {
+  display: none;
+}
+
+.sidebar-fold-title::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 0.35rem;
+  color: var(--color-text-muted);
+  transition: transform 0.15s ease;
+}
+
+.sidebar-fold[open] > .sidebar-fold-title::before {
+  transform: rotate(90deg);
+}
+
+.sidebar-fold-title:hover {
+  color: var(--color-accent);
+}
+
+.sidebar-fold-body {
+  padding-bottom: 0.35rem;
+}
+
+.sidebar-fold-body .sidebar-group:first-child .sidebar-sublabel {
+  padding-top: 0.15rem;
 }
 
 .sidebar-label {

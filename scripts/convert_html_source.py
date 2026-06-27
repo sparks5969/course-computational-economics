@@ -451,16 +451,6 @@ MODULE_HUB = [
 ]
 
 
-def _more_module_links(current: int) -> list[str]:
-    lines = ['        <div class="sidebar-label">More</div>']
-    lines.append('        <a href="../index.html">Course Home</a>')
-    for num in range(1, 6):
-        if num == current:
-            continue
-        lines.append(f'        <a href="../module{num}/index.html">Module {num}</a>')
-    return lines
-
-
 def _nested_section(
     sublabel: str,
     links: list[tuple[str, str]],
@@ -480,22 +470,58 @@ def _nested_section(
     return lines
 
 
-def sidebar_html(module: int, active_href: str) -> str:
-    lines = [f"        <div class=\"sidebar-label\">Module {module}</div>"]
-    _, lecture, workshop = MODULE_META[module]
-    lines.extend(_nested_section("Lecture", lecture, active_href))
+def _workshop_blocks(
+    workshop: list[tuple[str, str]],
+    active_href: str,
+    link_prefix: str,
+    indent: str,
+) -> list[str]:
     if workshop:
-        lines.extend(_nested_section("Workshop", workshop, active_href))
-    else:
-        lines.extend([
-            '        <div class="sidebar-group">',
-            '          <div class="sidebar-sublabel">Workshop</div>',
-            '          <div class="sidebar-nested">',
-            '            <span class="sidebar-muted">Coming soon</span>',
-            '          </div>',
-            '        </div>',
-        ])
-    lines.extend(_more_module_links(module))
+        links = [(f"{link_prefix}{href}", label) for href, label in workshop]
+        return _nested_section("Workshop", links, active_href, indent=indent)
+    return [
+        f"{indent}<div class=\"sidebar-group\">",
+        f"{indent}  <div class=\"sidebar-sublabel\">Workshop</div>",
+        f"{indent}  <div class=\"sidebar-nested\">",
+        f"{indent}    <span class=\"sidebar-muted\">Coming soon</span>",
+        f"{indent}  </div>",
+        f"{indent}</div>",
+    ]
+
+
+def _module_fold(
+    num: int,
+    active_href: str,
+    *,
+    open: bool,
+    link_prefix: str,
+    indent: str = "        ",
+) -> list[str]:
+    _, lecture, workshop = MODULE_META[num]
+    open_attr = " open" if open else ""
+    body_indent = indent + "    "
+    lines = [
+        f'{indent}<details class="sidebar-fold"{open_attr}>',
+        f'{indent}  <summary class="sidebar-fold-title">Module {num}</summary>',
+        f'{indent}  <div class="sidebar-fold-body">',
+    ]
+    lec_links = [(f"{link_prefix}{href}", label) for href, label in lecture]
+    lines.extend(_nested_section("Lecture", lec_links, active_href, indent=body_indent))
+    lines.extend(_workshop_blocks(workshop, active_href, link_prefix, body_indent))
+    lines.extend([f"{indent}  </div>", f"{indent}</details>"])
+    return lines
+
+
+def sidebar_html(module: int, active_href: str) -> str:
+    lines = [
+        '        <div class="sidebar-label">Course</div>',
+        '        <a href="../index.html">Home</a>',
+    ]
+    for num in MODULE_META:
+        prefix = "" if num == module else f"../module{num}/"
+        lines.extend(
+            _module_fold(num, active_href, open=(num == module), link_prefix=prefix)
+        )
     return "\n".join(lines)
 
 
@@ -506,18 +532,15 @@ def home_sidebar_html(active_href: str = "index.html") -> str:
         '        <div class="sidebar-label">Course</div>',
         f'        <a href="index.html"{home_cls}>Home</a>',
     ]
-    for num, (_, _, workshop) in MODULE_META.items():
-        lines.append(f'        <div class="sidebar-label">Module {num}</div>')
+    for num in MODULE_META:
         lines.extend(
-            _nested_section(
-                "Lecture",
-                [(f"module{num}/index.html", "Overview")],
+            _module_fold(
+                num,
                 active_href,
+                open=False,
+                link_prefix=f"module{num}/",
             )
         )
-        if workshop:
-            workshop_links = [(f"module{num}/{href}", label) for href, label in workshop]
-            lines.extend(_nested_section("Workshop", workshop_links, active_href))
     return "\n".join(lines)
 
 
