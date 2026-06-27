@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Part 1. Installation of Python and Anaconda — Computational Economics</title>
+  <title>Module 1 Overview</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -11,12 +11,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('pre code').forEach(function(block) {
-        // Normalize class="python" (from pandoc fenced blocks) → language-python
-        if (!block.className || block.className === 'python') {
-          block.className = 'language-python';
-        }
+        if (!block.className) block.className = 'language-python';
         hljs.highlightElement(block);
-        // Copy button
         var btn = document.createElement('button');
         btn.className = 'copy-btn';
         btn.textContent = 'Copy';
@@ -41,7 +37,6 @@
       </div>
     </div>
   </header>
-
   <div class="layout">
     <aside class="sidebar">
       <nav>
@@ -49,13 +44,13 @@
         <div class="sidebar-group">
           <div class="sidebar-sublabel">Lecture</div>
           <div class="sidebar-nested">
-            <a href="index.html">Overview</a>
+            <a href="index.html" class="active">Overview</a>
           </div>
         </div>
         <div class="sidebar-group">
           <div class="sidebar-sublabel">Workshop</div>
           <div class="sidebar-nested">
-            <a href="part1-installation.html" class="active">Part 1: Installation</a>
+            <a href="part1-installation.html">Part 1: Installation</a>
             <a href="part2-language.html">Part 2: Python Language</a>
             <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
             <a href="part4-data-structures.html">Part 4: Data Structures</a>
@@ -71,26 +66,51 @@
         <a href="../module5/index.html">Module 5</a>
       </nav>
     </aside>
-
     <main>
-      <section class="hero">
-        <h1>Installation of Python and Anaconda</h1>
-      </section>
-      <p>The easiest way to install Python and most of the useful packages for scientific computing is to install Python via the Anaconda distribution from: <a href="https://www.anaconda.com/download">Anaconda Individual Edition</a>This is a simple one-click installation process which works for Linux/Windows/Mac. Simply follow the instruction, it installs everything!</p>
-<ul>
-<li><p>When you install anaconda and python, <strong>select the latest version Python for your system</strong></p></li>
-<li><p>For most of the computers, <strong>you wanted the 64 bit version</strong>, not the 32 bit version.</p></li>
-</ul>
+      <h1>Module 1 — Python Foundations</h1>
 
-<p>In order to write python script and let your computer run your script, you also need an <strong>Integrated development environment (IDE). </strong>With the Anaconda you just installed, open Anaconda-navigator by click its icon, and then install Spyder as your IDE. Starting from here,<strong> whenever you need to code, just open Anaconda-navigator, and then launch Spyder. </strong></p>
+      <p>Install Anaconda and Spyder, then work through Python basics, data structures,
+      and your first practice project.</p>
 
-<p>There are many different <strong>Integrated development environment (IDE)</strong> for python, such as Spyder, VScode, Pycharm, etc. <strong>But unless you are VERY CONFIDENT about setting up and managing a virtual environment, please follow these simple steps and use Spyder as your IDE.</strong></p>
-      <div class="page-nav"><span></span><a href="part2-language.html">Next →</a></div>
+      <div class="callout">
+        <div class="callout-title">Before you start</div>
+        <p>Complete <strong>Part 1: Installation</strong> before class if you have not used Python before.</p>
+      </div>
+
+      <h2>Workshop</h2>
+      <div class="card-grid">
+          <a class="card" href="part1-installation.html">
+            <div class="card-step">Part 1</div>
+            <h3>Installation</h3>
+            <p>Install Anaconda and Spyder.</p>
+          </a>
+          <a class="card" href="part2-language.html">
+            <div class="card-step">Part 2</div>
+            <h3>Python Language</h3>
+            <p>Why Python is used in economics.</p>
+          </a>
+          <a class="card" href="part3-packages.html">
+            <div class="card-step">Part 3</div>
+            <h3>Packages & Modules</h3>
+            <p>Import packages and modules.</p>
+          </a>
+          <a class="card" href="part4-data-structures.html">
+            <div class="card-step">Part 4</div>
+            <h3>Data Structures</h3>
+            <p>Lists, dictionaries, and more.</p>
+          </a>
+          <a class="card" href="part5-programming.html">
+            <div class="card-step">Part 5</div>
+            <h3>Programming</h3>
+            <p>Conditionals, indentation, and loops.</p>
+          </a>
+          <a class="card" href="practice1.html">
+            <div class="card-step">Practice</div>
+            <h3>Practice Project 1</h3>
+            <p>Lists, dictionaries, loops, and timing.</p>
+          </a>
+      </div>
     </main>
   </div>
-
-  <footer class="site-footer">
-    Computational Economics — Module 1
-  </footer>
 </body>
 </html>

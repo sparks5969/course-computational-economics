@@ -277,6 +277,27 @@ li > ol {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+}
+
+.card-soon {
+  opacity: 0.72;
+  cursor: default;
+  border-style: dashed;
+}
+
+.card-soon:hover {
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+
+.sidebar-muted {
+  display: block;
+  padding: 0.28rem 0.6rem;
+  margin-left: 0.75rem;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
   margin-bottom: 0.5rem;
 }
 

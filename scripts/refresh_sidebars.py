@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from convert_html_source import ROOT, home_sidebar_html, sidebar_html
+from convert_html_source import ROOT, home_sidebar_html, sidebar_html, wrap_home_page, home_body_html
 
 NAV_RE = re.compile(r"<nav>.*?</nav>", re.DOTALL)
 
@@ -25,11 +25,15 @@ def replace_nav(html: str, nav: str) -> str:
 
 def main() -> None:
     index = ROOT / "index.html"
-    index.write_text(
-        replace_nav(index.read_text(encoding="utf-8"), home_sidebar_html()),
-        encoding="utf-8",
-    )
+    # Rebuild home page body + sidebar together
+    index.write_text(wrap_home_page(home_body_html()), encoding="utf-8")
     print(f"Updated {index}")
+
+    module1_index = ROOT / "module1" / "index.html"
+    if module1_index.exists():
+        html = replace_nav(module1_index.read_text(encoding="utf-8"), sidebar_html(1, "index.html"))
+        module1_index.write_text(html, encoding="utf-8")
+        print(f"Updated {module1_index}")
 
     for filename, active in MODULE1_ACTIVE.items():
         path = ROOT / "module1" / filename
@@ -37,19 +41,15 @@ def main() -> None:
         path.write_text(html, encoding="utf-8")
         print(f"Updated {path}")
 
-    module2_dir = ROOT / "module2"
-    for path in sorted(module2_dir.glob("*.html")):
-        active = path.name
-        html = replace_nav(path.read_text(encoding="utf-8"), sidebar_html(2, active))
-        path.write_text(html, encoding="utf-8")
-        print(f"Updated {path}")
-
-    module3_dir = ROOT / "module3"
-    for path in sorted(module3_dir.glob("*.html")):
-        active = path.name
-        html = replace_nav(path.read_text(encoding="utf-8"), sidebar_html(3, active))
-        path.write_text(html, encoding="utf-8")
-        print(f"Updated {path}")
+    for mod in (2, 3, 4, 5):
+        mod_dir = ROOT / f"module{mod}"
+        if not mod_dir.exists():
+            continue
+        for path in sorted(mod_dir.glob("*.html")):
+            active = path.name
+            html = replace_nav(path.read_text(encoding="utf-8"), sidebar_html(mod, active))
+            path.write_text(html, encoding="utf-8")
+            print(f"Updated {path}")
 
 
 if __name__ == "__main__":

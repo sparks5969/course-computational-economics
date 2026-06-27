@@ -384,7 +384,7 @@ def convert(src_html: str) -> str:
 # ── site wrapper ──────────────────────────────────────────────────────────────
 
 MODULE1_LECTURE = [
-    ("../index.html#module-1", "Overview"),
+    ("index.html", "Overview"),
 ]
 
 MODULE1_WORKSHOP = [
@@ -422,23 +422,42 @@ MODULE3_WORKSHOP = [
     ("part3-3-inheritance.html", "Part 3.3: Inheritance"),
 ]
 
+MODULE4_LECTURE = [
+    ("index.html", "Overview"),
+]
+
+MODULE4_WORKSHOP: list[tuple[str, str]] = []
+
+MODULE5_LECTURE = [
+    ("index.html", "Overview"),
+]
+
+MODULE5_WORKSHOP: list[tuple[str, str]] = []
+
 MODULE_META = {
     1: ("Module 1 — Python Foundations", MODULE1_LECTURE, MODULE1_WORKSHOP),
     2: ("Module 2 — Stable Matching", MODULE2_LECTURE, MODULE2_WORKSHOP),
     3: ("Module 3 — OOP & Functions", MODULE3_LECTURE, MODULE3_WORKSHOP),
+    4: ("Module 4", MODULE4_LECTURE, MODULE4_WORKSHOP),
+    5: ("Module 5", MODULE5_LECTURE, MODULE5_WORKSHOP),
 }
+
+MODULE_HUB = [
+    (1, "Python Foundations", "Install Anaconda, learn Python basics, and complete Practice Project 1.", "module1/index.html", True),
+    (2, "Stable Matching", "List and dictionary methods, loops, JSON, and the Gale–Shapley algorithm.", "module2/index.html", True),
+    (3, "OOP & Functions", "Programming paradigms, user-defined functions, classes, objects, and inheritance.", "module3/index.html", True),
+    (4, "Module 4", "Materials coming soon.", "module4/index.html", False),
+    (5, "Module 5", "Materials coming soon.", "module5/index.html", False),
+]
 
 
 def _more_module_links(current: int) -> list[str]:
-    links = {
-        1: ('../index.html#module-1', 'Module 1'),
-        2: ('../module2/index.html', 'Module 2'),
-        3: ('../module3/index.html', 'Module 3'),
-    }
     lines = ['        <div class="sidebar-label">More</div>']
-    for num, (href, label) in links.items():
-        if num != current:
-            lines.append(f'        <a href="{href}">{label}</a>')
+    lines.append('        <a href="../index.html">Course Home</a>')
+    for num in range(1, 6):
+        if num == current:
+            continue
+        lines.append(f'        <a href="../module{num}/index.html">Module {num}</a>')
     return lines
 
 
@@ -465,7 +484,17 @@ def sidebar_html(module: int, active_href: str) -> str:
     lines = [f"        <div class=\"sidebar-label\">Module {module}</div>"]
     _, lecture, workshop = MODULE_META[module]
     lines.extend(_nested_section("Lecture", lecture, active_href))
-    lines.extend(_nested_section("Workshop", workshop, active_href))
+    if workshop:
+        lines.extend(_nested_section("Workshop", workshop, active_href))
+    else:
+        lines.extend([
+            '        <div class="sidebar-group">',
+            '          <div class="sidebar-sublabel">Workshop</div>',
+            '          <div class="sidebar-nested">',
+            '            <span class="sidebar-muted">Coming soon</span>',
+            '          </div>',
+            '        </div>',
+        ])
     lines.extend(_more_module_links(module))
     return "\n".join(lines)
 
@@ -477,23 +506,89 @@ def home_sidebar_html(active_href: str = "index.html") -> str:
         '        <div class="sidebar-label">Course</div>',
         f'        <a href="index.html"{home_cls}>Home</a>',
     ]
-    lecture_overviews = {
-        1: "index.html#module-1",
-        2: "module2/index.html",
-        3: "module3/index.html",
-    }
     for num, (_, _, workshop) in MODULE_META.items():
         lines.append(f'        <div class="sidebar-label">Module {num}</div>')
         lines.extend(
             _nested_section(
                 "Lecture",
-                [(lecture_overviews[num], "Overview")],
+                [(f"module{num}/index.html", "Overview")],
                 active_href,
             )
         )
-        workshop_links = [(f"module{num}/{href}", label) for href, label in workshop]
-        lines.extend(_nested_section("Workshop", workshop_links, active_href))
+        if workshop:
+            workshop_links = [(f"module{num}/{href}", label) for href, label in workshop]
+            lines.extend(_nested_section("Workshop", workshop_links, active_href))
     return "\n".join(lines)
+
+
+def home_body_html() -> str:
+    cards: list[str] = []
+    for num, title, desc, href, live in MODULE_HUB:
+        if live:
+            cards.append(
+                f'          <a class="card" href="{href}">\n'
+                f'            <div class="card-step">Module {num}</div>\n'
+                f"            <h3>{html_mod.escape(title)}</h3>\n"
+                f"            <p>{html_mod.escape(desc)}</p>\n"
+                f"          </a>"
+            )
+        else:
+            cards.append(
+                f'          <div class="card card-soon">\n'
+                f'            <div class="card-step">Module {num}</div>\n'
+                f"            <h3>{html_mod.escape(title)}</h3>\n"
+                f"            <p>{html_mod.escape(desc)}</p>\n"
+                f"          </div>"
+            )
+    return f"""
+      <section class="hero">
+        <h1>Computational Economics</h1>
+        <p>
+          Select a module below. Each module has a <strong>Lecture</strong> overview
+          and a <strong>Workshop</strong> with hands-on parts and practice projects.
+        </p>
+      </section>
+
+      <section>
+        <h2>Course Modules</h2>
+        <div class="card-grid">
+{chr(10).join(cards)}
+        </div>
+      </section>"""
+
+
+def wrap_home_page(body_html: str) -> str:
+    sidebar = home_sidebar_html()
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computational Economics</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Course materials</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+{sidebar}
+      </nav>
+    </aside>
+    <main>
+{body_html}
+    </main>
+  </div>
+  <footer class="site-footer">Computational Economics</footer>
+</body>
+</html>"""
 
 
 def wrap_page(
@@ -571,7 +666,7 @@ def main() -> None:
     parser.add_argument("dst", nargs="?", help="Output site HTML file")
     parser.add_argument("--title", default="Course Page", help="Browser title")
     parser.add_argument("--heading", default=None, help="Page h1 (defaults to title)")
-    parser.add_argument("--module", type=int, default=1, choices=(1, 2, 3))
+    parser.add_argument("--module", type=int, default=1, choices=(1, 2, 3, 4, 5))
     parser.add_argument("--active", default="", help="Active sidebar href")
     args = parser.parse_args()
 
