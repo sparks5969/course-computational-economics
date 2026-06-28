@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 1.1 — Generate Vectors</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 4 — Economic Growth &amp;amp; NumPy</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Course</div>
+        <a href="../index.html">Home</a>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 1</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module1/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module1/part1-installation.html">Part 1: Installation</a>
+            <a href="../module1/part2-language.html">Part 2: Python Language</a>
+            <a href="../module1/part3-packages.html">Part 3: Packages &amp; Modules</a>
+            <a href="../module1/part4-data-structures.html">Part 4: Data Structures</a>
+            <a href="../module1/part5-programming.html">Part 5: Programming</a>
+            <a href="../module1/practice1.html">Practice Project 1</a>
+          </div>
+        </details>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 2</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module2/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module2/part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="../module2/part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="../module2/part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="../module2/part3-loops.html">Part 3: Loops</a>
+            <a href="../module2/part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="../module2/practice2.html">Practice Project 2</a>
+          </div>
+        </details>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 3</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module3/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module3/part1-programming-paradigm.html">Part 1: Programming Paradigm</a>
+            <a href="../module3/part2-1-2-functions.html">Part 2.1–2.2: What &amp; Why Functions</a>
+            <a href="../module3/part2-user-functions.html">Part 2.3: User-Defined Functions</a>
+            <a href="../module3/part3-1-class.html">Part 3.1: Class</a>
+            <a href="../module3/part3-2-object.html">Part 3.2: Object</a>
+            <a href="../module3/part3-3-inheritance.html">Part 3.3: Inheritance</a>
+            <a href="../module3/practice3.html">Practice Project 3</a>
+          </div>
+        </details>
+        <details class="sidebar-fold" open>
+          <summary class="sidebar-fold-title">Module 4</summary>
+          <div class="sidebar-fold-body">
+            <a href="index.html">Overview &amp; Lecture Slides</a>
+            <a href="part1-1-generate-vectors.html" class="active">Part 1.1: Generate Vectors</a>
+            <a href="part1-2-vector-addition.html">Part 1.2: Vector Addition</a>
+            <a href="part1-3-vector-multiplication.html">Part 1.3: Vector Multiplication</a>
+            <a href="part2-1-generate-matrices.html">Part 2.1: Generate Matrices</a>
+            <a href="part2-2-transposing.html">Part 2.2: Transposing</a>
+            <a href="part2-3-matrix-addition.html">Part 2.3: Matrix Addition</a>
+            <a href="part2-4-matrix-multiplication.html">Part 2.4: Matrix Multiplication</a>
+            <a href="part2-5-element-wise-product.html">Part 2.5: Element-wise Product</a>
+            <a href="part2-6-accessing-matrix-elements.html">Part 2.6: Accessing Elements</a>
+          </div>
+        </details>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 5</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module5/index.html">Overview &amp; Lecture Slides</a>
+          </div>
+        </details>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 1.1 — Generate Vectors</h1>
+<h2>1.1. Generating Vectors</h2>
+<p>Simply, <strong>vectors </strong>are one-dimensional arrays. Let&#x27;s try to define some vectors. The easiest way to create vectors is to convert a list of number using np.array()</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import numpy as np
+list1= [1,3,5,7]
+vec1 = np.array(list1)
+print(list1)
+print(vec1)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>[1,3,5,7]
+[1 3 5 7]</code></pre></div>
+<p>Notice that although &quot;<code>list1</code>&quot; and &quot;<code>vec1</code>&quot; looks very similar, essentially they are two different data types.</p>
+<div class="code-cell code-input"><div class="code-label">In [2]:</div><pre><code>print(type(list1))
+print(type(vec1))</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>&lt;class &#x27;list&#x27;&gt;
+&lt;class &#x27;numpy.ndarray&#x27;&gt;</code></pre></div>
+<p>In Python, we have lists that serve the purpose of arrays, but they are slow to process. NumPy aims to provide an array object that is up to 50 times faster than traditional python list. The array object in NumPy is called <em><strong>ndarray</strong></em>, it provides a lot of supporting functions that make working with ndarray very easy.</p>
+<p>Suppose we want a vector contains a series of years: 2016, 2017,2018,2019,2020. we can use the <code>arrange( )</code> function within NumPy to do this.</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import numpy as np
+# the syntax: np.arange(start,end,stepsize)
+years = np.arange(2016,2020,1)
+print(years)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>[2016 2017 2018 2019]</code></pre></div>
+<p>As you can see, the end point (i.e., 2020 in this example) will not be generated.</p>
+<p>Another function similar to np.arrange() is <code>np.linspace( )</code>. We can use <code>np.linspace( )</code> to create a certain number of elements between two boundary points. For example:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import numpy as np
+# the syntax: np.linespace(lower_boundary, upper_boundary, # of steps)
+some_vector = np.linspace(1,10,10)
+print(some_vector)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>[1. 2. 3. 4. 5. 6. 7. 8. 9. 10.]</code></pre></div>
+<p>Similar to python list, the elements in the vectors are also indexed. We can access the numbers in a vector by specifying its index position. Also similar to python list, vector indexing in python start with zero (NOT 1).</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code># I wanted to access the first number in some_vector
+print(some_vector[0])</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>1.0</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

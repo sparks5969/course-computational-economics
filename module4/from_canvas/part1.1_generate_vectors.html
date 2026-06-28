@@ -1,0 +1,54 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li>
+                <p><span style="font-size: 14pt;"><strong>Vectors and Matrices (with NumPy)&nbsp;</strong></span></p>
+                <p><strong>Part 1. Vectors and vector manipulation</strong></p>
+                <p><strong>&nbsp; &nbsp; <span style="color: #236fa1;">&nbsp; &nbsp; 1.1. Generate vectors</span></strong></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.2. Calculation with vectors: Addition</span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.3. Calculation with vectors: Multiplication</span></p>
+                <p><span style="color: #95a5a6;"><strong style="color: #646464ff;">Part 2. Matrices and matrix manipulation</strong></span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.1. Generate matrices</span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.2. Transposing</span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.3. Calculation with matrices: Addition</span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.4. Calculation with matrices: Multiplication</span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.5. Calculation with matrices: Hadamard Product (element-wise product)</span></p>
+                <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.6. Accessing elements of a matrix</span></p>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3>1.1. Generating Vectors</h3>
+        <p>Simply, <span style="color: #e03e2d;"><strong style="color: #c83223ff;">vectors </strong></span>are one-dimensional arrays. Let's try to define some vectors. The easiest way to create vectors is to convert a list of number using np.array()</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy<span style="color: #0000ff;"> as</span> np</strong><br /><strong>list1= [1,3,5,7]</strong><br /><strong>vec1 = np.array(list1)</strong><br /><strong><span style="color: #a35212ff;">print</span>(list1)</strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>[1,3,5,7]<br />[1 3 5 7]</strong></pre>
+        <p>Notice that although "<code>list1</code>" and "<code>vec1</code>" looks very similar, essentially they are two different data types.</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[2]:</strong></span></p>
+        <pre><strong><span style="color: #a35212ff;">print<span style="color: #34495e;">(</span>type</span>(list1))</strong><br /><strong><span style="color: #a35212ff;">print<span style="color: #34495e;">(</span>type</span>(vec1))</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>&lt;class 'list'&gt;<br />&lt;class 'numpy.ndarray'&gt;</strong></pre>
+        <p>In Python, we have lists that serve the purpose of arrays, but they are slow to process. NumPy aims to provide an array object that is up to 50 times faster than traditional python list. The array object in NumPy is called <em><strong>ndarray</strong></em>, it provides a lot of supporting functions that make working with ndarray very easy.&nbsp;</p>
+        <p>Suppose we want a vector contains a series of years: 2016, 2017,2018,2019,2020. we can use the <code>arrange( )</code> function within NumPy to do this.</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy<span style="color: #0000ff;"> as</span> np</strong><br /><span style="color: #169179;"><strong style="color: #197841ff;"># the syntax: np.arange(start,end,stepsize)</strong></span><br /><strong>years = np.arange(2016,2020,1) </strong><br /><strong><span style="color: #a35212ff;">print</span>(years)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>[2016 2017 2018 2019]</strong></pre>
+        <p>As you can see, the end point (i.e., 2020 in this example) will not be generated.&nbsp;</p>
+        <p>Another function similar to np.arrange() is <code>np.linspace( )</code>. We can use <code>np.linspace( )</code> to create a certain number of elements between two boundary points. For example:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as </span>np</strong><br /><span style="color: #169179;"><strong style="color: #197841ff;"># the syntax: np.linespace(lower_boundary, upper_boundary, # of steps)</strong></span><br /><strong>some_vector = np.linspace(1,10,10)<br /><span style="color: #a35212ff;">print</span>(some_vector)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>[1. 2. 3. 4. 5. 6. 7. 8. 9. 10.]</strong></pre>
+        <p>Similar to python list, the elements in the vectors are also indexed. We can access the numbers in a vector by specifying its index position. Also similar to python list, vector indexing in python start with zero (NOT 1).</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><span style="color: #169179;"><strong style="color: #197841ff;"># I wanted to access the first number in some_vector</strong></span><br /><strong><span style="color: #a35212ff;">print</span>(some_vector[<span style="color: #806800ff;">0</span>])</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>1.0<br /></strong></pre>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

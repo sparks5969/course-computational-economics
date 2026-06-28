@@ -1,0 +1,42 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="font-size: 14pt;"><strong>Vectors and Matrices (with NumPy)&nbsp;</strong></span></p>
+        <p><span style="color: #7e8c8d;"><strong style="color: #646464ff;">Part 1. Vectors and vector manipulation</strong></span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.1. Generate vectors</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.2. Calculation with vectors: Addition</span></p>
+        <p><strong><span style="color: #236fa1;">&nbsp; &nbsp; </span></strong><span style="color: #646464ff;">&nbsp; &nbsp; 1.3. Calculation with vectors: Multiplication</span></p>
+        <p><span style="color: #236fa1;"><strong>Part 2. Matrices and matrix manipulation</strong></span></p>
+        <p><span style="color: #236fa1;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; 2.1. Generate matrices</strong></span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.2. Transposing</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.3. Calculation with matrices: Addition</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.4. Calculation with matrices: Multiplication</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.5. Calculation with matrices: Hadamard Product (element-wise product)</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.6. Accessing elements of a matrix</span></p>
+        <p>======================================================================================================</p>
+        <p>&nbsp;</p>
+        <h3><strong>2.1. Generate Matrices</strong></h3>
+        <p>Very simply, you can think of matrices as two-dimensional vectors. To define a matrix, we need to do the following:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>mat1= np.array([[1,3,5,7,9],[2,4,6,8,10]]) <span style="color: #197841ff;"> <br /># pay attention on how the square brackets are used to organize the data</span></strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The new matrix is:'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(mat1)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The new matrix is:</strong><br /><strong>[[ 1 &nbsp;3 &nbsp;5 &nbsp;7 &nbsp;9]</strong><br /><strong>&nbsp;[ 2 &nbsp;4 &nbsp;6 &nbsp;8 10]]</strong></pre>
+        <p>In the above example, we just created a 2x5 matrix (which is also a ndarray object). As illustrated in this example, we call the function np.array( ) to convert <strong>a list of lists </strong>into a matrix. Each inner list is a row of the matrix, we use comma to separate the "rows", and then put another pair of squared brackets to wrap all the "rows" together.&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>In some situations, we wanted to generate a matrix of a particular size, and fill it with zeros. A easy way to do this is:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong><span style="color: #000000;">mat1 = np.zeros((<span style="color: #806800ff;">5</span>,<span style="color: #806800ff;">4</span>)) </span><span style="color: #197841ff;"># create a 5x4 matrix, and fill it with zeros</span></strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The new matrix is:'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(mat1)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The new matrix is:</strong><br /><strong>[[0. 0. 0. 0.]</strong><br /><strong>&nbsp;[0. 0. 0. 0.]</strong><br /><strong>&nbsp;[0. 0. 0. 0.]</strong><br /><strong>&nbsp;[0. 0. 0. 0.]</strong><br /><strong>&nbsp;[0. 0. 0. 0.]]</strong></pre>
+        <p>&nbsp;</p>
+        <p>We can also easily create an identity matrix (i.e., a matrix has the same numbers of rows and columns, with the value one in the diagonal and zeros everywhere else) in one line of code:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>identity_mat = np.identity(4)<span style="color: #197841ff;"> </span><span style="color: #197841ff;"># create a 4x4 matrix, and fill it with zeros</span></strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The identity matrix looks like:'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(identity_mat)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The identity matrix looks like:</strong><br /><strong>[[1. 0. 0. 0.]</strong><br /><strong>&nbsp;[0. 1. 0. 0.]</strong><br /><strong>&nbsp;[0. 0. 1. 0.]</strong><br /><strong>&nbsp;[0. 0. 0. 1.]]</strong></pre>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

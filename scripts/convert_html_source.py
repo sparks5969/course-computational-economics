@@ -420,13 +420,24 @@ MODULE3_WORKSHOP = [
     ("part3-1-class.html", "Part 3.1: Class"),
     ("part3-2-object.html", "Part 3.2: Object"),
     ("part3-3-inheritance.html", "Part 3.3: Inheritance"),
+    ("practice3.html", "Practice Project 3"),
 ]
 
 MODULE4_LECTURE = [
     ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
-MODULE4_WORKSHOP: list[tuple[str, str]] = []
+MODULE4_WORKSHOP = [
+    ("part1-1-generate-vectors.html", "Part 1.1: Generate Vectors"),
+    ("part1-2-vector-addition.html", "Part 1.2: Vector Addition"),
+    ("part1-3-vector-multiplication.html", "Part 1.3: Vector Multiplication"),
+    ("part2-1-generate-matrices.html", "Part 2.1: Generate Matrices"),
+    ("part2-2-transposing.html", "Part 2.2: Transposing"),
+    ("part2-3-matrix-addition.html", "Part 2.3: Matrix Addition"),
+    ("part2-4-matrix-multiplication.html", "Part 2.4: Matrix Multiplication"),
+    ("part2-5-element-wise-product.html", "Part 2.5: Element-wise Product"),
+    ("part2-6-accessing-matrix-elements.html", "Part 2.6: Accessing Elements"),
+]
 
 MODULE5_LECTURE = [
     ("index.html", "Overview &amp; Lecture Slides"),
@@ -438,7 +449,7 @@ MODULE_META = {
     1: ("Module 1 — Python Foundations", MODULE1_LECTURE, MODULE1_WORKSHOP),
     2: ("Module 2 — Stable Matching", MODULE2_LECTURE, MODULE2_WORKSHOP),
     3: ("Module 3 — OOP & Functions", MODULE3_LECTURE, MODULE3_WORKSHOP),
-    4: ("Module 4", MODULE4_LECTURE, MODULE4_WORKSHOP),
+    4: ("Module 4 — Economic Growth & NumPy", MODULE4_LECTURE, MODULE4_WORKSHOP),
     5: ("Module 5", MODULE5_LECTURE, MODULE5_WORKSHOP),
 }
 
@@ -446,7 +457,7 @@ MODULE_HUB = [
     (1, "Python Foundations", "Install Anaconda, learn Python basics, and complete Practice Project 1.", "module1/index.html", True),
     (2, "Stable Matching", "List and dictionary methods, loops, JSON, and the Gale–Shapley algorithm.", "module2/index.html", True),
     (3, "OOP & Functions", "Programming paradigms, user-defined functions, classes, objects, and inheritance.", "module3/index.html", True),
-    (4, "Module 4", "Materials coming soon.", "module4/index.html", False),
+    (4, "Economic Growth & NumPy", "Solow–Swan growth theory and NumPy vectors and matrices for simulation.", "module4/index.html", True),
     (5, "Module 5", "Materials coming soon.", "module5/index.html", False),
 ]
 

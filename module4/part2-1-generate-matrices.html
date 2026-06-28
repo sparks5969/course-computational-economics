@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Part 2.1 — Generate Matrices</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(block) {
+        if (!block.className) block.className = 'language-python';
+        hljs.highlightElement(block);
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(block.innerText).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
+        <p class="site-subtitle">Module 4 — Economic Growth &amp;amp; NumPy</p>
+      </div>
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <nav>
+        <div class="sidebar-label">Course</div>
+        <a href="../index.html">Home</a>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 1</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module1/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module1/part1-installation.html">Part 1: Installation</a>
+            <a href="../module1/part2-language.html">Part 2: Python Language</a>
+            <a href="../module1/part3-packages.html">Part 3: Packages &amp; Modules</a>
+            <a href="../module1/part4-data-structures.html">Part 4: Data Structures</a>
+            <a href="../module1/part5-programming.html">Part 5: Programming</a>
+            <a href="../module1/practice1.html">Practice Project 1</a>
+          </div>
+        </details>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 2</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module2/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module2/part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="../module2/part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="../module2/part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="../module2/part3-loops.html">Part 3: Loops</a>
+            <a href="../module2/part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="../module2/practice2.html">Practice Project 2</a>
+          </div>
+        </details>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 3</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module3/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module3/part1-programming-paradigm.html">Part 1: Programming Paradigm</a>
+            <a href="../module3/part2-1-2-functions.html">Part 2.1–2.2: What &amp; Why Functions</a>
+            <a href="../module3/part2-user-functions.html">Part 2.3: User-Defined Functions</a>
+            <a href="../module3/part3-1-class.html">Part 3.1: Class</a>
+            <a href="../module3/part3-2-object.html">Part 3.2: Object</a>
+            <a href="../module3/part3-3-inheritance.html">Part 3.3: Inheritance</a>
+            <a href="../module3/practice3.html">Practice Project 3</a>
+          </div>
+        </details>
+        <details class="sidebar-fold" open>
+          <summary class="sidebar-fold-title">Module 4</summary>
+          <div class="sidebar-fold-body">
+            <a href="index.html">Overview &amp; Lecture Slides</a>
+            <a href="part1-1-generate-vectors.html">Part 1.1: Generate Vectors</a>
+            <a href="part1-2-vector-addition.html">Part 1.2: Vector Addition</a>
+            <a href="part1-3-vector-multiplication.html">Part 1.3: Vector Multiplication</a>
+            <a href="part2-1-generate-matrices.html" class="active">Part 2.1: Generate Matrices</a>
+            <a href="part2-2-transposing.html">Part 2.2: Transposing</a>
+            <a href="part2-3-matrix-addition.html">Part 2.3: Matrix Addition</a>
+            <a href="part2-4-matrix-multiplication.html">Part 2.4: Matrix Multiplication</a>
+            <a href="part2-5-element-wise-product.html">Part 2.5: Element-wise Product</a>
+            <a href="part2-6-accessing-matrix-elements.html">Part 2.6: Accessing Elements</a>
+          </div>
+        </details>
+        <details class="sidebar-fold">
+          <summary class="sidebar-fold-title">Module 5</summary>
+          <div class="sidebar-fold-body">
+            <a href="../module5/index.html">Overview &amp; Lecture Slides</a>
+          </div>
+        </details>
+      </nav>
+    </aside>
+    <main>
+      <h1>Part 2.1 — Generate Matrices</h1>
+<h2>2.1. Generate Matrices</h2>
+<p>Very simply, you can think of matrices as two-dimensional vectors. To define a matrix, we need to do the following:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import numpy as np
+mat1= np.array([[1,3,5,7,9],[2,4,6,8,10]])
+# pay attention on how the square brackets are used to organize the data
+print(&#x27;The new matrix is:&#x27;)
+print(mat1)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>The new matrix is:
+[[ 1  3  5  7  9]
+ [ 2  4  6  8 10]]</code></pre></div>
+<p>In the above example, we just created a 2x5 matrix (which is also a ndarray object). As illustrated in this example, we call the function np.array( ) to convert <strong>a list of lists </strong>into a matrix. Each inner list is a row of the matrix, we use comma to separate the &quot;rows&quot;, and then put another pair of squared brackets to wrap all the &quot;rows&quot; together.</p>
+<p>In some situations, we wanted to generate a matrix of a particular size, and fill it with zeros. A easy way to do this is:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import numpy as np
+mat1 = np.zeros((5,4)) # create a 5x4 matrix, and fill it with zeros
+print(&#x27;The new matrix is:&#x27;)
+print(mat1)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>The new matrix is:
+[[0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]</code></pre></div>
+<p>We can also easily create an identity matrix (i.e., a matrix has the same numbers of rows and columns, with the value one in the diagonal and zeros everywhere else) in one line of code:</p>
+<div class="code-cell code-input"><div class="code-label">In [1]:</div><pre><code>import numpy as np
+identity_mat = np.identity(4) # create a 4x4 matrix, and fill it with zeros
+print(&#x27;The identity matrix looks like:&#x27;)
+print(identity_mat)</code></pre></div>
+<div class="code-cell code-output"><div class="code-label">Out [1]:</div><pre><code>The identity matrix looks like:
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]</code></pre></div>
+    </main>
+  </div>
+</body>
+</html>

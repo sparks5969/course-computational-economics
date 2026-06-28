@@ -6,6 +6,8 @@ from pathlib import Path
 
 from convert_html_source import ROOT, convert, wrap_page
 
+FILES_DIR = ROOT / "module3" / "files"
+
 SRC_DIR = ROOT / "module3" / "from_canvas"
 OUT_DIR = ROOT / "module3"
 
@@ -77,6 +79,31 @@ def build_overview() -> None:
     print(f"Wrote {OUT_DIR / 'index.html'}")
 
 
+def build_practice3() -> None:
+    FILES_DIR.mkdir(exist_ok=True)
+
+    body = """
+      <p>In this project, you will apply <strong>object-oriented programming</strong> to
+      simulate the market demand and supply model — and find the equilibrium price computationally.</p>
+
+      <h2>Downloads</h2>
+      <ul>
+        <li><a href="files/practice_project3.py" download>practice_project3.py</a> — incomplete starter script</li>
+        <li><a href="files/practice_project3_promptbook.md" download>practice_project3_promptbook.md</a> — prompt book</li>
+      </ul>"""
+
+    page = wrap_page(
+        body,
+        "Practice Project 3 — Market Simulation",
+        module=3,
+        active_href="practice3.html",
+        page_heading="Practice Project 3 — Market Simulation",
+    )
+    dst = OUT_DIR / "practice3.html"
+    dst.write_text(page, encoding="utf-8")
+    print(f"Wrote {dst}")
+
+
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     build_overview()
@@ -88,6 +115,8 @@ def main() -> None:
         dst = OUT_DIR / out_name
         dst.write_text(page, encoding="utf-8")
         print(f"Wrote {dst}")
+
+    build_practice3()
 
 
 if __name__ == "__main__":

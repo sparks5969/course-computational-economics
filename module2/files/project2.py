@@ -66,7 +66,7 @@ while free_guys:
 # calculate elapsed time using start_time and print it
 
 
-# ── Section 5 (optional). Stability check ────────────────────────────────────
+# ── Section 5. Stability check ────────────────────────────────────
 
 # define stability: there are no two people of opposite sex who would both
 # rather have each other than their current partners.

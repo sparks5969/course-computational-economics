@@ -1,0 +1,43 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="font-size: 14pt;"><strong>Vectors and Matrices (with NumPy)&nbsp;</strong></span></p>
+        <p><span style="color: #7e8c8d;"><strong style="color: #646464ff;">Part 1. Vectors and vector manipulation</strong></span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.1. Generate vectors</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.2. Calculation with vectors: Addition</span></p>
+        <p><strong><span style="color: #236fa1;">&nbsp; &nbsp; </span></strong><span style="color: #646464ff;">&nbsp; &nbsp; 1.3. Calculation with vectors: Multiplication</span></p>
+        <p><span style="color: #236fa1;"><strong>Part 2. Matrices and matrix manipulation</strong></span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.1. Generate matrices</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.2. Transposing</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.3. Calculation with matrices: Addition</span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.4. Calculation with matrices: Multiplication</span></p>
+        <p><span style="color: #236fa1;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; 2.5. Calculation with matrices: Hadamard Product (element-wise product)</strong></span></p>
+        <p><span style="color: #646464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.6. Accessing elements of a matrix</span></p>
+        <p>======================================================================================================</p>
+        <p>&nbsp;</p>
+        <h3><strong>2.5. Calculation with Matrices: Element-wise product</strong><strong></strong></h3>
+        <p id="firstHeading" class="firstHeading" lang="en"><span>Another type of matrix manipulation is the &nbsp;<strong>element-wise p</strong><strong>roduct</strong></span><span> (also known as the <strong>Hadamard product</strong></span><span>). The element-wise product </span><span>is a binary operation </span><span>that takes two matrices </span><span>of the same dimensions and produces another matrix of the same dimension as the operands where each element&nbsp;</span><span class="texhtml"><i>i</i>,&nbsp;<i>j</i></span><span>&nbsp;is the product of elements&nbsp;</span><span class="texhtml"><i>i</i>,&nbsp;<i>j</i></span><span> of the original two matrices. Mathematically:</span></p>
+        <p class="firstHeading" lang="en">&nbsp;</p>
+        <p class="firstHeading" lang="en"><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="A\:=\:\begin{matrix}\left[\begin{matrix}a_{11},\:a_{12}\\a_{21},\:a_{22}\\a_{31},\:a_{32}\end{matrix}\right]\end{matrix} \:\:\:\:\:\:\:\:\:\:\:\
+
+B\:=\:\begin{matrix}\left[\begin{matrix}b_{11},\:b_{12}\\b_{21},\:b_{22}\\b_{31},\:b_{32}\end{matrix}\right]\end{matrix}" src="https://canvas.case.edu/equation_images/A%255C%253A%253D%255C%253A%255Cbegin%257Bmatrix%257D%255Cleft%255B%255Cbegin%257Bmatrix%257Da_%257B11%257D%252C%255C%253Aa_%257B12%257D%255C%255Ca_%257B21%257D%252C%255C%253Aa_%257B22%257D%255C%255Ca_%257B31%257D%252C%255C%253Aa_%257B32%257D%255Cend%257Bmatrix%257D%255Cright%255D%255Cend%257Bmatrix%257D%2520%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%250A%250AB%255C%253A%253D%255C%253A%255Cbegin%257Bmatrix%257D%255Cleft%255B%255Cbegin%257Bmatrix%257Db_%257B11%257D%252C%255C%253Ab_%257B12%257D%255C%255Cb_%257B21%257D%252C%255C%253Ab_%257B22%257D%255C%255Cb_%257B31%257D%252C%255C%253Ab_%257B32%257D%255Cend%257Bmatrix%257D%255Cright%255D%255Cend%257Bmatrix%257D" alt="this is a matrix displayed by Latex" data-equation-content="A\:=\:\begin{matrix}\left[\begin{matrix}a_{11},\:a_{12}\\a_{21},\:a_{22}\\a_{31},\:a_{32}\end{matrix}\right]\end{matrix} \:\:\:\:\:\:\:\:\:\:\:\
+
+B\:=\:\begin{matrix}\left[\begin{matrix}b_{11},\:b_{12}\\b_{21},\:b_{22}\\b_{31},\:b_{32}\end{matrix}\right]\end{matrix}" /></p>
+        <p class="firstHeading" lang="en">The element-wise product is given by:</p>
+        <p class="firstHeading" lang="en"><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="\left(A\:\circ\:B\right)_{i,j}=\:\left(A_{i,j}\right)\left(B_{i,j}\right)" src="https://canvas.case.edu/equation_images/%255Cleft(A%255C%253A%255Ccirc%255C%253AB%255Cright)_%257Bi%252Cj%257D%253D%255C%253A%255Cleft(A_%257Bi%252Cj%257D%255Cright)%255Cleft(B_%257Bi%252Cj%257D%255Cright)" alt="LaTeX: \left(A\:\circ\:B\right)_{i,j}=\:\left(A_{i,j}\right)\left(B_{i,j}\right)" data-equation-content="\left(A\:\circ\:B\right)_{i,j}=\:\left(A_{i,j}\right)\left(B_{i,j}\right)" /></p>
+        <p class="firstHeading" lang="en">Below is a numeric example:</p>
+        <p class="firstHeading" lang="en">&nbsp;</p>
+        <p class="firstHeading" lang="en"><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="A=\left[\begin{matrix}1,\:2\\3,\:4\\5,\:6\end{matrix}\right]\:\:\:\:B=\left[\begin{matrix}2,\:\:\:\:\:\:1\\0,\:\:\:\:\:\:1\\1,\:-1\end{matrix}\right]\:\:\:\:then\:A\:\circ\:B\:=\left[\begin{matrix}2,\:\:\:\:2\\0,\:\:\:\:4\\5,-6\end{matrix}\right]\:" src="https://canvas.case.edu/equation_images/A%253D%255Cleft%255B%255Cbegin%257Bmatrix%257D1%252C%255C%253A2%255C%255C3%252C%255C%253A4%255C%255C5%252C%255C%253A6%255Cend%257Bmatrix%257D%255Cright%255D%255C%253A%255C%253A%255C%253A%255C%253AB%253D%255Cleft%255B%255Cbegin%257Bmatrix%257D2%252C%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A1%255C%255C0%252C%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A%255C%253A1%255C%255C1%252C%255C%253A-1%255Cend%257Bmatrix%257D%255Cright%255D%255C%253A%255C%253A%255C%253A%255C%253Athen%255C%253AA%255C%253A%255Ccirc%255C%253AB%255C%253A%253D%255Cleft%255B%255Cbegin%257Bmatrix%257D2%252C%255C%253A%255C%253A%255C%253A%255C%253A2%255C%255C0%252C%255C%253A%255C%253A%255C%253A%255C%253A4%255C%255C5%252C-6%255Cend%257Bmatrix%257D%255Cright%255D%255C%253A" alt="LaTeX content" data-equation-content="A=\left[\begin{matrix}1,\:2\\3,\:4\\5,\:6\end{matrix}\right]\:\:\:\:B=\left[\begin{matrix}2,\:\:\:\:\:\:1\\0,\:\:\:\:\:\:1\\1,\:-1\end{matrix}\right]\:\:\:\:then\:A\:\circ\:B\:=\left[\begin{matrix}2,\:\:\:\:2\\0,\:\:\:\:4\\5,-6\end{matrix}\right]\:" /></p>
+        <p class="firstHeading" lang="en">&nbsp;</p>
+        <p class="firstHeading" lang="en">In python, the element-wise product can be obtained with:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>A = np.array([[1,2],[3,4],[5,6]])<br />B = np.array([[2,1],[0,1],[1,-1]])<br />C = A*B<br /><br /><span style="color: #a35212ff;">print</span>(C)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>[[ 2 &nbsp;2]</strong><br /><strong>&nbsp;[ 0 &nbsp;4]</strong><br /><strong>&nbsp;[ 5 -6]]</strong></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

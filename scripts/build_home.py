@@ -54,12 +54,12 @@ MODULES = {
     },
     3: {
         "title": "Module 3 Overview",
-        "subtitle": "Module 3 — OOP &amp; Functions",
+        "subtitle": "Module 3 — OOP & Functions",
         "description": (
             "Learn programming paradigms, write user-defined functions, and "
             "explore object-oriented programming through classes, objects, and inheritance."
         ),
-        "slides": None,
+        "slides": "module3_MarketMechanism and OOP.pptx",
         "workshop_cards": [
             ("part1-programming-paradigm.html", "Part 1",   "Programming Paradigm",        "Imperative, functional, and OOP styles."),
             ("part2-1-2-functions.html",        "Part 2.1–2.2", "What &amp; Why Functions", "DRY principle and function basics."),
@@ -67,14 +67,28 @@ MODULES = {
             ("part3-1-class.html",              "Part 3.1", "Class",                        "Blueprints with <code>__init__</code> and methods."),
             ("part3-2-object.html",             "Part 3.2", "Object",                       "Create and use objects from a class."),
             ("part3-3-inheritance.html",        "Part 3.3", "Inheritance",                  "Subclasses, superclasses, and overriding."),
+            ("practice3.html",                  "Practice", "Practice Project 3",           "Simulate market demand and supply with OOP."),
         ],
     },
     4: {
         "title": "Module 4 Overview",
-        "subtitle": "Module 4",
-        "description": None,
-        "slides": None,
-        "workshop_cards": [],
+        "subtitle": "Module 4 — Economic Growth & NumPy",
+        "description": (
+            "Explore the Solow–Swan growth model and learn to simulate economic growth "
+            "in Python. Build NumPy skills with vectors and matrices along the way."
+        ),
+        "slides": "module4_growth model.pptx",
+        "workshop_cards": [
+            ("part1-1-generate-vectors.html",       "Part 1.1", "Generate Vectors",        "Create NumPy arrays from lists and sequences."),
+            ("part1-2-vector-addition.html",        "Part 1.2", "Vector Addition",           "Add and combine vectors with NumPy."),
+            ("part1-3-vector-multiplication.html",  "Part 1.3", "Vector Multiplication",     "Scalar and element-wise vector operations."),
+            ("part2-1-generate-matrices.html",      "Part 2.1", "Generate Matrices",         "Build matrices with <code>np.array</code> and helpers."),
+            ("part2-2-transposing.html",            "Part 2.2", "Transposing",               "Flip rows and columns with <code>.T</code>."),
+            ("part2-3-matrix-addition.html",        "Part 2.3", "Matrix Addition",           "Add matrices element by element."),
+            ("part2-4-matrix-multiplication.html",  "Part 2.4", "Matrix Multiplication",     "Matrix product with <code>@</code> and <code>np.dot</code>."),
+            ("part2-5-element-wise-product.html", "Part 2.5", "Element-wise Product",      "Hadamard product for element-by-element multiplication."),
+            ("part2-6-accessing-matrix-elements.html", "Part 2.6", "Accessing Elements",   "Index rows, columns, and slices in a matrix."),
+        ],
     },
     5: {
         "title": "Module 5 Overview",

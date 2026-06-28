@@ -1,0 +1,43 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <p><span style="font-size: 14pt;"><strong>Vectors and Matrices (with NumPy)&nbsp;</strong></span></p>
+        <p><span style="color: #7e8c8d;"><strong style="color: #5a6464ff;">Part 1. Vectors and vector manipulation</strong></span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.1. Generate vectors</span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.2. Calculation with vectors: Addition</span></p>
+        <p><strong><span style="color: #236fa1;">&nbsp; &nbsp; &nbsp; &nbsp; 1.3. Calculation with vectors: Multiplication</span></strong></p>
+        <p><span style="color: #7e8c8d;"><strong style="color: #5a6464ff;">Part 2. Matrices and matrix manipulation</strong></span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.1. Generate matrices</span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.2. Transposing</span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.3. Calculation with matrices: Addition</span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.4. Calculation with matrices: Multiplication</span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.5. Calculation with matrices: Hadamard Product (element-wise product)</span></p>
+        <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.6. Accessing elements of a matrix</span></p>
+        <p>======================================================================================================</p>
+        <p>&nbsp;</p>
+        <h3><strong>1.3. Calculations with vectors: Multiplication</strong></h3>
+        <p>Similar as addition, we can multiply a vector with a scalar (i.e., a constant number). The scalar is multiplied with ALL numbers of the vector. Usually we use the letter <img class="equation_image" title="\lambda" src="https://canvas.case.edu/equation_images/%255Clambda" alt="LaTeX: \lambda" data-equation-content="\lambda" /> to denote the scalar. Formally:</p>
+        <p><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="\lambda\cdot a\:=\left[\begin{matrix}\lambda\cdot a_1\\\lambda\cdot a_2\end{matrix}\right]" src="https://canvas.case.edu/equation_images/%255Clambda%255Ccdot%2520a%255C%253A%253D%255Cleft%255B%255Cbegin%257Bmatrix%257D%255Clambda%255Ccdot%2520a_1%255C%255C%255Clambda%255Ccdot%2520a_2%255Cend%257Bmatrix%257D%255Cright%255D" alt="LaTeX: \lambda\cdot a\:=\left[\begin{matrix}\lambda\cdot a_1\\\lambda\cdot a_2\end{matrix}\right]" data-equation-content="\lambda\cdot a\:=\left[\begin{matrix}\lambda\cdot a_1\\\lambda\cdot a_2\end{matrix}\right]" /></p>
+        <p>This operation can be easily done with NumPy. Take a look at this example:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>vec1 = np.array([1,3,5,7,9])</strong><br /><strong>constant = 2</strong><br /><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The original vectors are'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1,vec2)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'-------------------------'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'Multiply vec1 with the constant, we have:'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(constant * vec2)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The original vectors are</strong><br /><strong>[1 3 5 7 9] [ 2 &nbsp;6 10 14 18]</strong><br /><strong>-------------------------</strong><br /><strong>Multiply vec1 with the constant, we have:</strong><br /><strong>[ 4 12 20 28 36]</strong></pre>
+        <p>&nbsp;</p>
+        <p>When multiplying two vectors together, we are actually generating the "inner product".&nbsp;Mathematically, suppose we have a vector <strong><em>a</em></strong> and a vector <strong><em>b</em></strong>, then the inner product should be:</p>
+        <p><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="a\times b\:=\:\sum_{i=1}^na_i\times b_i" src="https://canvas.case.edu/equation_images/a%255Ctimes%2520b%255C%253A%253D%255C%253A%255Csum_%257Bi%253D1%257D%255Ena_i%255Ctimes%2520b_i" alt="LaTeX: a\times b\:=\:\sum_{i=1}^na_i\times b_i" data-equation-content="a\times b\:=\:\sum_{i=1}^na_i\times b_i" /></p>
+        <p>A numerical example is presented below, suppose:</p>
+        <p><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="a\:=\:\left[\begin{matrix}1\\3\end{matrix}\right];\:b=\left[\begin{matrix}2\\4\end{matrix}\right]" src="https://canvas.case.edu/equation_images/a%255C%253A%253D%255C%253A%255Cleft%255B%255Cbegin%257Bmatrix%257D1%255C%255C3%255Cend%257Bmatrix%257D%255Cright%255D%253B%255C%253Ab%253D%255Cleft%255B%255Cbegin%257Bmatrix%257D2%255C%255C4%255Cend%257Bmatrix%257D%255Cright%255D" alt="LaTeX: a\:=\:\left[\begin{matrix}1\\3\end{matrix}\right];\:b=\left[\begin{matrix}2\\4\end{matrix}\right]" data-equation-content="a\:=\:\left[\begin{matrix}1\\3\end{matrix}\right];\:b=\left[\begin{matrix}2\\4\end{matrix}\right]" /></p>
+        <p>then:&nbsp;</p>
+        <p><img class="equation_image" style="display: block; margin-left: auto; margin-right: auto;" title="a\times b\:=\:1\times2\:+\:3\times4\:=14" src="https://canvas.case.edu/equation_images/a%255Ctimes%2520b%255C%253A%253D%255C%253A1%255Ctimes2%255C%253A%252B%255C%253A3%255Ctimes4%255C%253A%253D14" alt="LaTeX: a\times b\:=\:1\times2\:+\:3\times4\:=14" data-equation-content="a\times b\:=\:1\times2\:+\:3\times4\:=14" /></p>
+        <p>With NumPy, we can perform this operation in one line of code:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>vec1 = np.array([1,3,5,7,9])</strong><br /><strong>vec2 = np.array([2,4,6,8,10])</strong><br /><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The original vectors are'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1,vec2)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'-------------------------'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The inner product of the two vectors are:'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(np.sum(vec1*vec2))</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The original vectors are</strong><br /><strong>[1 3 5 7 9] [ 2 &nbsp;4 &nbsp;6 &nbsp;8 10]</strong><br /><strong>-------------------------</strong><br /><strong>The inner product of the two vectors are:</strong><br /><strong>190</strong></pre>
+        <p>==========================================================================================================</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>

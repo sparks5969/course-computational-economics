@@ -1,0 +1,45 @@
+<div id="kl_wrapper_3" class="kl_apple kl_wrapper">
+    <div id="kl_banner">
+        <h3>Outline</h3>
+        <ul>
+            <li>
+                <p><span style="font-size: 14pt;"><strong>Vectors and Matrices (with NumPy)&nbsp;</strong></span></p>
+                <p><strong>Part 1. Vectors and vector manipulation</strong></p>
+                <p><strong>&nbsp; &nbsp; <span style="color: #236fa1;">&nbsp; <span style="color: #5a6464ff;">&nbsp; </span></span></strong><span style="color: #236fa1;"><span style="color: #5a6464ff;">1.1. Generate vectors</span></span></p>
+                <p><span style="color: #0050a0ff;">&nbsp; &nbsp; &nbsp;<span style="color: #236fa1;"><strong> &nbsp; 1.2. Calculation with vectors: Addition</strong></span></span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 1.3. Calculation with vectors: Multiplication</span></p>
+                <p><span style="color: #95a5a6;"><strong style="color: #5a6464ff;">Part 2. Matrices and matrix manipulation</strong></span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.1. Generate matrices</span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.2. Transposing</span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.3. Calculation with matrices: Addition</span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.4. Calculation with matrices: Multiplication</span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.5. Calculation with matrices: Hadamard Product (element-wise product)</span></p>
+                <p><span style="color: #5a6464ff;">&nbsp; &nbsp; &nbsp; &nbsp; 2.6. Accessing elements of a matrix</span></p>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3>1.2. Calculation with Vectors: Addition<strong></strong></h3>
+        <p>When the two vectors have the same shape, we can perform basic calculations such as addition, subtraction, multiplication, and division. python will perform <strong>ELEMENT-BY-ELEMENT</strong> operations with the input vectors.</p>
+        <p>Let's start with adding two vectors together:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>vec1 = np.array([1,3,5,7,9])</strong><br /><strong>vec2 = np.array([2,6,10,14,18])</strong><br /><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The original vectors are'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1,vec2)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'-------------------------'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #5a6464ff;">'The sum of the two vectors are'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1 + vec2)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The original vectors are<br />[1 3 5 7 9] [ 2 &nbsp;6 10 14 18]<br />-------------------------<br />The sum of the two vectors are<br />[ 3 &nbsp;9 15 21 27]<br /></strong></pre>
+        <p>We can also add a scalar (i.e., a constant number) to a vector. Always remember, when we are working with the <strong><em>ndarray </em></strong>objects, python will perform the element-to-element operation.</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong><span style="color: #0000ff;">import</span> numpy <span style="color: #0000ff;">as</span> np</strong><br /><strong>vec1 = np.array([1,3,5,7,9])</strong><br /><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #646464ff;">'The original vectors are:'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1,vec2)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #646464ff;">'-------------------------'</span>)</strong><br /><strong><span style="color: #a35212ff;">print</span>(<span style="color: #646464ff;">'Now adding 5 to vec1, we have:'</span>) </strong><br /><strong><span style="color: #a35212ff;">print</span>(vec1 + 5)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>The original vectors are:</strong><br /><strong>[1 3 5 7 9] [ 2 &nbsp;6 10 14 18]</strong><br /><strong>-------------------------</strong><br /><strong>Now adding 5 to vec1, we have:</strong><br /><strong>[ 6 &nbsp;8 10 12 14]</strong></pre>
+        <p>&nbsp;</p>
+        <p>At this point, let's emphasize it one more time: list and numpy ndarrays looks similar, but they are two different data types. To further illustrate on this, point, let's see what will happen if we use python list to do calculations:</p>
+        <p><span style="color: #2dc26b; font-size: 10pt;"><strong style="color: #197841ff;">In[1]:</strong></span></p>
+        <pre><strong>list1 = [1,3,5,7,9]</strong><br /><strong>list2 = [2,6,10,14,18]<br /><span style="color: #a35212ff;">print</span>(list1+list2)</strong></pre>
+        <p><span style="color: #e03e2d; font-size: 10pt;"><strong style="color: #c83223ff;">Out[1]:</strong></span></p>
+        <pre><strong>[1, 3, 5, 7, 9, 2, 6, 10, 14, 18]</strong></pre>
+        <p>When we try to add two lists together, instead of performing the element-to-element operation, python will simply concatenate the two lists together to generate a new, longer list. This isn't the "math" we want.&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div id="kl_custom_block_1" class="">
+    <p class="kl_module_progress_completion" style="display: none;">Module Item Completion (built in browser, hidden in app)&lt;/</p>
+</div>
