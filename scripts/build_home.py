@@ -72,7 +72,7 @@ MODULES = {
     },
     4: {
         "title": "Module 4 Overview",
-        "subtitle": "Module 4 — Economic Growth & NumPy",
+        "subtitle": "Module 4 — Economic Growth",
         "description": (
             "Explore the Solow–Swan growth model and learn to simulate economic growth "
             "in Python. Build NumPy skills with vectors and matrices along the way."

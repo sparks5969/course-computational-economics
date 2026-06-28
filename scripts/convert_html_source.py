@@ -449,7 +449,7 @@ MODULE_META = {
     1: ("Module 1 — Python Foundations", MODULE1_LECTURE, MODULE1_WORKSHOP),
     2: ("Module 2 — Stable Matching", MODULE2_LECTURE, MODULE2_WORKSHOP),
     3: ("Module 3 — OOP & Functions", MODULE3_LECTURE, MODULE3_WORKSHOP),
-    4: ("Module 4 — Economic Growth & NumPy", MODULE4_LECTURE, MODULE4_WORKSHOP),
+    4: ("Module 4 — Economic Growth", MODULE4_LECTURE, MODULE4_WORKSHOP),
     5: ("Module 5", MODULE5_LECTURE, MODULE5_WORKSHOP),
 }
 
@@ -457,7 +457,7 @@ MODULE_HUB = [
     (1, "Python Foundations", "Install Anaconda, learn Python basics, and complete Practice Project 1.", "module1/index.html", True),
     (2, "Stable Matching", "List and dictionary methods, loops, JSON, and the Gale–Shapley algorithm.", "module2/index.html", True),
     (3, "OOP & Functions", "Programming paradigms, user-defined functions, classes, objects, and inheritance.", "module3/index.html", True),
-    (4, "Economic Growth & NumPy", "Solow–Swan growth theory and NumPy vectors and matrices for simulation.", "module4/index.html", True),
+    (4, "Economic Growth", "Solow–Swan growth theory and NumPy vectors and matrices for simulation.", "module4/index.html", True),
     (5, "Module 5", "Materials coming soon.", "module5/index.html", False),
 ]
 
