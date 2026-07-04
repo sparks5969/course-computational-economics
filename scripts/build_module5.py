@@ -115,10 +115,10 @@ def pandas_3_preprocessing() -> None:
       apply to any structured dataset in future projects.</p>
 """ + _colab_block("https://colab.research.google.com/drive/1EqBzCx5UAYhfabN2VoNzP6E08iyu3dWv?usp=sharing")
 
-    page = wrap_page(body, "Part 1.3 — Data Preprocessing", module=5,
-                     active_href="pandas-3-preprocessing.html",
-                     page_heading="Part 1.3 — Data Preprocessing")
-    dst = OUT_DIR / "pandas-3-preprocessing.html"
+    page = wrap_page(body, "Part 2.1 — Data Preprocessing", module=5,
+                     active_href="ml-1-preprocessing.html",
+                     page_heading="Part 2.1 — Data Preprocessing")
+    dst = OUT_DIR / "ml-1-preprocessing.html"
     dst.write_text(page, encoding="utf-8")
     print(f"Wrote {dst}")
 
@@ -180,9 +180,9 @@ def ml_1_ai_coding() -> None:
         </tbody>
       </table>"""
 
-    page = wrap_page(body, "Part 2.1 — AI-Assisted Coding", module=5,
+    page = wrap_page(body, "AI-Assisted Coding", module=5,
                      active_href="ml-1-ai-coding.html",
-                     page_heading="Part 2.1 — AI-Assisted Coding")
+                     page_heading="AI-Assisted Coding")
     dst = OUT_DIR / "ml-1-ai-coding.html"
     dst.write_text(page, encoding="utf-8")
     print(f"Wrote {dst}")

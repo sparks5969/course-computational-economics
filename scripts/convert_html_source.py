@@ -440,16 +440,16 @@ MODULE4_WORKSHOP = [
 ]
 
 MODULE5_LECTURE = [
-    ("index.html", "Overview &amp; Lecture Slides"),
+    ("index.html",         "Overview &amp; Lecture Slides"),
+    ("ml-1-ai-coding.html", "AI-Assisted Coding"),
 ]
 
 MODULE5_WORKSHOP = [
-    ("pandas-1-basics.html",        "Part 1.1: Pandas Basics"),
-    ("pandas-2-exploration.html",   "Part 1.2: Data Exploration"),
-    ("pandas-3-preprocessing.html", "Part 1.3: Data Preprocessing"),
-    ("ml-1-ai-coding.html",         "Part 2.1: AI-Assisted Coding"),
-    ("ml-2-eda.html",               "Part 2.2: EDA &amp; Visualization"),
-    ("ml-3-models.html",            "Part 2.3: Building ML Models"),
+    ("pandas-1-basics.html",      "Part 1.1: Pandas Basics"),
+    ("pandas-2-exploration.html", "Part 1.2: Data Exploration"),
+    ("ml-1-preprocessing.html",   "Part 2.1: Data Preprocessing"),
+    ("ml-2-eda.html",             "Part 2.2: EDA &amp; Visualization"),
+    ("ml-3-models.html",          "Part 2.3: Building ML Models"),
 ]
 
 MODULE_META = {

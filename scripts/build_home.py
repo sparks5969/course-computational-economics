@@ -99,12 +99,11 @@ MODULES = {
             ("machine learning.pptx",  "Machine Learning Slides"),
         ],
         "workshop_cards": [
-            ("pandas-1-basics.html",        "Part 1.1", "Pandas Basics",            "Series, DataFrames, and indexing."),
-            ("pandas-2-exploration.html",   "Part 1.2", "Data Exploration",          "Query, group, aggregate, and visualize."),
-            ("pandas-3-preprocessing.html", "Part 1.3", "Data Preprocessing",        "Handle missing values and encode features."),
-            ("ml-1-ai-coding.html",         "Part 2.1", "AI-Assisted Coding",        "Mindset, process, and communication layers."),
-            ("ml-2-eda.html",               "Part 2.2", "EDA &amp; Visualization",   "Explore data before building models."),
-            ("ml-3-models.html",            "Part 2.3", "Building ML Models",         "Linear, tree-based, and tuning methods."),
+            ("pandas-1-basics.html",      "Part 1.1", "Pandas Basics",          "Series, DataFrames, and indexing."),
+            ("pandas-2-exploration.html", "Part 1.2", "Data Exploration",        "Query, group, aggregate, and visualize."),
+            ("ml-1-preprocessing.html",   "Part 2.1", "Data Preprocessing",      "Train/test split, imputation, and encoding."),
+            ("ml-2-eda.html",             "Part 2.2", "EDA &amp; Visualization", "Explore data before building models."),
+            ("ml-3-models.html",          "Part 2.3", "Building ML Models",      "Linear, tree-based, and tuning methods."),
         ],
     },
 }
@@ -176,8 +175,8 @@ def _card_grid(cards: list[tuple]) -> str:
 
 def module5_overview_body() -> str:
     cfg = MODULES[5]
-    pandas_cards = cfg["workshop_cards"][:3]
-    ml_cards     = cfg["workshop_cards"][3:]
+    pandas_cards = cfg["workshop_cards"][:2]
+    ml_cards     = cfg["workshop_cards"][2:]
 
     overview_section = """
       <section>
@@ -186,6 +185,8 @@ def module5_overview_body() -> str:
         and <strong>machine learning for predictive modeling</strong>. You will move from
         loading and cleaning data, through exploratory analysis, to building and evaluating
         supervised learning models — all using an AI-assisted coding workflow.</p>
+        <p>Before starting the hands-on sections, read through the coding framework:</p>
+        <p><a class="download-link" href="ml-1-ai-coding.html">&#x1F4D6; AI-Assisted Coding — Mindset, Process &amp; Communication</a></p>
       </section>"""
 
     slides_section = _slides_section(cfg["slides"], 5)
