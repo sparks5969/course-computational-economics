@@ -88,6 +88,7 @@ MODULES = {
             ("part2-4-matrix-multiplication.html",  "Part 2.4", "Matrix Multiplication",     "Matrix product with <code>@</code> and <code>np.dot</code>."),
             ("part2-5-element-wise-product.html", "Part 2.5", "Element-wise Product",      "Hadamard product for element-by-element multiplication."),
             ("part2-6-accessing-matrix-elements.html", "Part 2.6", "Accessing Elements",   "Index rows, columns, and slices in a matrix."),
+            ("practice4.html", "Practice", "Practice Project 4", "Build the Solow-Swan growth model from scratch."),
         ],
     },
     5: {

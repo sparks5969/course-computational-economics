@@ -65,6 +65,44 @@ PAGES = [
 ]
 
 
+def build_practice4() -> None:
+    body = """
+      <h2>Background</h2>
+      <p>In this project you will build the <strong>Solow-Swan growth model</strong>
+      from scratch and use it to test the impact of macro-policy on long-run
+      economic development.</p>
+
+      <p>The model assumes no government intervention or international trade and
+      uses a <strong>Cobb-Douglas production function</strong>:</p>
+
+      <p style="text-align:center; font-style:italic;">
+        Y = a &middot; K<sup>&alpha;</sup> &middot; L<sup>(1&minus;&alpha;)</sup>
+      </p>
+
+      <p>where <em>K</em> is aggregate capital, <em>L</em> is labour (population),
+      <em>a</em> is total factor productivity, and <em>&alpha;</em> is the capital
+      share. In per-worker form: <em>y = a &middot; k<sup>&alpha;</sup></em>.</p>
+
+      <h2>Downloads</h2>
+      <p>
+        <a class="download-link" href="files/project4.py" download>
+          &#x1F4E5; Download starter script (project4.py)
+        </a>
+      </p>
+      <p>
+        <a class="download-link" href="files/project4_promptbook.md" download>
+          &#x1F4E5; Download prompt book (project4_promptbook.md)
+        </a>
+      </p>"""
+
+    page = wrap_page(body, "Practice Project 4 — Solow-Swan Growth Model",
+                     module=4, active_href="practice4.html",
+                     page_heading="Practice Project 4 — Solow-Swan Growth Model")
+    dst = OUT_DIR / "practice4.html"
+    dst.write_text(page, encoding="utf-8")
+    print(f"Wrote {dst}")
+
+
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -75,6 +113,8 @@ def main() -> None:
         dst = OUT_DIR / out_name
         dst.write_text(page, encoding="utf-8")
         print(f"Wrote {dst}")
+
+    build_practice4()
 
 
 if __name__ == "__main__":

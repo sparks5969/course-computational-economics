@@ -437,6 +437,7 @@ MODULE4_WORKSHOP = [
     ("part2-4-matrix-multiplication.html", "Part 2.4: Matrix Multiplication"),
     ("part2-5-element-wise-product.html", "Part 2.5: Element-wise Product"),
     ("part2-6-accessing-matrix-elements.html", "Part 2.6: Accessing Elements"),
+    ("practice4.html", "Practice Project 4"),
 ]
 
 MODULE5_LECTURE = [

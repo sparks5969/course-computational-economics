@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 2 Overview</title>
+  <title>Practice Project 4 — Solow-Swan Growth Model</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -33,7 +33,7 @@
     <div class="site-header-inner">
       <div>
         <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
-        <p class="site-subtitle">Module 2 — Stable Matching</p>
+        <p class="site-subtitle">Module 4 — Economic Growth</p>
       </div>
     </div>
   </header>
@@ -54,16 +54,16 @@
             <a href="../module1/practice1.html">Practice Project 1</a>
           </div>
         </details>
-        <details class="sidebar-fold" open>
+        <details class="sidebar-fold">
           <summary class="sidebar-fold-title">Module 2</summary>
           <div class="sidebar-fold-body">
-            <a href="index.html" class="active">Overview &amp; Lecture Slides</a>
-            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
-            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
-            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
-            <a href="part3-loops.html">Part 3: Loops</a>
-            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
-            <a href="practice2.html">Practice Project 2</a>
+            <a href="../module2/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module2/part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="../module2/part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="../module2/part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="../module2/part3-loops.html">Part 3: Loops</a>
+            <a href="../module2/part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="../module2/practice2.html">Practice Project 2</a>
           </div>
         </details>
         <details class="sidebar-fold">
@@ -79,20 +79,20 @@
             <a href="../module3/practice3.html">Practice Project 3</a>
           </div>
         </details>
-        <details class="sidebar-fold">
+        <details class="sidebar-fold" open>
           <summary class="sidebar-fold-title">Module 4</summary>
           <div class="sidebar-fold-body">
-            <a href="../module4/index.html">Overview &amp; Lecture Slides</a>
-            <a href="../module4/part1-1-generate-vectors.html">Part 1.1: Generate Vectors</a>
-            <a href="../module4/part1-2-vector-addition.html">Part 1.2: Vector Addition</a>
-            <a href="../module4/part1-3-vector-multiplication.html">Part 1.3: Vector Multiplication</a>
-            <a href="../module4/part2-1-generate-matrices.html">Part 2.1: Generate Matrices</a>
-            <a href="../module4/part2-2-transposing.html">Part 2.2: Transposing</a>
-            <a href="../module4/part2-3-matrix-addition.html">Part 2.3: Matrix Addition</a>
-            <a href="../module4/part2-4-matrix-multiplication.html">Part 2.4: Matrix Multiplication</a>
-            <a href="../module4/part2-5-element-wise-product.html">Part 2.5: Element-wise Product</a>
-            <a href="../module4/part2-6-accessing-matrix-elements.html">Part 2.6: Accessing Elements</a>
-            <a href="../module4/practice4.html">Practice Project 4</a>
+            <a href="index.html">Overview &amp; Lecture Slides</a>
+            <a href="part1-1-generate-vectors.html">Part 1.1: Generate Vectors</a>
+            <a href="part1-2-vector-addition.html">Part 1.2: Vector Addition</a>
+            <a href="part1-3-vector-multiplication.html">Part 1.3: Vector Multiplication</a>
+            <a href="part2-1-generate-matrices.html">Part 2.1: Generate Matrices</a>
+            <a href="part2-2-transposing.html">Part 2.2: Transposing</a>
+            <a href="part2-3-matrix-addition.html">Part 2.3: Matrix Addition</a>
+            <a href="part2-4-matrix-multiplication.html">Part 2.4: Matrix Multiplication</a>
+            <a href="part2-5-element-wise-product.html">Part 2.5: Element-wise Product</a>
+            <a href="part2-6-accessing-matrix-elements.html">Part 2.6: Accessing Elements</a>
+            <a href="practice4.html" class="active">Practice Project 4</a>
           </div>
         </details>
         <details class="sidebar-fold">
@@ -110,53 +110,35 @@
       </nav>
     </aside>
     <main>
-      <h1>Module 2 — Stable Matching</h1>
+      <h1>Practice Project 4 — Solow-Swan Growth Model</h1>
 
-      <section>
-        <h2>Overview</h2>
-        <p>Implement and execute the Gale–Shapley Algorithm to solve stable matching problems. Explore real-world applications such as medical residency programs and school admissions.</p>
-      </section>
-      <section>
-        <h2>Lecture Slides</h2>
-        <p><a class="download-link" href="module2_gale_shapley.pptx" download>
-          &#x1F4E5; module2_gale_shapley.pptx
-        </a></p>
-      </section>
-      <section>
-        <h2>Workshop</h2>
-        <div class="card-grid">
-        <a class="card" href="part1-1-list-functions.html">
-          <div class="card-step">Part 1.1</div>
-          <h3>List Functions</h3>
-          <p>Dot-syntax methods for lists.</p>
+      <h2>Background</h2>
+      <p>In this project you will build the <strong>Solow-Swan growth model</strong>
+      from scratch and use it to test the impact of macro-policy on long-run
+      economic development.</p>
+
+      <p>The model assumes no government intervention or international trade and
+      uses a <strong>Cobb-Douglas production function</strong>:</p>
+
+      <p style="text-align:center; font-style:italic;">
+        Y = a &middot; K<sup>&alpha;</sup> &middot; L<sup>(1&minus;&alpha;)</sup>
+      </p>
+
+      <p>where <em>K</em> is aggregate capital, <em>L</em> is labour (population),
+      <em>a</em> is total factor productivity, and <em>&alpha;</em> is the capital
+      share. In per-worker form: <em>y = a &middot; k<sup>&alpha;</sup></em>.</p>
+
+      <h2>Downloads</h2>
+      <p>
+        <a class="download-link" href="files/project4.py" download>
+          &#x1F4E5; Download starter script (project4.py)
         </a>
-        <a class="card" href="part1-2-dict-functions.html">
-          <div class="card-step">Part 1.2</div>
-          <h3>Dictionary Functions</h3>
-          <p>Methods for working with dicts.</p>
+      </p>
+      <p>
+        <a class="download-link" href="files/project4_promptbook.md" download>
+          &#x1F4E5; Download prompt book (project4_promptbook.md)
         </a>
-        <a class="card" href="part2-logic-operators.html">
-          <div class="card-step">Part 2</div>
-          <h3>Logical Operators</h3>
-          <p><code>and</code>, <code>or</code>, <code>not</code>.</p>
-        </a>
-        <a class="card" href="part3-loops.html">
-          <div class="card-step">Part 3</div>
-          <h3>Loops</h3>
-          <p>Nested loops, break, and continue.</p>
-        </a>
-        <a class="card" href="part4-json-comments.html">
-          <div class="card-step">Part 4–5</div>
-          <h3>JSON &amp; Comments</h3>
-          <p>Read JSON files and document code.</p>
-        </a>
-        <a class="card" href="practice2.html">
-          <div class="card-step">Practice</div>
-          <h3>Practice Project 2</h3>
-          <p>Gale–Shapley stable matching.</p>
-        </a>
-        </div>
-      </section>
+      </p>
     </main>
   </div>
 </body>
