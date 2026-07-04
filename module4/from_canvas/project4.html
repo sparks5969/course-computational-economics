@@ -1,0 +1,24 @@
+<p>In this project, you will learn to build the Solow-Swan growth model from scratch, and use it to test the impact of macro-policies on economic developments.</p>
+<p><span style="color: #e03e2d;"><strong style="color: #c83223ff;">In this model, we assume there is no government intervention or international trade. In addition, we will use the Cobb-Douglas production function as an example. i.e.,&nbsp; <img class="equation_image" title="Y\:=\:aK^{\alpha}L^{\left(1-\alpha\right)}" src="https://canvas.case.edu/equation_images/Y%255C%253A%253D%255C%253AaK%255E%257B%255Calpha%257DL%255E%257B%255Cleft(1-%255Calpha%255Cright)%257D" alt="LaTeX: Y\:=\:aK^{\alpha}L^{\left(1-\alpha\right)}" data-equation-content="Y\:=\:aK^{\alpha}L^{\left(1-\alpha\right)}" /></strong></span></p>
+<p><strong># Section 1. Preparation. Import the necessary libraries</strong></p>
+<p>You may need numpy, matplotlib, and copy libraries for this project</p>
+<p><strong># Section 2. Define the Growth model as a class</strong></p>
+<p>#<strong> attributes</strong>:<br /># -&gt; a: factor productivity<br /># -&gt; s: saving rate<br /># -&gt; alpha: capital resource allocation<br /># -&gt; delta: depreciation rate<br /># -&gt; n: population growth rate</p>
+<p># -&gt; k: capital per worker<br /># -&gt; K: aggregate capital stock<br /># -&gt; y: income per worker<br /># -&gt; Y: aggregate income<br /># -&gt; i: investment per worker<br /># -&gt; I: aggregate investment<br /># -&gt; L: population&nbsp;<br /># -&gt; d: depreciation rate<br /># -&gt; steady_state</p>
+<p><br /># <strong>methods:</strong><br /># check_model(): print the attribute of the instance<br /># growth(): take one argument "year", and simulate the economic growth. the argument "year" specifies how many iterations it will run in this simulation.<br /># plot_growth(): visualize the relationship between the income per capita, investment per capita, and capital accumulate. (i.e., income per capita &amp; investment per capita against capital )<br /># plot_income_growth(): visualize the income growth over time (i.e., income over time period)<br /># find_steady_state(): solve for the steady state in this model, find c*, i*, y*, and k*</p>
+<p># <strong>arguments:</strong><br /># ----------------------------------------------------------------------------<br /># para_dict:</p>
+<p># ----------------------------------------------------------------------------<br /># state_dict</p>
+<p>&nbsp;</p>
+<p><strong># Section 3. Specify model parameters and examine economic growth.</strong></p>
+<p><em><strong>3-1.</strong> Use the parameter given below to simulate 100 periods growth.</em></p>
+<p>n': np.array([0.002]),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# population growth rate<br />'s': np.array([0.15]),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # saving rate<br />'alpha': np.array([1/3]),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# share of capital<br />'delta': np.array([0.05]),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # depreciation rate<br />'a': np.array([1])&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # factor productivity</p>
+<p>'k': np.array([0.1]),&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # capital per worker<br />'L': np.array([100])}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# population</p>
+<p><strong><em>3-2. </em></strong>visualize the growth by&nbsp;</p>
+<p>&nbsp; &nbsp;(a). plotting income per worker (y), investment per worker (i), and break-even investment against capital per worker (k).</p>
+<p>&nbsp; &nbsp;(b) plotting aggregate income (Y) against time.<strong></strong></p>
+<p><strong>3-3. </strong>find the steady states of the economy. Specifically, find c*, s*, i* and k*</p>
+<p>&nbsp;</p>
+<p><strong>Section 4. Use the growth model class to perform "what-if" analysis.</strong></p>
+<p>4-1. Holding all other factors the same as 3-1,<strong> what</strong> would happen to the<span style="text-decoration: underline;"> <em>steady state consumption (c*)</em></span> <strong>if </strong>the saving rate is 33%?</p>
+<p>4-2. Holding all other factors the same as 3-1,<strong> what</strong> would happen to the<em> <span style="text-decoration: underline;">steady state consumption (c*)</span></em> <strong>if </strong>the saving rate is 50%?</p>
+<p><strong>4-3</strong>. Compare the steady state consumptions when s=15%, s=33%, and s=50%, do you think what you find makes sense? Use economic knowledge to explain your findings.</p>
