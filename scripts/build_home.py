@@ -101,8 +101,8 @@ MODULES = {
         "workshop_cards": [
             ("pandas-1-basics.html",      "Part 1.1", "Pandas Basics",          "Series, DataFrames, and indexing."),
             ("pandas-2-exploration.html", "Part 1.2", "Data Exploration",        "Query, group, aggregate, and visualize."),
-            ("ml-1-preprocessing.html",   "Part 2.1", "Data Preprocessing",      "Train/test split, imputation, and encoding."),
-            ("ml-2-eda.html",             "Part 2.2", "EDA &amp; Visualization", "Explore data before building models."),
+            ("ml-2-eda.html",             "Part 2.1", "EDA &amp; Visualization", "Explore data before building models."),
+            ("ml-1-preprocessing.html",   "Part 2.2", "Data Preprocessing",      "Train/test split, imputation, and encoding."),
             ("ml-3-models.html",          "Part 2.3", "Building ML Models",      "Linear, tree-based, and tuning methods."),
         ],
     },

@@ -447,8 +447,8 @@ MODULE5_LECTURE = [
 MODULE5_WORKSHOP = [
     ("pandas-1-basics.html",      "Part 1.1: Pandas Basics"),
     ("pandas-2-exploration.html", "Part 1.2: Data Exploration"),
-    ("ml-1-preprocessing.html",   "Part 2.1: Data Preprocessing"),
-    ("ml-2-eda.html",             "Part 2.2: EDA &amp; Visualization"),
+    ("ml-2-eda.html",             "Part 2.1: EDA &amp; Visualization"),
+    ("ml-1-preprocessing.html",   "Part 2.2: Data Preprocessing"),
     ("ml-3-models.html",          "Part 2.3: Building ML Models"),
 ]
 

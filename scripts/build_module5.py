@@ -115,9 +115,9 @@ def pandas_3_preprocessing() -> None:
       apply to any structured dataset in future projects.</p>
 """ + _colab_block("https://colab.research.google.com/drive/1EqBzCx5UAYhfabN2VoNzP6E08iyu3dWv?usp=sharing")
 
-    page = wrap_page(body, "Part 2.1 — Data Preprocessing", module=5,
+    page = wrap_page(body, "Part 2.2 — Data Preprocessing", module=5,
                      active_href="ml-1-preprocessing.html",
-                     page_heading="Part 2.1 — Data Preprocessing")
+                     page_heading="Part 2.2 — Data Preprocessing")
     dst = OUT_DIR / "ml-1-preprocessing.html"
     dst.write_text(page, encoding="utf-8")
     print(f"Wrote {dst}")
@@ -208,9 +208,9 @@ def ml_2_eda() -> None:
       </ul>
 """ + _colab_block("https://colab.research.google.com/drive/10z6wVzUupvp0WbkeTpmbM8CUk7mYfJjE#scrollTo=e24fa06d")
 
-    page = wrap_page(body, "Part 2.2 — EDA & Visualization", module=5,
+    page = wrap_page(body, "Part 2.1 — EDA & Visualization", module=5,
                      active_href="ml-2-eda.html",
-                     page_heading="Part 2.2 — EDA &amp; Visualization")
+                     page_heading="Part 2.1 — EDA &amp; Visualization")
     dst = OUT_DIR / "ml-2-eda.html"
     dst.write_text(page, encoding="utf-8")
     print(f"Wrote {dst}")
