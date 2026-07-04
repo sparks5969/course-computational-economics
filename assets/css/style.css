@@ -63,6 +63,15 @@ a:hover {
   gap: 1rem;
 }
 
+.site-institution {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin: 0 0 0.15rem 0;
+  text-transform: none;
+}
+
 .site-title {
   font-family: var(--font-serif);
   font-size: 1.25rem;

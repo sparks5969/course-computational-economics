@@ -619,6 +619,7 @@ def wrap_home_page(body_html: str) -> str:
   <header class="site-header">
     <div class="site-header-inner">
       <div>
+        <p class="site-institution">中国农业大学暑期课程</p>
         <h1 class="site-title"><a href="index.html">Computational Economics</a></h1>
         <p class="site-subtitle">Course materials</p>
       </div>
@@ -684,6 +685,7 @@ def wrap_page(
   <header class="site-header">
     <div class="site-header-inner">
       <div>
+        <p class="site-institution">中国农业大学暑期课程</p>
         <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
         <p class="site-subtitle">{html_mod.escape(subtitle)}</p>
       </div>
