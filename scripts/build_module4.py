@@ -85,8 +85,8 @@ def build_practice4() -> None:
 
       <h2>Downloads</h2>
       <p>
-        <a class="download-link" href="files/project4.py" download>
-          &#x1F4E5; Download starter script (project4.py)
+        <a class="download-link" href="files/project4_starter.py" download>
+          &#x1F4E5; Download starter script (project4_starter.py)
         </a>
       </p>
       <p>

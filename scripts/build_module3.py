@@ -88,7 +88,7 @@ def build_practice3() -> None:
 
       <h2>Downloads</h2>
       <ul>
-        <li><a href="files/practice_project3.py" download>practice_project3.py</a> — incomplete starter script</li>
+        <li><a href="files/practice_project3_starter.py" download>practice_project3_starter.py</a> — incomplete starter script</li>
         <li><a href="files/practice_project3_promptbook.md" download>practice_project3_promptbook.md</a> — prompt book</li>
       </ul>"""
 
