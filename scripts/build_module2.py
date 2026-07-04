@@ -60,8 +60,8 @@ def build_practice2() -> None:
         </a>
       </p>
       <p>
-        <a class="download-link" href="files/project2.py" download>
-          &#x1F4E5; Download starter script (project2.py)
+        <a class="download-link" href="files/project2_starter.py" download>
+          &#x1F4E5; Download starter script (project2_starter.py)
         </a>
       </p>
       <p>
@@ -79,7 +79,7 @@ def build_practice2() -> None:
 
 def main() -> None:
     FILES_DIR.mkdir(parents=True, exist_ok=True)
-    for name in ("project2.py", "project2_data.json"):
+    for name in ("project2_starter.py", "project2_data.json"):
         shutil.copy2(SRC_DIR / name, FILES_DIR / name)
         print(f"Copied {name} → {FILES_DIR / name}")
 
