@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Practice Project 2 — Gale-Shapley Algorithm</title>
+  <title>Part 2.1 — AI-Assisted Coding</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -33,7 +33,7 @@
     <div class="site-header-inner">
       <div>
         <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
-        <p class="site-subtitle">Module 2 — Stable Matching</p>
+        <p class="site-subtitle">Module 5 — Machine Learning in Predictive Modeling</p>
       </div>
     </div>
   </header>
@@ -54,16 +54,16 @@
             <a href="../module1/practice1.html">Practice Project 1</a>
           </div>
         </details>
-        <details class="sidebar-fold" open>
+        <details class="sidebar-fold">
           <summary class="sidebar-fold-title">Module 2</summary>
           <div class="sidebar-fold-body">
-            <a href="index.html">Overview &amp; Lecture Slides</a>
-            <a href="part1-1-list-functions.html">Part 1.1: List Functions</a>
-            <a href="part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
-            <a href="part2-logic-operators.html">Part 2: Logic Operators</a>
-            <a href="part3-loops.html">Part 3: Loops</a>
-            <a href="part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
-            <a href="practice2.html" class="active">Practice Project 2</a>
+            <a href="../module2/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module2/part1-1-list-functions.html">Part 1.1: List Functions</a>
+            <a href="../module2/part1-2-dict-functions.html">Part 1.2: Dict Functions</a>
+            <a href="../module2/part2-logic-operators.html">Part 2: Logic Operators</a>
+            <a href="../module2/part3-loops.html">Part 3: Loops</a>
+            <a href="../module2/part4-json-comments.html">Part 4 &amp; 5: JSON &amp; Comments</a>
+            <a href="../module2/practice2.html">Practice Project 2</a>
           </div>
         </details>
         <details class="sidebar-fold">
@@ -94,45 +94,75 @@
             <a href="../module4/part2-6-accessing-matrix-elements.html">Part 2.6: Accessing Elements</a>
           </div>
         </details>
-        <details class="sidebar-fold">
+        <details class="sidebar-fold" open>
           <summary class="sidebar-fold-title">Module 5</summary>
           <div class="sidebar-fold-body">
-            <a href="../module5/index.html">Overview &amp; Lecture Slides</a>
-            <a href="../module5/pandas-1-basics.html">Part 1.1: Pandas Basics</a>
-            <a href="../module5/pandas-2-exploration.html">Part 1.2: Data Exploration</a>
-            <a href="../module5/pandas-3-preprocessing.html">Part 1.3: Data Preprocessing</a>
-            <a href="../module5/ml-1-ai-coding.html">Part 2.1: AI-Assisted Coding</a>
-            <a href="../module5/ml-2-eda.html">Part 2.2: EDA &amp; Visualization</a>
-            <a href="../module5/ml-3-models.html">Part 2.3: Building ML Models</a>
+            <a href="index.html">Overview &amp; Lecture Slides</a>
+            <a href="pandas-1-basics.html">Part 1.1: Pandas Basics</a>
+            <a href="pandas-2-exploration.html">Part 1.2: Data Exploration</a>
+            <a href="pandas-3-preprocessing.html">Part 1.3: Data Preprocessing</a>
+            <a href="ml-1-ai-coding.html" class="active">Part 2.1: AI-Assisted Coding</a>
+            <a href="ml-2-eda.html">Part 2.2: EDA &amp; Visualization</a>
+            <a href="ml-3-models.html">Part 2.3: Building ML Models</a>
           </div>
         </details>
       </nav>
     </aside>
     <main>
-      <h1>Practice Project 2</h1>
+      <h1>Part 2.1 — AI-Assisted Coding</h1>
 
-      <p>In this project, you will work with a given dataset and apply the
-      <strong>Gale–Shapley algorithm</strong> to solve a stable-matching problem.</p>
+      <p>Before diving into machine learning models, this page introduces the
+      <strong>AI-assisted coding framework</strong> — a structured way to work with AI
+      that keeps you in control of the design, logic, and verification of your code.</p>
 
-      <div class="starter-note">
-        <strong>Before you start:</strong> Download the dataset and starter script below.
-        Place <code>project2_data.json</code> in the same folder as your script.
-        Upload your completed Python script on Canvas before the deadline.
-      </div>
+      <h2>Mindset Layer — Your Role and Attitude</h2>
+      <ol>
+        <li><strong>Plan before you code</strong> — AI can't design what you haven't imagined.
+        Define inputs, outputs, and logic first: you are the architect.</li>
+        <li><strong>Manage your expectations</strong> — AI accelerates progress, not perfection.
+        Debugging, reasoning, and problem framing are still your job.</li>
+        <li><strong>Reflect on your partnership</strong> — after each session ask:
+        <em>What did I rely on AI for? What did I still do myself?</em></li>
+      </ol>
 
-      <h2>Background</h2>
-      <p>The dataset contains simplified information from a dating website.
-      There are 30 men and 30 women, each with a ranked preference list over everyone
-      in the other group. Your task is to find a <strong>stable matching</strong>:
-      no two people of opposite sex who would both prefer each other over their current partners.</p>
-
-      <h2>Downloads</h2>
+      <h2>Process Layer — How You Work with AI</h2>
+      <p>Frame every task with <strong>Intention</strong> and <strong>Prompt</strong>:</p>
       <ul>
-        <li><a href="files/project2_data.json" download>project2_data.json</a> — preference dataset</li>
-        <li><a href="files/project2.py" download>project2.py</a> — incomplete starter script</li>
-        <li><a href="files/project2_promptbook.md" download>project2_promptbook.md</a> — prompt book</li>
+        <li><strong style="color:#c0392b;">Intention</strong> — what you want to achieve and why it matters</li>
+        <li><strong style="color:#c0392b;">Prompt</strong> — how you'll communicate this to AI</li>
+      </ul>
+      <p>This separation keeps you in the driver's seat of problem design.</p>
+
+      <p>Additional principles:</p>
+      <ul>
+        <li><strong>Take small steps</strong> — ask for one function or fix at a time, test it, then expand</li>
+        <li><strong>Verify the code</strong> — fluent ≠ correct; run, test, and explain before trusting it</li>
+        <li><strong>Iterate like a scientist</strong> — predict → prompt → test → reflect → adjust</li>
+        <li><strong>Audit for bias and brittleness</strong> — test edge cases: empty data, nulls, extreme values</li>
       </ul>
 
+      <h2>Communication Layer — How You Talk to AI</h2>
+      <ul>
+        <li><strong>Explain your intent</strong> — describe what you want, why, and how it fits your larger goal</li>
+        <li><strong>Spell out names clearly</strong> — use descriptive variable names like <code>customer_purchases</code> not <code>df</code></li>
+        <li><strong>Own the context</strong> — remind AI of libraries, data shape, and constraints often</li>
+        <li><strong>Document as you go</strong> — use AI to help write comments and docstrings</li>
+        <li><strong>Learn from the AI</strong> — don't just accept code; reverse-engineer it and ask why</li>
+      </ul>
+
+      <h2>Common Mistakes to Avoid</h2>
+      <table>
+        <thead>
+          <tr><th>Mistake</th><th>Why it happens</th><th>How to fix it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Copy-paste without understanding</td><td>AI code looks professional</td><td>Explain it line-by-line before using</td></tr>
+          <tr><td>Asking for too much at once</td><td>Trying to save time</td><td>Break into smaller, testable pieces</td></tr>
+          <tr><td>Not testing edge cases</td><td>AI shows typical cases only</td><td>Manually test: empty data, nulls, extremes</td></tr>
+          <tr><td>Treating AI as oracle</td><td>"The code runs = it's right"</td><td>Verify logic, not just syntax</td></tr>
+          <tr><td>Repeating failed prompts</td><td>Hoping for different results</td><td>Rephrase with more context or constraints</td></tr>
+        </tbody>
+      </table>
     </main>
   </div>
 </body>

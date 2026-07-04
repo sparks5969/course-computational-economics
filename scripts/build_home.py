@@ -92,10 +92,20 @@ MODULES = {
     },
     5: {
         "title": "Module 5 Overview",
-        "subtitle": "Module 5",
-        "description": None,
-        "slides": None,
-        "workshop_cards": [],
+        "subtitle": "Module 5 — Machine Learning in Predictive Modeling",
+        "description": None,   # custom overview body handled in build_module5.py
+        "slides": [
+            ("Pandas_Intro.pptx",      "Pandas Slides"),
+            ("machine learning.pptx",  "Machine Learning Slides"),
+        ],
+        "workshop_cards": [
+            ("pandas-1-basics.html",        "Part 1.1", "Pandas Basics",            "Series, DataFrames, and indexing."),
+            ("pandas-2-exploration.html",   "Part 1.2", "Data Exploration",          "Query, group, aggregate, and visualize."),
+            ("pandas-3-preprocessing.html", "Part 1.3", "Data Preprocessing",        "Handle missing values and encode features."),
+            ("ml-1-ai-coding.html",         "Part 2.1", "AI-Assisted Coding",        "Mindset, process, and communication layers."),
+            ("ml-2-eda.html",               "Part 2.2", "EDA &amp; Visualization",   "Explore data before building models."),
+            ("ml-3-models.html",            "Part 2.3", "Building ML Models",         "Linear, tree-based, and tuning methods."),
+        ],
     },
 }
 
@@ -106,19 +116,25 @@ PLACEHOLDER = (
 )
 
 
-def _slides_section(slides: str | None, module: int) -> str:
-    if slides:
+def _slides_section(slides: str | list | None, module: int) -> str:
+    if not slides:
         return f"""
       <section>
         <h2>Lecture Slides</h2>
-        <p><a class="download-link" href="{slides}" download>
-          &#x1F4E5; Download {slides}
-        </a></p>
+        {PLACEHOLDER}
       </section>"""
+    if isinstance(slides, str):
+        slides = [(slides, slides)]
+    links = "\n".join(
+        f'        <p><a class="download-link" href="{fname}" download>\n'
+        f'          &#x1F4E5; {label}\n'
+        f'        </a></p>'
+        for fname, label in slides
+    )
     return f"""
       <section>
         <h2>Lecture Slides</h2>
-        {PLACEHOLDER}
+{links}
       </section>"""
 
 
@@ -146,7 +162,52 @@ def _workshop_section(cards: list[tuple], *, is_coming_soon: bool) -> str:
       </section>"""
 
 
+def _card_grid(cards: list[tuple]) -> str:
+    card_html = "\n".join(
+        f'        <a class="card" href="{href}">\n'
+        f'          <div class="card-step">{step}</div>\n'
+        f"          <h3>{title}</h3>\n"
+        f"          <p>{desc}</p>\n"
+        f"        </a>"
+        for href, step, title, desc in cards
+    )
+    return f'        <div class="card-grid">\n{card_html}\n        </div>'
+
+
+def module5_overview_body() -> str:
+    cfg = MODULES[5]
+    pandas_cards = cfg["workshop_cards"][:3]
+    ml_cards     = cfg["workshop_cards"][3:]
+
+    overview_section = """
+      <section>
+        <h2>Overview</h2>
+        <p>This module combines two applied topics: <strong>data analysis with Pandas</strong>
+        and <strong>machine learning for predictive modeling</strong>. You will move from
+        loading and cleaning data, through exploratory analysis, to building and evaluating
+        supervised learning models — all using an AI-assisted coding workflow.</p>
+      </section>"""
+
+    slides_section = _slides_section(cfg["slides"], 5)
+
+    workshop_section = f"""
+      <section>
+        <h2>Workshop</h2>
+
+        <h3>Part 1 — Data Analysis with Pandas</h3>
+{_card_grid(pandas_cards)}
+
+        <h3 style="margin-top:1.5rem;">Part 2 — Machine Learning</h3>
+{_card_grid(ml_cards)}
+      </section>"""
+
+    return overview_section + slides_section + workshop_section
+
+
 def module_overview_body(num: int) -> str:
+    if num == 5:
+        return module5_overview_body()
+
     cfg = MODULES[num]
     desc = cfg["description"]
     coming_soon = not desc

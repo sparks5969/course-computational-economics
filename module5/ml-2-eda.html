@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Part 1. Installation of Python and Anaconda — Computational Economics</title>
+  <title>Part 2.2 — EDA &amp; Visualization</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -11,12 +11,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('pre code').forEach(function(block) {
-        // Normalize class="python" (from pandoc fenced blocks) → language-python
-        if (!block.className || block.className === 'python') {
-          block.className = 'language-python';
-        }
+        if (!block.className) block.className = 'language-python';
         hljs.highlightElement(block);
-        // Copy button
         var btn = document.createElement('button');
         btn.className = 'copy-btn';
         btn.textContent = 'Copy';
@@ -37,26 +33,25 @@
     <div class="site-header-inner">
       <div>
         <h1 class="site-title"><a href="../index.html">Computational Economics</a></h1>
-        <p class="site-subtitle">Module 1 — Python Foundations</p>
+        <p class="site-subtitle">Module 5 — Machine Learning in Predictive Modeling</p>
       </div>
     </div>
   </header>
-
   <div class="layout">
     <aside class="sidebar">
       <nav>
         <div class="sidebar-label">Course</div>
         <a href="../index.html">Home</a>
-        <details class="sidebar-fold" open>
+        <details class="sidebar-fold">
           <summary class="sidebar-fold-title">Module 1</summary>
           <div class="sidebar-fold-body">
-            <a href="index.html">Overview &amp; Lecture Slides</a>
-            <a href="part1-installation.html" class="active">Part 1: Installation</a>
-            <a href="part2-language.html">Part 2: Python Language</a>
-            <a href="part3-packages.html">Part 3: Packages &amp; Modules</a>
-            <a href="part4-data-structures.html">Part 4: Data Structures</a>
-            <a href="part5-programming.html">Part 5: Programming</a>
-            <a href="practice1.html">Practice Project 1</a>
+            <a href="../module1/index.html">Overview &amp; Lecture Slides</a>
+            <a href="../module1/part1-installation.html">Part 1: Installation</a>
+            <a href="../module1/part2-language.html">Part 2: Python Language</a>
+            <a href="../module1/part3-packages.html">Part 3: Packages &amp; Modules</a>
+            <a href="../module1/part4-data-structures.html">Part 4: Data Structures</a>
+            <a href="../module1/part5-programming.html">Part 5: Programming</a>
+            <a href="../module1/practice1.html">Practice Project 1</a>
           </div>
         </details>
         <details class="sidebar-fold">
@@ -99,40 +94,53 @@
             <a href="../module4/part2-6-accessing-matrix-elements.html">Part 2.6: Accessing Elements</a>
           </div>
         </details>
-        <details class="sidebar-fold">
+        <details class="sidebar-fold" open>
           <summary class="sidebar-fold-title">Module 5</summary>
           <div class="sidebar-fold-body">
-            <a href="../module5/index.html">Overview &amp; Lecture Slides</a>
-            <a href="../module5/pandas-1-basics.html">Part 1.1: Pandas Basics</a>
-            <a href="../module5/pandas-2-exploration.html">Part 1.2: Data Exploration</a>
-            <a href="../module5/pandas-3-preprocessing.html">Part 1.3: Data Preprocessing</a>
-            <a href="../module5/ml-1-ai-coding.html">Part 2.1: AI-Assisted Coding</a>
-            <a href="../module5/ml-2-eda.html">Part 2.2: EDA &amp; Visualization</a>
-            <a href="../module5/ml-3-models.html">Part 2.3: Building ML Models</a>
+            <a href="index.html">Overview &amp; Lecture Slides</a>
+            <a href="pandas-1-basics.html">Part 1.1: Pandas Basics</a>
+            <a href="pandas-2-exploration.html">Part 1.2: Data Exploration</a>
+            <a href="pandas-3-preprocessing.html">Part 1.3: Data Preprocessing</a>
+            <a href="ml-1-ai-coding.html">Part 2.1: AI-Assisted Coding</a>
+            <a href="ml-2-eda.html" class="active">Part 2.2: EDA &amp; Visualization</a>
+            <a href="ml-3-models.html">Part 2.3: Building ML Models</a>
           </div>
         </details>
       </nav>
     </aside>
-
     <main>
-      <section class="hero">
-        <h1>Installation of Python and Anaconda</h1>
-      </section>
-      <p>The easiest way to install Python and most of the useful packages for scientific computing is to install Python via the Anaconda distribution from: <a href="https://www.anaconda.com/download">Anaconda Individual Edition</a>This is a simple one-click installation process which works for Linux/Windows/Mac. Simply follow the instruction, it installs everything!</p>
-<ul>
-<li><p>When you install anaconda and python, <strong>select the latest version Python for your system</strong></p></li>
-<li><p>For most of the computers, <strong>you wanted the 64 bit version</strong>, not the 32 bit version.</p></li>
-</ul>
+      <h1>Part 2.2 — EDA &amp;amp; Visualization</h1>
 
-<p>In order to write python script and let your computer run your script, you also need an <strong>Integrated development environment (IDE). </strong>With the Anaconda you just installed, open Anaconda-navigator by click its icon, and then install Spyder as your IDE. Starting from here,<strong> whenever you need to code, just open Anaconda-navigator, and then launch Spyder. </strong></p>
+      <h2>Exploratory Data Analysis (EDA) and Visualization</h2>
+      <p>This section covers the fundamental steps for exploratory data analysis.
+      Each task reflects the typical process a data analyst would follow to understand
+      a dataset before building any predictive model.</p>
 
-<p>There are many different <strong>Integrated development environment (IDE)</strong> for python, such as Spyder, VScode, Pycharm, etc. <strong>But unless you are VERY CONFIDENT about setting up and managing a virtual environment, please follow these simple steps and use Spyder as your IDE.</strong></p>
-      <div class="page-nav"><span></span><a href="part2-language.html">Next →</a></div>
+      <p>For each task you are given the <strong>Intention</strong> — what it is meant to
+      achieve. Your practice is to determine the right prompt to achieve the desired outcome
+      using an AI-assisted coding workflow.</p>
+
+      <h2>What You'll Learn</h2>
+      <ul>
+        <li>Perform standard EDA steps: load, inspect, summarize, and clean data</li>
+        <li>Create visualizations using Pandas and Matplotlib</li>
+        <li>Apply the Intention → Prompt framework to real data tasks</li>
+        <li>Develop habits that prepare data for future modeling steps</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Hands-on Notebook</div>
+        <p>
+          <a href="https://colab.research.google.com/drive/10z6wVzUupvp0WbkeTpmbM8CUk7mYfJjE#scrollTo=e24fa06d" target="_blank" rel="noopener" class="download-link">
+            &#x1F4D3; Open in Google Colab
+          </a>
+        </p>
+        <p style="margin-top:0.6rem; font-size:0.9rem;">
+          Once opened, click <strong>Copy to Drive</strong> to save your own
+          editable copy before you start.
+        </p>
+      </div>
     </main>
   </div>
-
-  <footer class="site-footer">
-    Computational Economics — Module 1
-  </footer>
 </body>
 </html>

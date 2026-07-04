@@ -1,0 +1,150 @@
+<p class="whitespace-normal break-words">&nbsp;</p>
+<h2 class="text-xl font-bold text-text-100 mt-1 -mb-0.5">Mindset Layer &mdash; Your Role and Attitude</h2>
+<p class="whitespace-normal break-words"><strong>1. Plan before you code</strong><br />AI can't design what you haven't imagined. Define inputs, outputs, and logic first &mdash; you are the architect.</p>
+<p class="whitespace-normal break-words"><strong>2. Manage your expectations</strong><br />AI accelerates progress, not perfection. Debugging, reasoning, and problem framing are still your job.</p>
+<p class="whitespace-normal break-words"><strong>3. Reflect on your partnership</strong><br />After each session, ask: <em>What did I rely on AI for? What did I still do myself?</em> This self-awareness builds independence and better judgment.</p>
+<hr class="border-border-300 my-2" />
+<h2 class="text-xl font-bold text-text-100 mt-1 -mb-0.5">Process Layer &mdash; How You Work with AI</h2>
+<p class="whitespace-normal break-words"><strong>1. Frame each task with intention and prompt</strong><br />Before writing any code, separate what you want from how you'll get it:</p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words"><span style="color: #e62429;"><strong>Intention:</strong> What you want to achieve and why it matters</span></li>
+    <li class="whitespace-normal break-words"><span style="color: #e62429;"><strong>Prompt:</strong> How you'll communicate this to AI (or implement it yourself)</span></li>
+</ul>
+<p class="whitespace-normal break-words">This separation keeps YOU in the driver's seat of problem design.</p>
+<p class="whitespace-normal break-words"><strong>Example:</strong></p>
+<div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg">
+    <div>
+        <pre class="code-block__code !my-0 !rounded-lg !text-sm !leading-relaxed"><code><span>Task 4. Understand the data structure and types
+</span><span>* Intention: Learn the schema and null counts to assess data quality
+</span><span>* Prompt: Call `.info()` on the games DataFrame to view column data 
+</span><span>  types and non-null counts</span></code></pre>
+    </div>
+</div>
+<p class="whitespace-normal break-words"><strong>2. Let AI take small steps</strong><br />Build incrementally. Ask for one function or fix at a time, test it, then expand.</p>
+<p class="whitespace-normal break-words"><strong>What this looks like:</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words">✅ "Write a function to calculate the mean of column X"</li>
+    <li class="whitespace-normal break-words">❌ "Build a complete data pipeline with cleaning, analysis, and visualization"</li>
+</ul>
+<p class="whitespace-normal break-words"><strong>3. Verify the code</strong><br />Fluent &ne; correct. Run, test, and explain what the code is doing before trusting it.</p>
+<p class="whitespace-normal break-words"><strong>Ask yourself:</strong> Can I explain this line-by-line? Do I understand what would happen if the input changed?</p>
+<p class="whitespace-normal break-words"><strong>4. Iterate like a scientist</strong><br />Treat coding as hypothesis testing: Predict &rarr; prompt &rarr; test &rarr; reflect &rarr; adjust.</p>
+<p class="whitespace-normal break-words"><strong>5. Audit for bias and brittleness</strong><br />Ask: <em>What assumptions does this code make?</em> AI may encode shortcuts that fail in edge cases &mdash; test for them early.</p>
+<p class="whitespace-normal break-words"><strong>Common edge cases to check:</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words">Empty datasets or missing values</li>
+    <li class="whitespace-normal break-words">Unexpected data types</li>
+    <li class="whitespace-normal break-words">Extreme values (very large/small numbers)</li>
+    <li class="whitespace-normal break-words">Different operating systems or environments</li>
+</ul>
+<hr class="border-border-300 my-2" />
+<h2 class="text-xl font-bold text-text-100 mt-1 -mb-0.5">Communication Layer &mdash; How You Talk to AI</h2>
+<p class="whitespace-normal break-words"><strong>1. Explain your intent</strong><br />Treat AI like a teammate, not a tool. Describe what you want, why you want it, and how it fits into your larger goal.</p>
+<p class="whitespace-normal break-words"><strong>Compare:</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words">❌ "Make a plot"</li>
+    <li class="whitespace-normal break-words">✅ "Create a scatter plot showing the relationship between price and sales volume to identify potential outliers before running regression"</li>
+</ul>
+<p class="whitespace-normal break-words"><strong>2. Spell out names clearly</strong><br />Use descriptive variables and objects. AI relies on context &mdash; clear names make its reasoning (and your debugging) smarter.</p>
+<p class="whitespace-normal break-words"><strong>Compare:</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words">❌ create a df to store customer purchases information</li>
+    <li class="whitespace-normal break-words">✅ <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">customer_purchases</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">monthly_revenue</code>, <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">cleaned_data</code></li>
+</ul>
+<p class="whitespace-normal break-words">&nbsp;</p>
+<p class="whitespace-normal break-words"><strong>3. Own the context</strong><br />AI doesn't know your project boundaries. Remind it of data types, dependencies, and runtime limits often.</p>
+<p class="whitespace-normal break-words"><strong>Include in your prompts:</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words">What libraries you're using</li>
+    <li class="whitespace-normal break-words">Size/shape of your data</li>
+    <li class="whitespace-normal break-words">Any constraints (memory, time, formatting requirements)</li>
+</ul>
+<p class="whitespace-normal break-words">&nbsp;</p>
+<p class="whitespace-normal break-words"><strong>4. Document as you go</strong><br />Use AI to help write comments, docstrings, and commit messages. You'll understand your own logic better &mdash; and others will too.</p>
+<p class="whitespace-normal break-words"><strong>5. Learn from the AI</strong><br /><span style="color: #e62429;">Don't just accept code &mdash; reverse-engineer it. Ask: <em>Why did it do this? What pattern is it using?</em> Turn every output into a lesson.</span></p>
+<hr class="border-border-300 my-2" />
+<h2 class="text-xl font-bold text-text-100 mt-1 -mb-0.5">Mistakes to Avoid</h2>
+<table class="bg-bg-100 min-w-full border-separate border-spacing-0 text-sm leading-[1.88888] whitespace-normal" style="width: 108.071%;">
+    <thead class="border-b-border-100/50 border-b-[0.5px] text-left">
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <th class="text-text-000 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 33.4123%;">Mistakes</th>
+            <th class="text-text-000 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 24.9694%;">Why it happens</th>
+            <th class="text-text-000 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 41.5767%;">How to fix it</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 33.4123%;"><strong>Copy-paste without understanding</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 24.9694%;">AI code looks professional</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 41.5767%;">Always explain it line-by-line before using</td>
+        </tr>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 33.4123%;"><strong>Asking for too much at once</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 24.9694%;">Trying to save time</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 41.5767%;">Break into smaller, testable pieces</td>
+        </tr>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 33.4123%;"><strong>Not testing edge cases</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 24.9694%;">AI shows typical cases only</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 41.5767%;">Manually test with: empty data, nulls, extremes</td>
+        </tr>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 33.4123%;"><strong>Treating AI as oracle</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 24.9694%;">The code runs = it's right</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 41.5767%;">Verify logic, not just syntax</td>
+        </tr>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 33.4123%;"><strong>Repeating failed prompts</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 24.9694%;">Hoping for different results</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 41.5767%;">Rephrase with more context or constraints (remember the intention&mdash;prompt framework)</td>
+        </tr>
+    </tbody>
+</table>
+<hr class="border-border-300 my-2" />
+<h2 class="text-xl font-bold text-text-100 mt-1 -mb-0.5">Example: Applying the Framework<strong></strong></h2>
+<p class="whitespace-normal break-words"><strong>Step 1 - Frame the task: what exactly do you want?</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words"><strong>Intention:</strong> I wanted to know which genres sales well/ not well</li>
+</ul>
+<p><strong>Step 2. iteratively get to the prompt that can achieve your goal</strong></p>
+<ul class="[&amp;:not(:last-child)_ul]:pb-1 [&amp;:not(:last-child)_ol]:pb-1 list-disc space-y-2.5 pl-7">
+    <li class="whitespace-normal break-words"><strong>Prompt:</strong> Use <code class="bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]">groupby()</code> on genre column, then calculate mean of sales column</li>
+</ul>
+<p class="whitespace-normal break-words"><strong>Step 3 - Verify:</strong></p>
+<div class="relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg">
+    <div class="text-text-500 font-small p-3.5 pb-0">python</div>
+    <div>
+        <pre class="code-block__code !my-0 !rounded-lg !text-sm !leading-relaxed"><code class="language-python">
+<span>genre_sales <span class="token">=</span> games<span class="token">.</span>groupby<span class="token">(</span><span class="token">'genre'</span><span class="token">)</span><span class="token">[</span><span class="token">'sales'</span><span class="token">]</span><span class="token">.</span>mean<span class="token">(</span><span class="token">)</span>
+</span><span><span class="token">print</span><span class="token">(</span>genre_sales<span class="token">.</span>head<span class="token">(</span><span class="token">)</span><span class="token">)</span>  <span class="token"># Does this make sense?</span>
+</span><span><span class="token">print</span><span class="token">(</span>genre_sales<span class="token">.</span>isna<span class="token">(</span><span class="token">)</span><span class="token">.</span><span class="token">sum</span><span class="token">(</span><span class="token">)</span><span class="token">)</span>  <span class="token"># Any missing values?</span></span></code></pre>
+    </div>
+</div>
+<p class="whitespace-normal break-words">&nbsp;</p>
+<h2 class="text-xl font-bold text-text-100 mt-1 -mb-0.5">Summary</h2>
+<table class="bg-bg-100 min-w-full border-separate border-spacing-0 text-sm leading-[1.88888] whitespace-normal" style="width: 106.03%;">
+    <thead class="border-b-border-100/50 border-b-[0.5px] text-left">
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <th class="text-text-000 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 14.4787%;">Layer</th>
+            <th class="text-text-000 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 19.9546%;">Focus</th>
+            <th class="text-text-000 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 65.5252%;">Example Principles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 14.4787%;"><strong>Mindset</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 19.9546%;">The attitude toward AI</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 65.5252%;">Plan before you code &middot; Manage expectations &middot; Reflect on partnership</td>
+        </tr>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 14.4787%;"><strong>Process</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 19.9546%;">The workflow with AI</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 65.5252%;">Frame intention/prompt &middot; Take small steps &middot; Verify code &middot; Iterate like a scientist &middot; Audit for bias</td>
+        </tr>
+        <tr class="[tbody&gt;&amp;]:odd:bg-bg-500/10">
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 14.4787%;"><strong>Communication</strong></td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 19.9546%;">The interface with AI</td>
+            <td class="border-t-border-100/50 [&amp;:not(:first-child)]:-x-[hsla(var(--border-100) / 0.5)] border-t-[0.5px] px-2 [&amp;:not(:first-child)]:border-l-[0.5px]" style="width: 65.5252%;">Explain intent &middot; Spell out names &middot; Own context &middot; Document as you go &middot; Learn from AI</td>
+        </tr>
+    </tbody>
+</table>

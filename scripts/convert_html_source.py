@@ -443,14 +443,21 @@ MODULE5_LECTURE = [
     ("index.html", "Overview &amp; Lecture Slides"),
 ]
 
-MODULE5_WORKSHOP: list[tuple[str, str]] = []
+MODULE5_WORKSHOP = [
+    ("pandas-1-basics.html",        "Part 1.1: Pandas Basics"),
+    ("pandas-2-exploration.html",   "Part 1.2: Data Exploration"),
+    ("pandas-3-preprocessing.html", "Part 1.3: Data Preprocessing"),
+    ("ml-1-ai-coding.html",         "Part 2.1: AI-Assisted Coding"),
+    ("ml-2-eda.html",               "Part 2.2: EDA &amp; Visualization"),
+    ("ml-3-models.html",            "Part 2.3: Building ML Models"),
+]
 
 MODULE_META = {
     1: ("Module 1 — Python Foundations", MODULE1_LECTURE, MODULE1_WORKSHOP),
     2: ("Module 2 — Stable Matching", MODULE2_LECTURE, MODULE2_WORKSHOP),
     3: ("Module 3 — OOP & Functions", MODULE3_LECTURE, MODULE3_WORKSHOP),
     4: ("Module 4 — Economic Growth", MODULE4_LECTURE, MODULE4_WORKSHOP),
-    5: ("Module 5", MODULE5_LECTURE, MODULE5_WORKSHOP),
+    5: ("Module 5 — Machine Learning in Predictive Modeling", MODULE5_LECTURE, MODULE5_WORKSHOP),
 }
 
 MODULE_HUB = [
@@ -458,7 +465,7 @@ MODULE_HUB = [
     (2, "Stable Matching", "List and dictionary methods, loops, JSON, and the Gale–Shapley algorithm.", "module2/index.html", True),
     (3, "OOP & Functions", "Programming paradigms, user-defined functions, classes, objects, and inheritance.", "module3/index.html", True),
     (4, "Economic Growth", "Solow–Swan growth theory and NumPy vectors and matrices for simulation.", "module4/index.html", True),
-    (5, "Module 5", "Materials coming soon.", "module5/index.html", False),
+    (5, "Machine Learning in Predictive Modeling", "Pandas for data analysis and machine learning for predictive modeling.", "module5/index.html", True),
 ]
 
 
