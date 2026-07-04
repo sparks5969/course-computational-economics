@@ -2,7 +2,7 @@
 Project 1. Feel free to delete everyting and start from blank.
 """
 
-#0.import the time module
+# 0.import the time module
 import
 
 # record the start time
