@@ -24,7 +24,7 @@ MODULES = {
             "Install Anaconda and Spyder, then work through Python basics, "
             "data structures, and complete your first practice project."
         ),
-        "slides": "module1_introduction.pptx",
+        "slides": "module1_introduction_July2026.pptx",
         "workshop_cards": [
             ("part1-installation.html",    "Part 1",    "Installation",          "Install Anaconda and Spyder."),
             ("part2-language.html",        "Part 2",    "Python Language",        "Why Python is used in economics."),

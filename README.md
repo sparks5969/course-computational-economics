@@ -50,7 +50,7 @@ Then open [http://localhost:8000](http://localhost:8000). The landing page is `i
 │   ├── index.html
 │   ├── part1-installation.html … part5-programming.html
 │   ├── practice1.html
-│   └── module1_introduction.pptx
+│   └── module1_introduction_July2026.pptx
 ├── module2/
 │   ├── index.html
 │   ├── part*.html, practice2.html
