@@ -8,24 +8,24 @@ import
 # record the start time
 start_time = time.time()
 
-#1.generate a list with numbers from 1 to 20, name the list as list1
+# 1.generate a list with numbers from 1 to 20, name the list as list1
 list1 = list(range(1,21))
 
-#2.print the first 5 elements of list1
+# 2.print the first 5 elements of list1
 print (list1[])
 
-#3.replace the last entry of the list with 100, and print the whole
+# 3.replace the last entry of the list with 100, and print the whole
 
 print(list1)
 
-#4.sort the list from the largest to the smallest elemnet. and print list again
+# 4.sort the list from the largest to the smallest elemnet. and print list again
 list1.sort()
 print(list1)
 
-#5.generate a new list with entries from 14 to 40 with step size 2, name it list2
+# 5.generate a new list with entries from 14 to 40 with step size 2, name it list2
 list2= list(range())
 
-#6. write a loop, dividing the first 10 entries of list2 by 5, keep the rest of
+# 6. write a loop, dividing the first 10 entries of list2 by 5, keep the rest of
 # list2 unchanged, and store the result in list3
 list3 = []
 for x in list2[:10]:
@@ -33,7 +33,7 @@ for x in list2[:10]:
     list3.append(y)
 list3 = list3 + list2[10:]
 
-#7. Given the dictionary hrbook, print the value associate with the key "emp2".
+# 7. Given the dictionary hrbook, print the value associate with the key "emp2".
 hrbook= {
     'emp1': {'name': 'John', 'salary': 7500},
     'emp2': {'name': 'Emma', 'salary': 8100},
@@ -41,7 +41,7 @@ hrbook= {
     }
 print(hrbook.get('emp2'))
 
-#8. Add a new record to the hrbook
+# 8. Add a new record to the hrbook
 #The key is emp4, value is {'name': 'Misty', 'salary': 7700}
 
 

@@ -43,6 +43,9 @@ MODULES = {
             "residency programs and school admissions."
         ),
         "slides": "module2_gale_shapley.pptx",
+        "lecture_extras": [
+            ("files/module2_inclass.py", "In-class script (module2_inclass.py)"),
+        ],
         "workshop_cards": [
             ("part1-1-list-functions.html",  "Part 1.1", "List Functions",             "Dot-syntax methods for lists."),
             ("part1-2-dict-functions.html",  "Part 1.2", "Dictionary Functions",       "Methods for working with dicts."),
@@ -116,8 +119,13 @@ PLACEHOLDER = (
 )
 
 
-def _slides_section(slides: str | list | None, module: int) -> str:
-    if not slides:
+def _slides_section(
+    slides: str | list | None,
+    module: int,
+    *,
+    extras: list[tuple[str, str]] | None = None,
+) -> str:
+    if not slides and not extras:
         return f"""
       <section>
         <h2>Lecture Slides</h2>
@@ -125,6 +133,10 @@ def _slides_section(slides: str | list | None, module: int) -> str:
       </section>"""
     if isinstance(slides, str):
         slides = [(slides, slides)]
+    elif not slides:
+        slides = []
+    if extras:
+        slides = list(slides) + list(extras)
     links = "\n".join(
         f'        <p><a class="download-link" href="{fname}" download>\n'
         f'          &#x1F4E5; {label}\n'
@@ -220,7 +232,9 @@ def module_overview_body(num: int) -> str:
         {"<p>" + html_mod.escape(desc) + "</p>" if desc else PLACEHOLDER}
       </section>"""
 
-    slides_section = _slides_section(cfg["slides"], num)
+    slides_section = _slides_section(
+        cfg["slides"], num, extras=cfg.get("lecture_extras")
+    )
     workshop_section = _workshop_section(cfg["workshop_cards"], is_coming_soon=coming_soon)
 
     return overview_section + slides_section + workshop_section

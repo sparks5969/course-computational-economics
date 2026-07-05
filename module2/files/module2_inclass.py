@@ -1,5 +1,5 @@
 """
-week 2. in-class coding practice
+Module 2. in-class coding practice
 """
 
 # section 1. import packages
