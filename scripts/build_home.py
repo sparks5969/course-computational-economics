@@ -63,6 +63,9 @@ MODULES = {
             "explore object-oriented programming through classes, objects, and inheritance."
         ),
         "slides": "module3_MarketMechanism and OOP.pptx",
+        "lecture_extras": [
+            ("files/module3_inclass.py", "In-class script (module3_inclass.py)"),
+        ],
         "workshop_cards": [
             ("part1-programming-paradigm.html", "Part 1",   "Programming Paradigm",        "Imperative, functional, and OOP styles."),
             ("part2-1-2-functions.html",        "Part 2.1–2.2", "What &amp; Why Functions", "DRY principle and function basics."),
