@@ -1,5 +1,5 @@
 """
-Practice Project 3 — Market Demand & Supply Simulation
+Practice Project 3: Market Demand & Supply Simulation
 
 Apply Object-Oriented Programming to simulate the market demand/supply model
 and find the equilibrium price computationally.
@@ -17,7 +17,7 @@ np.random.seed(380)
 
 # 1-1. Base class: Econ_agent
 # attributes: id_number, budget
-# methods:    introduce_me(self) — print agent's id number and budget
+# methods:    introduce_me(self), print agent's id number and budget
 
 class Econ_agent:
 
@@ -31,12 +31,12 @@ class Econ_agent:
 
 # 1-2. Child class: Consumer (inherits from Econ_agent)
 # additional attributes:
-#   preference — how much the consumer likes the product (uniform draw from [0,1])
-#   wtp        — willingness to pay = budget * preference
+#   preference: how much the consumer likes the product (uniform draw from [0,1])
+#   wtp: willingness to pay = budget * preference
 # additional methods:
 #   buying(self, price)
-#     if wtp < price  → return 0 (does not buy)
-#     otherwise       → return min(5, int(wtp / price))
+#     if wtp < price, return 0 (does not buy)
+#     otherwise       return min(5, int(wtp / price))
 
 class Consumer(Econ_agent):
 
@@ -53,11 +53,11 @@ class Consumer(Econ_agent):
 
 # 1-3. Child class: Producer (inherits from Econ_agent)
 # additional attributes:
-#   opp_cost — opportunity cost per unit (constant for each producer)
+#   opp_cost: opportunity cost per unit (constant for each producer)
 # additional methods:
 #   selling(self, price)
-#     if opp_cost > price → return 0 (does not produce)
-#     otherwise           → return int(budget / opp_cost)
+#     if opp_cost > price, return 0 (does not produce)
+#     otherwise            return int(budget / opp_cost)
 
 class Producer(Econ_agent):
 
@@ -75,8 +75,8 @@ class Producer(Econ_agent):
 
 # 2-1. Create a list of 200 consumers
 # id_number : 0 to 199
-# budget    : normal distribution, mean=500, s.d.=100  → np.random.normal(500, 100)
-# preference: uniform distribution [0, 1]              → np.random.uniform(0, 1)
+# budget    : normal distribution, mean=500, s.d.=100, np.random.normal(500, 100)
+# preference: uniform distribution [0, 1]              np.random.uniform(0, 1)
 consumers = []
 for i in range(200):
     ...   # instantiate Consumer and append to consumers
@@ -84,8 +84,8 @@ for i in range(200):
 
 # 2-2. Create a list of 50 producers
 # id_number : 0 to 49
-# budget    : uniform distribution [1000, 2000]  → np.random.uniform(1000, 2000)
-# opp_cost  : uniform distribution [100, 200]    → np.random.uniform(100, 200)
+# budget    : uniform distribution [1000, 2000], np.random.uniform(1000, 2000)
+# opp_cost  : uniform distribution [100, 200],    np.random.uniform(100, 200)
 producers = []
 for i in range(50):
     ...   # instantiate Producer and append to producers
