@@ -1,140 +1,168 @@
-
 """
-Project 5. In this project, you will apply Object Oriented Programming to
-simulate the market demand/supply model.
+Practice Project 3 — Market Demand & Supply Simulation
 
+Apply Object-Oriented Programming to simulate the market demand/supply model
+and find the equilibrium price computationally.
 """
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
 
 np.random.seed(380)
-#=============================================================================
-# Section 1. Define classes
-#=============================================================================
-# 1.1. define a class Econ_agent
-# attributes: id_number, budget
-# methods: introduce_me(self):
-# print out agent's id number and budget in sentences.
 
+# =============================================================================
+# Section 1. Define classes
+# =============================================================================
+
+# 1-1. Base class: Econ_agent
+# attributes: id_number, budget
+# methods:    introduce_me(self) — print agent's id number and budget
 
 class Econ_agent:
 
     def __init__(self, id_number, budget):
         self.id_number = id_number
-        self.budget = budget
+        self.budget    = budget
 
     def introduce_me(self):
-        pass
+        ...   # print a sentence with the agent's id_number and budget
 
 
-# 1.2 define  "Consumer" as a child class of Econ_agent;
-# 1.2.1 the Consumer class inherits all attributes and methods from Econ_agent;
-# 1.2.2 additional attributes:
-    # (1) 'preference', indicates how much the consumer like the product
-    # 0 means does not like at all, 1 means wiling to spend whole budget on it
-
-    # (2). wtp (i.e.,willingness to pay).
-    # the wtp is the product of budget and preference
-
-# 1.2.3 additional methods:
-    # buying(self,price)
-    # the buying method defines the consumer's purchasing decision
-    # it takes two parameter, the first one is self, the second one is 'price'
-    # when wtp is smaller than price, the consumer won't buy;
-    # when wtp is greater or equal to price, the consumer will buy the product.
-    # depending on budget, each customer may purchase no more than 5 units.
-    # the buying method returns if the consumer decide to buy.
-
+# 1-2. Child class: Consumer (inherits from Econ_agent)
+# additional attributes:
+#   preference — how much the consumer likes the product (uniform draw from [0,1])
+#   wtp        — willingness to pay = budget * preference
+# additional methods:
+#   buying(self, price)
+#     if wtp < price  → return 0 (does not buy)
+#     otherwise       → return min(5, int(wtp / price))
 
 class Consumer(Econ_agent):
 
     def __init__(self, id_number, budget, preference):
         super().__init__(id_number, budget)
         self.preference = preference
-        self.wtp = self.budget * self.preference
+        self.wtp        = self.budget * self.preference
 
     def buying(self, price):
-        buy = 0
-        if self.wtp >= price:
-            buy =
-        return buy
+        if self.wtp < price:
+            return 0
+        return ...   # min(5, int(self.wtp / price))
 
 
-
-# 1.3 define "Producer" as a child class of Econ_agent;
-# 1.3.1 the Producer class inherits all attributes and methods from Econ_agent;
-# 1.3.2 additional attributes:
-    # 1. 'opp_cost', indicate the opp_cost of producing and selling one unit
-    # assume opp_cost is a constant for each producer.
-# 1.3.3. additional methods:
-    # selling(self,price)
-    # the selling method defines the producer's decision
-    # it takes two parameter, the first one is self, the second one is 'price'
-    #when opp_cost is greater than price, the producer won't produce
-    # when opp_cost or equal to price, the consumer will produce
-    # the quantity supplied depends on the ratio between the producer's budget
-    # and the the opp_cost. i.e., quantity supplied = budget/opp_cost
-    # the method returns total amount a producer made.
-
+# 1-3. Child class: Producer (inherits from Econ_agent)
+# additional attributes:
+#   opp_cost — opportunity cost per unit (constant for each producer)
+# additional methods:
+#   selling(self, price)
+#     if opp_cost > price → return 0 (does not produce)
+#     otherwise           → return int(budget / opp_cost)
 
 class Producer(Econ_agent):
 
+    def __init__(self, id_number, budget, opp_cost):
+        super().__init__(id_number, budget)
+        self.opp_cost = ...   # store opp_cost
 
-#=============================================================================
-# Section2. generate objects
-#=============================================================================
-# 2.1 generate a list of 200 consumer
-# each has a unique id number
-# budget is determined by a random draw from a normal distribution
-#   set the normal distribution mean = 500, s.d. = 100
-# preference is determined by a random draw from a uniform distribution [0,1]
+    def selling(self, price):
+        ...   # return 0 if opp_cost > price, else int(self.budget / self.opp_cost)
+
+
+# =============================================================================
+# Section 2. Generate objects
+# =============================================================================
+
+# 2-1. Create a list of 200 consumers
+# id_number : 0 to 199
+# budget    : normal distribution, mean=500, s.d.=100  → np.random.normal(500, 100)
+# preference: uniform distribution [0, 1]              → np.random.uniform(0, 1)
 consumers = []
+for i in range(200):
+    ...   # instantiate Consumer and append to consumers
 
-#2.2 generate a list of 50 producers
-# each has a unique id number
-# budget is determined by a random draw from a UNIFORM distribution [1000,8000]
-# opp_cost is determined by  a drandom draw from uniform distribution [100,200]
+
+# 2-2. Create a list of 50 producers
+# id_number : 0 to 49
+# budget    : uniform distribution [1000, 2000]  → np.random.uniform(1000, 2000)
+# opp_cost  : uniform distribution [100, 200]    → np.random.uniform(100, 200)
 producers = []
-
-#=============================================================================
-# Section 3. Simulate the market mechanism, and find the equilibrium
-#=============================================================================
-
-# Specifically, find the market equilibrium price and quantity (i.e., you
-# may not be able to find a point where  Q = S exactly. Let's consider the
-# market is in equilibrium as long as the difference between D and S is smaller
-# than 5 units)
-
-# Hint: you will need to think the process through before coding.
-
-while abs(total_demand -total_supply)>5:
-
-#=============================================================================
-# Section4. Define the demand curve and supply curve
-#=============================================================================
-# 4.1. Define the demand curve when price ranging from 100 to 200
-def demand():
-
-# 4.2. Define the supply curve when price ranging from 100 to 200
-def supply():
+for i in range(50):
+    ...   # instantiate Producer and append to producers
 
 
-# 4.3 visualize the demand and supply, see if it makes sense.
+# =============================================================================
+# Section 3. Simulate the market mechanism and find the equilibrium
+# =============================================================================
+# Find the equilibrium price where |total_demand - total_supply| < 5
+# Start at price = 100; raise by 1 if demand > supply, lower by 1 otherwise.
+
+price        = 100
+total_demand = ...   # initialise (e.g. sum buying at price=100)
+total_supply = ...   # initialise (e.g. sum selling at price=100)
+
+while abs(total_demand - total_supply) > 5:
+    total_demand = ...   # sum c.buying(price) for all c in consumers
+    total_supply = ...   # sum p.selling(price) for all p in producers
+    if total_demand > total_supply:
+        price += 1
+    else:
+        price -= 1
+
+print(f"Equilibrium price: {price}")
+print(f"Total demand: {total_demand},  Total supply: {total_supply}")
 
 
-#=============================================================================
-# Section 5. Changes in supply
-#=============================================================================
-# imagine there is a technology improvement, reduce the average opp_cost by 5%
-# run a simulation to find the new market equilibrium
-# visualize the change graphically
+# =============================================================================
+# Section 4. Define demand and supply curves
+# =============================================================================
+
+# 4-1. Demand function over a price range
+def demand(price_range):
+    ...   # for each price, sum c.buying(price) for all consumers; return list
 
 
+# 4-2. Supply function over a price range
+def supply(price_range):
+    ...   # for each price, sum p.selling(price) for all producers; return list
 
-#=============================================================================
-# Section 6 (optional). Estimate the demand and supply function
-# Estimate the demand function and supply function you simulated in Section 4,
-# and then use the two function to figure out the market equilibrium,
-# see if the calculated equilibrium coincide with the simulation result.
-#=============================================================================
+
+# 4-3. Visualise demand and supply curves (price range 100 to 200)
+price_range = np.arange(100, 201, 1)
+...   # compute demand and supply, plot both curves with labels and legend
+
+
+# =============================================================================
+# Section 5. Technology shock — 5% reduction in opp_cost
+# =============================================================================
+# Reduce every producer's opp_cost by 5%, then re-run the equilibrium search.
+# Visualise original supply vs new supply on the same chart.
+
+for p in producers:
+    ...   # p.opp_cost *= 0.95
+
+# re-run equilibrium search (same structure as Section 3)
+...
+
+# plot demand, old supply, and new supply curves
+...
+
+
+# =============================================================================
+# Section 6. Estimate demand and supply functions with linear regression
+# =============================================================================
+# Use np.polyfit to fit linear regressions to the Section 4 curves.
+# Solve the two linear equations to find the analytical equilibrium price.
+# Compare with the simulated equilibrium from Section 3.
+
+demand_coeffs = ...   # np.polyfit(price_range, y_demand, 1)
+supply_coeffs = ...   # np.polyfit(price_range, y_supply, 1)
+
+# print estimated functions
+...
+
+# solve for analytical equilibrium: set Q_d = Q_s and solve for P
+P_eq = ...   # (d - b) / (a - c)
+Q_eq = ...   # a * P_eq + b
+
+print(f"Analytical equilibrium: price = {P_eq:.2f}, quantity = {Q_eq:.2f}")
