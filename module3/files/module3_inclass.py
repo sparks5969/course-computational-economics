@@ -1,3 +1,70 @@
+# 1. demonstrate how class works
+class Customer:
+    def __init__(self, name, membership_type):
+        self.name = name
+        self.membership_type = membership_type
+        
+
+eg1 = Customer('Sining','Gold')
+eg2 = Customer ('Jesse','silver')
+
+
+print(eg1.name,eg1.membership_type)
+
+
+customer_list = [Customer('Sining','Gold'),
+                 Customer ('Danny','Silver')]
+
+print(customer_list[1].name)
+
+
+class Customer:
+    def __init__(self, name, membership_type):
+        self.name = name
+        self.membership_type = membership_type
+        
+    def update_membership(self, new_membership):
+        self.membership_type = new_membership
+    
+    # invoke an API
+    # update address
+    # charge money
+    # return a product
+    # destory one's PC
+    # conquer the world
+    
+
+eg1 = Customer("Sining", 'Gold')
+eg2 = Customer("Jesse", "Silver")
+
+eg2.update_membership("gold")
+eg1.name
+
+
+
+# 2. demonstrate how inheritance works
+class Econ_agent:
+    def __init__(self, name, budget):
+        self.name = name
+        self.endowment = budget
+        
+# instaniate an object
+eg1 = Econ_agent("Sining", 10)
+
+
+# creating a child class
+class Consumer(Econ_agent):
+    def __init__(self, name, endowment, id_number, wtp):
+        super().__init__(name, endowment)  # keep the inheritance
+        self.id_number = id_number
+        self.wtp = wtp
+        
+consumer1 = Consumer("James", 50, 1, 20)
+
+consumer1.name
+
+
+
 # encapsulation is important
 
 # BAD: Global variables
@@ -71,123 +138,5 @@ for buyer in buyers:
         print(f"A buyer couldn't afford the book: {e}")
 
  
- 
- 
-class Customer:
-    def __init__(self, name, membership_type):
-        self.name = name
-        self.membership_type = membership_type
-        
 
-eg1 = Customer('Sining','Gold')
-eg2 = Customer ('Jesse','silver')
-
-
-print(eg1.name,eg1.membership_type)
-
-
-customer_list = [Customer('Sining','Gold'),
-                 Customer ('Danny','Silver')]
-
-print(customer_list[1].name)
-
-
-class Customer:
-    def __init__(self, name, membership_type):
-        self.name = name
-        self.membership_type = membership_type
-        species = 'human'
-    
-    # update membership   
-    def update_membership(self,new_membership):
-        self.membership_type = new_membership
-        
-customer_list = [Customer('Sining','Gold'),
-                 Customer ('Danny','Silver')]
-
-print(customer_list[1].name,customer_list[1].membership_type)
-
-customer_list[1].update_membership('Gold')
-
-print(customer_list[1].name,customer_list[1].membership_type)
-
-# this method is not really necessary, as we can assign attribute values directly
-customer_list[1].membership_type='super'
-print(customer_list[1].name,customer_list[1].membership_type)
-
-# more examples
-class Customer:
-    def __init__(self, name, membership_type):
-        self.name = name
-        self.membership_type = membership_type
-    # update membership   
-    def update_membership(self,new_membership):
-        self.membership_type = new_membership
-        # invoke an API
-        # update address
-        # charge money
-        # return a product
-        # destory one's PC
-        # conquer the world
-        
-# some other useful methods we can overwrite
-    # str
-class Customer:
-    def __init__(self, name, membership_type):
-        self.name = name
-        self.membership_type = membership_type
-    # update membership   
-    def update_membership(self,new_membership):
-        self.membership_type = new_membership
-        # invoke an API
-        # update address
-        # charge money
-        # return a product
-        # destory one's PC
-        # conquer the world
-        
-
-        
-        
-    def __str__(self):
-        return self.name + " " + self.membership_type
-
-# before overwrite __str__
-print(customer_list[1])
-# after overwrite the __str__
-
-customer_list = [Customer('Sining','Gold'),
-                 Customer ('Danny','Silver')]
-
-print(customer_list[1])
-
-
-
-# talk about the self and static method
-class Customer:
-    def __init__(self, name, membership_type):
-        self.name = name
-        self.membership_type = membership_type
-    # update membership   
-    def update_membership(self,new_membership):
-        self.membership_type = new_membership
-        # invoke an API
-        # update address
-        # charge money
-        # return a product
-        # destory one's PC
-        # conquer the world
-        
-    def __str__(self):
-        return self.name + " " + self.membership_type
-        
-    def print_all(customer_list):
-        print('All customer in database')
-        for people in customer_list:
-            print(people)
-
-customer_list = [Customer('Sining','Gold'),
-             Customer ('Danny','Silver')]
-customer_list[1].print_all(customer_list)
-Customer.print_all(customer_list)
  
