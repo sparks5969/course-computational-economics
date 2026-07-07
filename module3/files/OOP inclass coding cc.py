@@ -78,9 +78,7 @@ class Customer:
         # return a product
         # destory one's PC
         # conquer the world
-        
-
-        
+    
         
     def __str__(self):
         return self.name + " " + self.membership_type
