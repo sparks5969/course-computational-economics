@@ -297,9 +297,6 @@ def build_practice5() -> None:
         <code>price</code>. Apply your trained model to generate predictions.</li>
       </ul>
 
-      <h2>Downloads</h2>
-      <p class="placeholder">Dataset files coming soon.</p>
-
       <h2>Submission</h2>
       <p>Submit a CSV file named exactly <code>prediction.csv</code> with:</p>
       <ul>
