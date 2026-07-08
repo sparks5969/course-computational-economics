@@ -108,10 +108,6 @@ MODULES = {
             ("Pandas_Intro.pptx",      "Pandas Slides"),
             ("machine learning.pptx",  "Machine Learning Slides"),
         ],
-        "lecture_extras": [
-            ("Pandas_basics.ipynb",                 "Pandas Basics Notebook (Pandas_basics.ipynb)"),
-            ("Pandas_data_exploration_ipynb.ipynb", "Pandas Data Exploration Notebook (Pandas_data_exploration_ipynb.ipynb)"),
-        ],
         "workshop_cards": [
             ("pandas-1-basics.html",      "Part 1.1", "Pandas Basics",          "Series, DataFrames, and indexing."),
             ("pandas-2-exploration.html", "Part 1.2", "Data Exploration",        "Query, group, aggregate, and visualize."),
