@@ -14,6 +14,13 @@ OUT_DIR = ROOT / "module5"
 
 # ── Colab link helper ─────────────────────────────────────────────────────────
 
+def _download_block(filename: str, label: str) -> str:
+    return f"""
+      <p><a class="download-link" href="jupytrer_notebooks/{filename}" download>
+        &#x1F4E5; Download notebook ({label})
+      </a></p>"""
+
+
 def _colab_block(url: str) -> str:
     return f"""
       <div class="callout">
@@ -123,7 +130,11 @@ def pandas_3_preprocessing() -> None:
 
       <p>Together these steps form a complete, replicable preprocessing pipeline you can
       apply to any structured dataset in future projects.</p>
-""" + _colab_block("https://colab.research.google.com/drive/1EqBzCx5UAYhfabN2VoNzP6E08iyu3dWv?usp=sharing")
+
+      <h2>Download</h2>
+""" + _download_block("Machine_Learning_for_Predictive_Modeling_(2).ipynb",
+                      "Machine_Learning_for_Predictive_Modeling_(2).ipynb") + \
+    _colab_block("https://colab.research.google.com/drive/1EqBzCx5UAYhfabN2VoNzP6E08iyu3dWv?usp=sharing")
 
     page = wrap_page(body, "Part 2.2 — Data Preprocessing", module=5,
                      active_href="ml-1-preprocessing.html",
@@ -216,7 +227,11 @@ def ml_2_eda() -> None:
         <li>Apply the Intention → Prompt framework to real data tasks</li>
         <li>Develop habits that prepare data for future modeling steps</li>
       </ul>
-""" + _colab_block("https://colab.research.google.com/drive/10z6wVzUupvp0WbkeTpmbM8CUk7mYfJjE#scrollTo=e24fa06d")
+
+      <h2>Download</h2>
+""" + _download_block("Machine_Learning_for_Predictive_Modeling_(1).ipynb",
+                      "Machine_Learning_for_Predictive_Modeling_(1).ipynb") + \
+    _colab_block("https://colab.research.google.com/drive/10z6wVzUupvp0WbkeTpmbM8CUk7mYfJjE#scrollTo=e24fa06d")
 
     page = wrap_page(body, "Part 2.1 — EDA & Visualization", module=5,
                      active_href="ml-2-eda.html",
@@ -246,7 +261,11 @@ def ml_3_models() -> None:
         <li><strong>Hyperparameter tuning</strong> — use GridSearchCV to optimize performance</li>
         <li><strong>Understand model tradeoffs</strong> — bias-variance tradeoff and overfitting</li>
       </ol>
-""" + _colab_block("https://colab.research.google.com/drive/1Oj0rf5BaygRRucYj0Aoa8t7OC1gkY6YU#scrollTo=NFFnSXQNYiMh")
+
+      <h2>Download</h2>
+""" + _download_block("Machine_Learning_for_Predictive_Modeling_(3).ipynb",
+                      "Machine_Learning_for_Predictive_Modeling_(3).ipynb") + \
+    _colab_block("https://colab.research.google.com/drive/1Oj0rf5BaygRRucYj0Aoa8t7OC1gkY6YU#scrollTo=NFFnSXQNYiMh")
 
     page = wrap_page(body, "Part 2.3 — Building ML Models", module=5,
                      active_href="ml-3-models.html",
