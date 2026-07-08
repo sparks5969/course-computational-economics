@@ -451,6 +451,7 @@ MODULE5_WORKSHOP = [
     ("ml-2-eda.html",             "Part 2.1: EDA &amp; Visualization"),
     ("ml-1-preprocessing.html",   "Part 2.2: Data Preprocessing"),
     ("ml-3-models.html",          "Part 2.3: Building ML Models"),
+    ("practice5.html",            "Practice Project 5"),
 ]
 
 MODULE_META = {

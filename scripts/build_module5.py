@@ -275,6 +275,80 @@ def ml_3_models() -> None:
     print(f"Wrote {dst}")
 
 
+# ── Practice Project 5 ───────────────────────────────────────────────────────
+
+def build_practice5() -> None:
+    body = """
+      <h2>Objective</h2>
+      <p>Apply machine learning techniques to <strong>predict airline ticket prices</strong>
+      using a provided dataset. You will work through the full end-to-end predictive
+      modeling pipeline: data preprocessing, feature engineering, model training, and
+      evaluation.</p>
+
+      <h2>Dataset</h2>
+      <p>The dataset contains ~140,000 airline ticket records with attributes such as
+      departure/arrival locations, dates and times, airline, flight duration, number of
+      stops, and more.</p>
+      <ul>
+        <li><strong>Training set</strong> (<code>final_train.csv</code>) — includes the
+        target variable <code>price</code> (ticket price in USD). Use this to build and
+        tune your model.</li>
+        <li><strong>Test set</strong> (<code>final_test.csv</code>) — does not include
+        <code>price</code>. Apply your trained model to generate predictions.</li>
+      </ul>
+
+      <h2>Downloads</h2>
+      <p class="placeholder">Dataset files coming soon.</p>
+
+      <h2>Submission</h2>
+      <p>Submit a CSV file named exactly <code>prediction.csv</code> with:</p>
+      <ul>
+        <li>Exactly 60,000 entries plus one header row</li>
+        <li>Exactly 2 columns: <code>id</code> and <code>price</code></li>
+      </ul>
+      <p>Your goal is to maximise the <strong>R-squared</strong> of your predictions on
+      the test set.</p>
+
+      <h2>Variable Dictionary</h2>
+      <table>
+        <thead>
+          <tr><th>Variable</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>id</code></td><td>Unique identifier for the flight.</td></tr>
+          <tr><td><code>searchDate</code></td><td>Date this entry was retrieved from Expedia (YYYY-MM-DD).</td></tr>
+          <tr><td><code>flightDate</code></td><td>Date of the flight (YYYY-MM-DD).</td></tr>
+          <tr><td><code>startingAirport</code></td><td>IATA code for the departure airport.</td></tr>
+          <tr><td><code>destinationAirport</code></td><td>IATA code for the arrival airport.</td></tr>
+          <tr><td><code>fareBasisCode</code></td><td>Fare basis code.</td></tr>
+          <tr><td><code>travelDuration</code></td><td>Total travel duration (hours and minutes).</td></tr>
+          <tr><td><code>elapsedDays</code></td><td>Number of elapsed days (usually 0).</td></tr>
+          <tr><td><code style="color:#c0392b;">price</code></td><td><strong>Target variable.</strong> Ticket price in USD.</td></tr>
+          <tr><td><code>seatsRemaining</code></td><td>Number of seats remaining.</td></tr>
+          <tr><td><code>totalTravelDistance</code></td><td>Total travel distance in miles (sometimes missing).</td></tr>
+          <tr><td><code>segmentsDepartureTimeEpochSeconds</code></td><td>Departure time (Unix) for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsDepartureTimeRaw</code></td><td>Departure time (ISO 8601) for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsArrivalTimeEpochSeconds</code></td><td>Arrival time (Unix) for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsArrivalTimeRaw</code></td><td>Arrival time (ISO 8601) for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsArrivalAirportCode</code></td><td>IATA arrival airport code for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsDepartureAirportCode</code></td><td>IATA departure airport code for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsAirlineName</code></td><td>Airline name for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsAirlineCode</code></td><td>Two-letter airline code for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsEquipmentDescription</code></td><td>Aircraft type for each leg (e.g. "Airbus A321"), separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsDurationInSeconds</code></td><td>Flight duration in seconds for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsDistance</code></td><td>Distance in miles for each leg, separated by <code>||</code>.</td></tr>
+          <tr><td><code>segmentsCabinCode</code></td><td>Cabin class for each leg (e.g. "coach"), separated by <code>||</code>.</td></tr>
+        </tbody>
+      </table>"""
+
+    page = wrap_page(body, "Practice Project 5 — Airline Price Prediction",
+                     module=5, active_href="practice5.html",
+                     page_heading="Practice Project 5 — Airline Ticket Price Prediction")
+    dst = OUT_DIR / "practice5.html"
+    dst.write_text(page, encoding="utf-8")
+    print(f"Wrote {dst}")
+
+
 # ── main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -285,6 +359,7 @@ def main() -> None:
     ml_1_ai_coding()
     ml_2_eda()
     ml_3_models()
+    build_practice5()
 
 
 if __name__ == "__main__":

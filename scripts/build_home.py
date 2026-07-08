@@ -114,6 +114,7 @@ MODULES = {
             ("ml-2-eda.html",             "Part 2.1", "EDA &amp; Visualization", "Explore data before building models."),
             ("ml-1-preprocessing.html",   "Part 2.2", "Data Preprocessing",      "Train/test split, imputation, and encoding."),
             ("ml-3-models.html",          "Part 2.3", "Building ML Models",      "Linear, tree-based, and tuning methods."),
+            ("practice5.html",            "Practice", "Practice Project 5",       "Predict airline ticket prices with ML."),
         ],
     },
 }
