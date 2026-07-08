@@ -50,6 +50,11 @@ def pandas_1_basics() -> None:
       <p>The notebook contains clear explanations, hands-on tasks with specific instructions,
       and empty code cells where you write your solutions. Concepts build on each other
       progressively.</p>
+
+      <h2>Download</h2>
+      <p><a class="download-link" href="Pandas_basics.ipynb" download>
+        &#x1F4E5; Download notebook (Pandas_basics.ipynb)
+      </a></p>
 """ + _colab_block("https://colab.research.google.com/drive/1c8GGdZPyybGDCLO73tfxFBiTCwhKsPYg?usp=sharing")
 
     page = wrap_page(body, "Part 1.1 — Pandas Basics", module=5,
@@ -81,6 +86,11 @@ def pandas_2_exploration() -> None:
       <h2>Dataset</h2>
       <p>The <code>soccer_data.csv</code> dataset contains detailed match information
       including competition details, team names, goal counts, formations, and final scores.</p>
+
+      <h2>Download</h2>
+      <p><a class="download-link" href="Pandas_data_exploration_ipynb.ipynb" download>
+        &#x1F4E5; Download notebook (Pandas_data_exploration_ipynb.ipynb)
+      </a></p>
 """ + _colab_block("https://colab.research.google.com/drive/1VEll6LSSQGF8RoyRJXslE0Q8XyUPmhLK#scrollTo=ce305322")
 
     page = wrap_page(body, "Part 1.2 — Data Exploration", module=5,
