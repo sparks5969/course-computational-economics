@@ -108,6 +108,9 @@ MODULES = {
             ("Pandas_Intro.pptx",      "Pandas Slides"),
             ("machine learning.pptx",  "Machine Learning Slides"),
         ],
+        "lecture_extras": [
+            ("Pandas_basics.ipynb", "Pandas Basics Notebook (Pandas_basics.ipynb)"),
+        ],
         "workshop_cards": [
             ("pandas-1-basics.html",      "Part 1.1", "Pandas Basics",          "Series, DataFrames, and indexing."),
             ("pandas-2-exploration.html", "Part 1.2", "Data Exploration",        "Query, group, aggregate, and visualize."),
@@ -208,7 +211,7 @@ def module5_overview_body() -> str:
         <p><a class="download-link" href="ml-1-ai-coding.html">&#x1F4D6; AI-Assisted Coding — Mindset, Process &amp; Communication</a></p>
       </section>"""
 
-    slides_section = _slides_section(cfg["slides"], 5)
+    slides_section = _slides_section(cfg["slides"], 5, extras=cfg.get("lecture_extras"))
 
     workshop_section = f"""
       <section>
