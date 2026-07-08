@@ -83,3 +83,11 @@ while example:
         my_girl = mylist.pop()
         print(f"the lady's name is {my_girl}")
     
+    
+    
+    
+a.sort()
+    
+    
+    
+    

@@ -17,6 +17,8 @@ customer_list = [Customer('Sining','Gold'),
 
 print(customer_list[1].name)
 
+eg1.name
+
 
 class Customer:
     def __init__(self, name, membership_type):
@@ -37,8 +39,10 @@ class Customer:
 eg1 = Customer("Sining", 'Gold')
 eg2 = Customer("Jesse", "Silver")
 
+eg2.membership_type
+
 eg2.update_membership("gold")
-eg1.name
+eg2.membership_type
 
 
 
@@ -104,6 +108,8 @@ class Consumer:
 
 buyer1 = Consumer(100)
 buyer1.buy("book", 30)  # Our shopping logic is protected from outside interference
+buyer1.buy("robot", 50)
+buyer1.buy("air condition", 300)
 
 # if you want to have a new consumer to do something, you will first need to
 # instantiate it!
